@@ -1,0 +1,158 @@
+\section{Abstract\-Sync\-Source\-Config Class Reference}
+\label{classAbstractSyncSourceConfig}\index{AbstractSyncSourceConfig@{AbstractSyncSourceConfig}}
+This class is the API expected by Sync\-Client/Sync\-Manager for each sync source.  
+
+
+{\tt \#include $<$Abstract\-Sync\-Source\-Config.h$>$}
+
+Inheritance diagram for Abstract\-Sync\-Source\-Config:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=96pt]{classAbstractSyncSourceConfig__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual {\bf $\sim$Abstract\-Sync\-Source\-Config} ()\label{classAbstractSyncSourceConfig_3715e392bb0d2f7155b0f090d475efbe}
+
+\begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Name} () const=0\label{classAbstractSyncSourceConfig_ba8971511cedd436663051216168e649}
+
+\begin{CompactList}\small\item\em Returns the \doxyref{Sync\-Source}{p.}{classSyncSource} name. \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-URI} () const=0\label{classAbstractSyncSourceConfig_10ea5b4e7701cc519864201ed92f0f77}
+
+\begin{CompactList}\small\item\em Returns the \doxyref{Sync\-Source}{p.}{classSyncSource} URI (used in Sync\-ML addressing). \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Sync\-Modes} () const=0
+\begin{CompactList}\small\item\em Returns a comma separated list of the possible sync\-Modes for the \doxyref{Sync\-Source}{p.}{classSyncSource}. \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Type} () const=0\label{classAbstractSyncSourceConfig_dc686a5685fdf5c50ebd14a9d32dc5a4}
+
+\begin{CompactList}\small\item\em Returns the mime type of the items handled by the sync source. \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Sync} () const=0\label{classAbstractSyncSourceConfig_2ff4c3fabe65032bd2365427663efdaa}
+
+\begin{CompactList}\small\item\em Gets the default sync\-Mode as one of the strings listed in set\-Sync\-Modes. \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Encoding} () const=0
+\begin{CompactList}\small\item\em Specifies how the content of an outgoing item should be encoded by the client library if the sync source does not set an encoding on the item that it created. \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Version} () const=0\label{classAbstractSyncSourceConfig_5b4507ab543ff78a4f7dfd1759287a97}
+
+\begin{CompactList}\small\item\em Returns the version of the source type used by client. \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Supported\-Types} () const=0
+\begin{CompactList}\small\item\em A string representing the source types (with versions) supported by the \doxyref{Sync\-Source}{p.}{classSyncSource}. \item\end{CompactList}\item 
+virtual void {\bf set\-Last} (unsigned long timestamp)=0
+\begin{CompactList}\small\item\em Sets the last sync timestamp. \item\end{CompactList}\item 
+virtual unsigned long {\bf get\-Last} () const=0\label{classAbstractSyncSourceConfig_428253770fff81d657b997b2dbceddb8}
+
+\begin{CompactList}\small\item\em Returns the last sync timestamp. \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Encryption} () const=0
+\begin{CompactList}\small\item\em Specifies if the content of an outgoing item should be encrypted. \item\end{CompactList}\item 
+virtual const Array\-List \& {\bf get\-Ct\-Caps} () const=0
+\begin{CompactList}\small\item\em Returns an array of Ct\-Cap with all the capabilities for this Source. \item\end{CompactList}\item 
+virtual bool {\bf get\-Field\-Level} () const
+\begin{CompactList}\small\item\em Return field\-Level param. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Attributes}
+\begin{CompactItemize}
+\item 
+static const int \textbf{FLEVEL\_\-UNDEFINED} = -1\label{classAbstractSyncSourceConfig_b6438c78193ead6575c989df02abf9cc}
+
+\item 
+static const int \textbf{FLEVEL\_\-ENABLED} = 1\label{classAbstractSyncSourceConfig_2614167a0b08afff0e9bc411bd2a6bc2}
+
+\item 
+static const int \textbf{FLEVEL\_\-DISABLED} = 0\label{classAbstractSyncSourceConfig_1087ac16f77eda6b100a6c675e6e5ba1}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This class is the API expected by Sync\-Client/Sync\-Manager for each sync source. 
+
+\doxyref{Abstract\-Sync\-Source\-Config}{p.}{classAbstractSyncSourceConfig} is a part of \doxyref{Sync\-Manager\-Config}{p.}{classSyncManagerConfig} (along with Access\-Config and an array of Device\-Config). 
+
+
+
+\subsection{Member Function Documentation}
+\index{AbstractSyncSourceConfig@{Abstract\-Sync\-Source\-Config}!getSyncModes@{getSyncModes}}
+\index{getSyncModes@{getSyncModes}!AbstractSyncSourceConfig@{Abstract\-Sync\-Source\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual const char$\ast$ Abstract\-Sync\-Source\-Config::get\-Sync\-Modes () const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classAbstractSyncSourceConfig_c89826d1cd62e9ecf258498eaa299b13}
+
+
+Returns a comma separated list of the possible sync\-Modes for the \doxyref{Sync\-Source}{p.}{classSyncSource}. 
+
+Sync modes can be one of\begin{itemize}
+\item slow\item two-way\item one-way-from-server\item one-way-from-client\item refresh-from-server\item refresh-from-client\item one-way-from-server\item one-way-from-client\item addrchange \end{itemize}
+
+
+Implemented in {\bf Sync\-Source\-Config} \doxyref{}{p.}{classSyncSourceConfig_b8bab033e7481b203764c3764d09bf8b}.\index{AbstractSyncSourceConfig@{Abstract\-Sync\-Source\-Config}!getEncoding@{getEncoding}}
+\index{getEncoding@{getEncoding}!AbstractSyncSourceConfig@{Abstract\-Sync\-Source\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual const char$\ast$ Abstract\-Sync\-Source\-Config::get\-Encoding () const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classAbstractSyncSourceConfig_90a8c1b8f5acdd505d99489a950dce63}
+
+
+Specifies how the content of an outgoing item should be encoded by the client library if the sync source does not set an encoding on the item that it created. 
+
+Valid values are listed in Sync\-Item::encodings. 
+
+Implemented in {\bf Sync\-Source\-Config} \doxyref{}{p.}{classSyncSourceConfig_0a238c06f60c1d79a2f62bcc05fd129f}.\index{AbstractSyncSourceConfig@{Abstract\-Sync\-Source\-Config}!getSupportedTypes@{getSupportedTypes}}
+\index{getSupportedTypes@{getSupportedTypes}!AbstractSyncSourceConfig@{Abstract\-Sync\-Source\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual const char$\ast$ Abstract\-Sync\-Source\-Config::get\-Supported\-Types () const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classAbstractSyncSourceConfig_9ce29cc385221998738329ece64333d4}
+
+
+A string representing the source types (with versions) supported by the \doxyref{Sync\-Source}{p.}{classSyncSource}. 
+
+The string must be formatted as a sequence of \char`\"{}type:version\char`\"{} separated by commas ','. For example: \char`\"{}text/x-vcard:2.1,text/vcard:3.0\char`\"{}. The version can be left empty, for example: \char`\"{}text/x-s4j-sifc:\char`\"{}. Supported types will be sent as part of the Dev\-Inf. 
+
+Implemented in {\bf Sync\-Source\-Config} \doxyref{}{p.}{classSyncSourceConfig_2b4ca0f2ddb3462c542afe0df878dcdf}.\index{AbstractSyncSourceConfig@{Abstract\-Sync\-Source\-Config}!setLast@{setLast}}
+\index{setLast@{setLast}!AbstractSyncSourceConfig@{Abstract\-Sync\-Source\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual void Abstract\-Sync\-Source\-Config::set\-Last (unsigned long {\em timestamp})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classAbstractSyncSourceConfig_b13c254e04dd1c6f63e9b1bf2bb9e15a}
+
+
+Sets the last sync timestamp. 
+
+Called by the sync engine at the end of a sync. The client must save that modified value; it is needed to decide during the next sync whether an incremental sync is possible.
+
+A client which wants to force a slow sync after a failed sync can reset the time stamp. The sync engine itself won't do that.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em timestamp}]the last sync timestamp \end{description}
+\end{Desc}
+
+
+Implemented in {\bf Sync\-Source\-Config} \doxyref{}{p.}{classSyncSourceConfig_843001fb60ba56c2c12268f4d254291a}.\index{AbstractSyncSourceConfig@{Abstract\-Sync\-Source\-Config}!getEncryption@{getEncryption}}
+\index{getEncryption@{getEncryption}!AbstractSyncSourceConfig@{Abstract\-Sync\-Source\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual const char$\ast$ Abstract\-Sync\-Source\-Config::get\-Encryption () const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classAbstractSyncSourceConfig_4d20404704939ce90e96a27dab998eb1}
+
+
+Specifies if the content of an outgoing item should be encrypted. 
+
+If this property is not empty and valid, the 'encodings' value is ignored for outgoing items. The only valid value is \char`\"{}des\char`\"{}. 
+
+Implemented in {\bf Sync\-Source\-Config} \doxyref{}{p.}{classSyncSourceConfig_96dda86575fd269a6792005058e74a33}.\index{AbstractSyncSourceConfig@{Abstract\-Sync\-Source\-Config}!getCtCaps@{getCtCaps}}
+\index{getCtCaps@{getCtCaps}!AbstractSyncSourceConfig@{Abstract\-Sync\-Source\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual const Array\-List\& Abstract\-Sync\-Source\-Config::get\-Ct\-Caps () const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classAbstractSyncSourceConfig_e26ed3c4872de5140db10adf1ba3a106}
+
+
+Returns an array of Ct\-Cap with all the capabilities for this Source. 
+
+\begin{Desc}
+\item[Returns:]an Array\-List of CTCap \end{Desc}
+
+
+Implemented in {\bf Sync\-Source\-Config} \doxyref{}{p.}{classSyncSourceConfig_011a9a41f3f03d54ad8ec7e134bd8940}.\index{AbstractSyncSourceConfig@{Abstract\-Sync\-Source\-Config}!getFieldLevel@{getFieldLevel}}
+\index{getFieldLevel@{getFieldLevel}!AbstractSyncSourceConfig@{Abstract\-Sync\-Source\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual bool Abstract\-Sync\-Source\-Config::get\-Field\-Level () const\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classAbstractSyncSourceConfig_fda71bc99bd979b695326c26502aab91}
+
+
+Return field\-Level param. 
+
+Not implemented yet. Now just returns false
+
+Note: explaining the method \char`\"{}get\-Field\-Level()\char`\"{} as \char`\"{}return field\-Level param\char`\"{} does not add any information and might as well be left out.
+
+\begin{Desc}
+\item[Returns:]field\-Level ... which is what? \end{Desc}
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/common/spds/Abstract\-Sync\-Source\-Config.h\end{CompactItemize}

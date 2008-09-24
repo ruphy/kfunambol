@@ -1,0 +1,386 @@
+\section{Client Testing Framework}
+\label{group__ClientTest}\index{Client Testing Framework@{Client Testing Framework}}
+The testing framework of the C++ client library is based on CPPUnit.  
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class \textbf{Client\-Outputter}
+\item 
+class \textbf{Client\-Listener}
+\item 
+class {\bf Test\-File\-Source}
+\begin{CompactList}\small\item\em This code uses the \doxyref{Client\-Test}{p.}{classClientTest} and \doxyref{Raw\-File\-Sync\-Source}{p.}{classRawFileSyncSource} to test real synchronization against a server. \item\end{CompactList}\item 
+class \textbf{Register\-Test}
+\begin{CompactList}\small\item\em the only purpose of this class is to own the first \doxyref{Test\-File\-Source}{p.}{classTestFileSource} and to register its tests at program startup \item\end{CompactList}\item 
+class {\bf Client\-Test\-Factory}
+\begin{CompactList}\small\item\em generates tests on demand based on what the client supports \item\end{CompactList}\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \textbf{simplify\-Filename} (string \&filename)\label{group__ClientTest_g0e303fd8fed6073ee862d6078a6369fd}
+
+\item 
+const string \& \textbf{get\-Current\-Test} ()\label{group__ClientTest_g7cfc20a326e05788893bfeb6fb252100}
+
+\item 
+int \textbf{main} (int argc, char $\ast$argv[$\,$])\label{group__ClientTest_g0ddf1224851353fc92bfbff6f499fa97}
+
+\item 
+std::list$<$ std::string $>$ {\bf list\-Items\-Of\-Type} ({\bf Sync\-Source} $\ast$source, item\-Type type)\label{group__ClientTest_gb78596a2d51bbd6484ef38c02926ea42}
+
+\begin{CompactList}\small\item\em generates list of UIDs in the specified kind of items \item\end{CompactList}\item 
+int {\bf count\-Items\-Of\-Type} ({\bf Sync\-Source} $\ast$source, item\-Type type)
+\begin{CompactList}\small\item\em utility function which counts items of a certain kind known to the sync source \item\end{CompactList}\item 
+template$<$class T, class V$>$ int \textbf{count\-Equal} (const T \&container, const V \&value)\label{group__ClientTest_gc3e4e003deabd7387730dd5747f85153}
+
+\item 
+virtual void {\bf Local\-Tests::add\-Tests} ()\label{group__ClientTest_ga75ca0b749c031d14d99f11ad72fa3dd}
+
+\begin{CompactList}\small\item\em adds the supported tests to the instance itself; this is the function that a derived class can override to add additional tests \item\end{CompactList}\item 
+virtual std::string {\bf Local\-Tests::insert} ({\bf Create\-Source} create\-Source, const char $\ast$data, bool relaxed=false)
+\begin{CompactList}\small\item\em opens source and inserts the given item; can be called regardless whether the data source already contains items or not \item\end{CompactList}\item 
+virtual void {\bf Local\-Tests::update} ({\bf Create\-Source} create\-Source, const char $\ast$data, bool check=true)
+\begin{CompactList}\small\item\em assumes that exactly one element is currently inserted and updates it with the given item \item\end{CompactList}\item 
+virtual void {\bf Local\-Tests::delete\-All} ({\bf Create\-Source} create\-Source)\label{group__ClientTest_g85fef3b837faa5952472285c0f460faf}
+
+\begin{CompactList}\small\item\em deletes all items locally via sync source \item\end{CompactList}\item 
+virtual void {\bf Local\-Tests::compare\-Databases} (const char $\ast$ref\-File, {\bf Sync\-Source} \&copy, bool raise\-Assert=true)
+\begin{CompactList}\small\item\em takes two databases, exports them, then compares them using synccompare \item\end{CompactList}\item 
+virtual int {\bf Local\-Tests::insert\-Many\-Items} ({\bf Create\-Source} create\-Source, int start\-Index=1, int num\-Items=0, int size=-1)
+\begin{CompactList}\small\item\em insert artificial items, number of them determined by TEST\_\-EVOLUTION\_\-NUM\_\-ITEMS unless passed explicitly \item\end{CompactList}\item 
+virtual void \textbf{Local\-Tests::test\-Open} ()\label{group__ClientTest_g86523e51eeb7f4b2f9af40483952a13d}
+
+\item 
+virtual void \textbf{Local\-Tests::test\-Iterate\-Twice} ()\label{group__ClientTest_ge859169c3e1f1306be4b7fdb74635c08}
+
+\item 
+virtual void \textbf{Local\-Tests::test\-Simple\-Insert} ()\label{group__ClientTest_g4f6150f962c87e26e04462237471eb59}
+
+\item 
+virtual void \textbf{Local\-Tests::test\-Local\-Delete\-All} ()\label{group__ClientTest_g51dc0792ddba8ef6edafa0cf14b9e0fa}
+
+\item 
+virtual void \textbf{Local\-Tests::test\-Complex\-Insert} ()\label{group__ClientTest_g33765a5f9ea2b98b9f5db89e45275603}
+
+\item 
+virtual void \textbf{Local\-Tests::test\-Local\-Update} ()\label{group__ClientTest_gfe4acc8d97f4c4511b07f1283254aecc}
+
+\item 
+virtual void \textbf{Local\-Tests::test\-Changes} ()\label{group__ClientTest_g9eafd5c7f66ec1a01130fe906bf4fbf4}
+
+\item 
+virtual void \textbf{Local\-Tests::test\-Import} ()\label{group__ClientTest_g18af29fdc3e8816478d535fc80809ed2}
+
+\item 
+virtual void \textbf{Local\-Tests::test\-Import\-Delete} ()\label{group__ClientTest_g1f87c00619bf71f26ae9a7a35e410803}
+
+\item 
+virtual void \textbf{Local\-Tests::test\-Many\-Changes} ()\label{group__ClientTest_gc79d3081b27df1fd5c12070a23f7dc0f}
+
+\item 
+virtual void \textbf{Local\-Tests::test\-Linked\-Items\-Parent} ()\label{group__ClientTest_g8265afa4aecbf4e83018e0f548240f78}
+
+\item 
+virtual void \textbf{Local\-Tests::test\-Linked\-Items\-Child} ()\label{group__ClientTest_g3a1ceae09c7df3f02f6f53eb881cb6c6}
+
+\item 
+virtual void \textbf{Local\-Tests::test\-Linked\-Items\-Parent\-Child} ()\label{group__ClientTest_g354b51e8adb792f812f055833f19d646}
+
+\item 
+virtual void \textbf{Local\-Tests::test\-Linked\-Items\-Child\-Parent} ()\label{group__ClientTest_g4584aad53aa76ed65407f11b688728bf}
+
+\item 
+virtual void \textbf{Local\-Tests::test\-Linked\-Items\-Child\-Changes\-Parent} ()\label{group__ClientTest_g4fb2e1ea39ad207556b9ce3e2f2de7a1}
+
+\item 
+virtual void \textbf{Local\-Tests::test\-Linked\-Items\-Remove\-Parent\-First} ()\label{group__ClientTest_g45620d674aa31cc534509c7064da284d}
+
+\item 
+virtual void \textbf{Local\-Tests::test\-Linked\-Items\-Remove\-Normal} ()\label{group__ClientTest_g9ddb7acaef74dbb7bc27422c5b74181f}
+
+\item 
+virtual void \textbf{Local\-Tests::test\-Linked\-Items\-Insert\-Parent\-Twice} ()\label{group__ClientTest_g2e2b4217c211ea719388105619d45a60}
+
+\item 
+virtual void \textbf{Local\-Tests::test\-Linked\-Items\-Insert\-Child\-Twice} ()\label{group__ClientTest_g6ee12660ef78fad16d27748ff20d8183}
+
+\item 
+virtual void \textbf{Local\-Tests::test\-Linked\-Items\-Parent\-Update} ()\label{group__ClientTest_ge05a18788fbdd8360b4a10721036beb7}
+
+\item 
+virtual void \textbf{Local\-Tests::test\-Linked\-Items\-Update\-Child} ()\label{group__ClientTest_g530727d8122c69b8008be62652af7755}
+
+\item 
+virtual void \textbf{Local\-Tests::test\-Linked\-Items\-Insert\-Both\-Update\-Child} ()\label{group__ClientTest_g5d0e06ba1cac19805ec0d7d0dfbe21e7}
+
+\item 
+virtual void \textbf{Local\-Tests::test\-Linked\-Items\-Insert\-Both\-Update\-Parent} ()\label{group__ClientTest_g7eab80ca6d905dffba6552f8a965fe1d}
+
+\item 
+\textbf{Sync\-Tests::Sync\-Tests} (const std::string \&name, {\bf Client\-Test} \&cl, std::vector$<$ int $>$ source\-Indices, bool is\-Client\-A=true)\label{group__ClientTest_g8151b4754ebada4c91ba7b3357c09340}
+
+\item 
+virtual void {\bf Sync\-Tests::add\-Tests} ()\label{group__ClientTest_g0c115370b643f0ae29651ec5eca96ac6}
+
+\begin{CompactList}\small\item\em adds the supported tests to the instance itself \item\end{CompactList}\item 
+virtual void {\bf Sync\-Tests::compare\-Databases} ()\label{group__ClientTest_g9a35819a2444dfc014d80829e3e66854}
+
+\begin{CompactList}\small\item\em compare databases of first and second client \item\end{CompactList}\item 
+virtual void {\bf Sync\-Tests::delete\-All} (Delete\-All\-Mode mode=DELETE\_\-ALL\_\-SYNC)\label{group__ClientTest_gbee1a8b27486370ceaf62de22484f860}
+
+\begin{CompactList}\small\item\em deletes all items locally and on server \item\end{CompactList}\item 
+virtual void {\bf Sync\-Tests::do\-Copy} ()\label{group__ClientTest_g277e3859a0a4a53e6aaf07be7e9f2270}
+
+\begin{CompactList}\small\item\em get both clients in sync with empty server, then copy one item from client A to B \item\end{CompactList}\item 
+virtual void {\bf Sync\-Tests::refresh\-Client} ()\label{group__ClientTest_g6b95430e46d700d243c0bc6183af857c}
+
+\begin{CompactList}\small\item\em replicate server database locally: same as SYNC\_\-REFRESH\_\-FROM\_\-SERVER, but done with explicit local delete and then a SYNC\_\-SLOW because some servers do no support SYNC\_\-REFRESH\_\-FROM\_\-SERVER \item\end{CompactList}\item 
+virtual void \textbf{Sync\-Tests::test\-Delete\-All\-Refresh} ()\label{group__ClientTest_g4007a8f7fc5f6eef8c4f8b4957b6a2ef}
+
+\item 
+virtual void \textbf{Sync\-Tests::test\-Refresh\-Semantic} ()\label{group__ClientTest_g88497822126fdca142e29c13798b3170}
+
+\item 
+virtual void \textbf{Sync\-Tests::test\-Refresh\-Status} ()\label{group__ClientTest_g593aab56531693a8ea4e1333aa0d07cf}
+
+\item 
+virtual void \textbf{Sync\-Tests::test\-Update} ()\label{group__ClientTest_g5649b3f5b06d88f0f1778a4a223c1bdc}
+
+\item 
+virtual void \textbf{Sync\-Tests::test\-Complex\-Update} ()\label{group__ClientTest_g2dabee0fa3793d4ffd0ce88687f2ff48}
+
+\item 
+virtual void \textbf{Sync\-Tests::test\-Delete} ()\label{group__ClientTest_ga24dfca5868f14752ea9a166b0343bba}
+
+\item 
+virtual void \textbf{Sync\-Tests::test\-Merge} ()\label{group__ClientTest_g7c550ddd9d45d65777407b9c737302b8}
+
+\item 
+virtual void \textbf{Sync\-Tests::test\-Twinning} ()\label{group__ClientTest_g8886b48ecb10aa8095cb8c241c73bc4f}
+
+\item 
+virtual void \textbf{Sync\-Tests::test\-One\-Way\-From\-Server} ()\label{group__ClientTest_g848f373e16d8147f91d317c305727d99}
+
+\item 
+virtual void \textbf{Sync\-Tests::test\-One\-Way\-From\-Client} ()\label{group__ClientTest_g6cbd4840faf86736f179b2fdbe1cdeb5}
+
+\item 
+virtual void \textbf{Sync\-Tests::test\-Items} ()\label{group__ClientTest_g7cf4398a50d643e0008917183cd4fc80}
+
+\item 
+virtual void \textbf{Sync\-Tests::test\-Add\-Update} ()\label{group__ClientTest_g543f7ddc2a38b12121f8ba645938e01d}
+
+\item 
+virtual void \textbf{Sync\-Tests::test\-Many\-Items} ()\label{group__ClientTest_g7c3fcd639c65121b128297b98bf61f2e}
+
+\item 
+virtual void {\bf Sync\-Tests::do\-Var\-Sizes} (bool with\-Max\-Msg\-Size, bool with\-Large\-Object, const char $\ast$encoding)\label{group__ClientTest_gb52b1e85cb76057d7f7cb44d63945536}
+
+\begin{CompactList}\small\item\em implements test\-Max\-Msg(), test\-Large\-Object(), test\-Large\-Object\-Encoded() using a sequence of items with varying sizes \item\end{CompactList}\item 
+virtual void {\bf Sync\-Tests::sync} (Sync\-Mode sync\-Mode, const std::string \&logprefix=\char`\"{}\char`\"{}, {\bf Check\-Sync\-Report} check\-Report={\bf Check\-Sync\-Report}(), long max\-Msg\-Size=0, long max\-Obj\-Size=0, bool lo\-Support=false, const char $\ast$encoding=\char`\"{}\char`\"{})\label{group__ClientTest_g5c9078363c9e5d1e0b1cad7007bf6131}
+
+\begin{CompactList}\small\item\em executes a sync with the given options, checks the result and (optionally) the sync report \item\end{CompactList}\item 
+virtual void {\bf Client\-Test::register\-Tests} ()
+\begin{CompactList}\small\item\em This function registers tests using this instance of \doxyref{Client\-Test}{p.}{classClientTest} for later use during a test run. \item\end{CompactList}\item 
+\textbf{Client\-Test::Client\-Test} (int server\-Sleep\-Sec=0, const std::string \&server\-Log=\char`\"{}\char`\"{})\label{group__ClientTest_gf569060e4a730e4f48c44076a32a496a}
+
+\item 
+virtual {\bf Local\-Tests} $\ast$ {\bf Client\-Test::create\-Local\-Tests} (const std::string \&name, int source\-Param, {\bf Client\-Test::Config} \&co)
+\begin{CompactList}\small\item\em Creates an instance of \doxyref{Local\-Tests}{p.}{classLocalTests} (default implementation) or a class derived from it. \item\end{CompactList}\item 
+virtual {\bf Sync\-Tests} $\ast$ {\bf Client\-Test::create\-Sync\-Tests} (const std::string \&name, std::vector$<$ int $>$ source\-Indices, bool is\-Client\-A=true)
+\begin{CompactList}\small\item\em Creates an instance of \doxyref{Sync\-Tests}{p.}{classSyncTests} (default) or a class derived from it. \item\end{CompactList}\item 
+static int {\bf Client\-Test::dump} ({\bf Client\-Test} \&client, {\bf Sync\-Source} \&source, const char $\ast$file)\label{group__ClientTest_g21f82c79cc49a242a9ddb28ccc4ae4cf}
+
+\begin{CompactList}\small\item\em utility function for dumping items which are C strings with blank lines as separator \item\end{CompactList}\item 
+static int {\bf Client\-Test::import} ({\bf Client\-Test} \&client, {\bf Sync\-Source} \&source, const char $\ast$file)\label{group__ClientTest_g6f8c5e62da7b5da62d4bf5e5f9f8938e}
+
+\begin{CompactList}\small\item\em utility function for importing items with blank lines as separator \item\end{CompactList}\item 
+static bool {\bf Client\-Test::compare} ({\bf Client\-Test} \&client, const char $\ast$file\-A, const char $\ast$file\-B)\label{group__ClientTest_g489f26d3ca7ec7dec96b14bc81b89dc0}
+
+\begin{CompactList}\small\item\em utility function for comparing v\-Card and i\-Cal files with the external synccompare.pl Perl script \item\end{CompactList}\item 
+virtual void {\bf Client\-Test::post\-Sync} (int res, const std::string \&logname)
+\begin{CompactList}\small\item\em This is called after successful \doxyref{sync()}{p.}{classClientTest_5e5a95277a8c953307c6c4c9415fe627} calls (res == 0) as well as after unsuccessful ones (res != 1). \item\end{CompactList}\item 
+static void {\bf Client\-Test::get\-Test\-Data} (const char $\ast$type, Config \&config)
+\begin{CompactList}\small\item\em A derived class can use this call to get default test cases, but still has to add callbacks which create sources and execute a sync session. \item\end{CompactList}\item 
+virtual void {\bf Check\-Sync\-Report::check} (int res, {\bf Sync\-Report} \&report) const
+\begin{CompactList}\small\item\em checks that the sync completed as expected and throws CPPUnit exceptions if something is wrong \item\end{CompactList}\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+Client\-Listener \textbf{sync\-Listener}\label{group__ClientTest_gec894e9ea4a001e35dd206b4ff4a5273}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The testing framework of the C++ client library is based on CPPUnit. 
+
+It fulfills several different goals:\begin{itemize}
+\item testing of the library itself\begin{itemize}
+\item unit testing of individual classes\item full end-to-end tests of synchronization in different configurations\end{itemize}
+\item regular testing of a Sync\-ML server\item testing of Sync\-ML clients built on top of the library\end{itemize}
+
+
+Some of the design goals were:\begin{itemize}
+\item a simple, unified test runner on all platforms\item it should be possible to add tests either directly in the .cpp which implements a class or in a separate file; if done in the class .cpp file then the extra code should be protected by an ifdef so that it is possible to choose whether it is in the released library or not\item adding tests should not require changes in a central file\end{itemize}
+
+
+The test runner \char`\"{}client-test\char`\"{} is implemented in client-test-main.cpp. It automatically assembles all CPPUnit tests it was linked against and runs them all if started without parameters. Output is ASCII. The return code indicates success or failure of any test. \char`\"{}-h$|$--help\char`\"{} print some usage information and a full list of all available tests. Tests or test groups as printed in that list can be given as command line parameters to run just these tests. Because tests do not communicate directly with the command line front-end, they must be passed parameters via environment variables. See the description of \doxyref{Test\-File\-Source}{p.}{classTestFileSource} for further information about running those end-to-end synchronization tests.
+
+The test runner itself also understands some environment variables: CLIENT\_\-TEST\_\-FAILURES can be set to a comma separated list of tests which are allowed to fail without affecting the return code of the test runner.
+
+On Linux the test runner supports setting a timeout which is triggered if a test runs for more than the number of seconds set in the environment variable CLIENT\_\-TEST\_\-ALARM. This relies on signals and therefore is disabled in compilations on Windows with an ifdef HAVE\_\-SIGNALS\_\-H.
+
+Because of the dependency on CPPUnit the testing needs to be enabled explicitly. This can be done separately for tests embedded in the object files of the library (unit tests) and the end-to-end synchronization (integration tests) which can be used with release versions of the library.
+
+On POSIX systems the configure --enable-integration-test and --enable-unit-tests switches enable the testing. \char`\"{}make check\char`\"{} automatically executes the unit tests.
+
+On Windows the Visual Studio project file build/win32/cppunit.sln was prepared to build the \char`\"{}client-test\char`\"{} executable. Because it uses the standard win32.vcproj, some changes are necessary to enable unit tests:\begin{itemize}
+\item replace DISABLE\_\-UNIT\_\-TESTS with ENABLE\_\-UNIT\_\-TESTS in the preprocessor settings\item put cppunit-1.12.0 into the same directory as the 3x directory that contains the client-api/native directory (other layouts are of course possible, just change the include and library search paths)\end{itemize}
+
+
+Unit tests are only found if they are pulled into the executable. On Linux this is done by searching for variables with a special name, created by the FUNAMBOL\_\-TEST\_\-SUITE\_\-REGISTRATION() macro in \doxyref{test.h}{p.}{test_8h-source}, and setting link flags on the fly. On Windows an additional C file with references to these variables is used instead. This is done by a Python script, thus python.exe must be installed and found in the search path of Visual Studio. Any suggestion how to avoid the dependency on external scripting tools without having to manually register tests in a central file is welcome...
+
+The integration tests depend on auxiliary files (test/synccompare.pl and test/testcases) which must be found in the directory where the test is run. On Linux the makefile rules automatically copy these, but the Visual Studio project file does not. Note that test/synccompare.pl is written in Perl (and thus creates another external dependency) because a) C/C++ do not have a standard library to implement the complex regular pattern matching/replace done in that script and b) the script is also meant to be shipped with clients (Sync\-Evolution does that) and thus needs to run on as many systems as possible. Perl is still the most universally available scripting language for that purpose.
+
+Adding new unit tests is best done by following the example in src/c++/common/base/util/Basic\-Time.cpp.
+
+Regular testing of a server can be done by using the reference data provided together with \doxyref{Client\-Test}{p.}{classClientTest} and synchronizing the server against simple files on the client side via a \doxyref{Test\-File\-Source}{p.}{classTestFileSource}. This is what enabling the integration tests adds to the \char`\"{}client-test\char`\"{} binary. By keeping the client side fixed regressions in the server can be detected. Regular testing of the client library can be done by testing the current client library source against stable servers.
+
+For testing a client based on the C++ library the client developer needs to implement the \doxyref{Client\-Test}{p.}{classClientTest} interface. There are some additional requirements for the client's \doxyref{Sync\-Source}{p.}{classSyncSource} implementations:\begin{itemize}
+\item they must support more than one local database so that the same client host running the \char`\"{}client-test\char`\"{} binary can act as two different clients\item they must support change tracking for more than just the server and accessing the databases via \doxyref{Sync\-Source}{p.}{classSyncSource} instances so that the testing frame work can synchronize, then add/remove/update items and/or list changes without affecting the state of the client with respect to its server\end{itemize}
+
+
+The \doxyref{Test\-File\-Source}{p.}{classTestFileSource} is an example how the \doxyref{Client\-Test}{p.}{classClientTest} interface could be implemented. 
+
+\subsection{Function Documentation}
+\index{ClientTest@{Client\-Test}!check@{check}}
+\index{check@{check}!ClientTest@{Client\-Test}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Check\-Sync\-Report::check (int {\em res}, {\bf Sync\-Report} \& {\em report}) const\hspace{0.3cm}{\tt  [virtual, inherited]}}\label{group__ClientTest_g1e939e2ba85b91dc7b0bdef7668ec34d}
+
+
+checks that the sync completed as expected and throws CPPUnit exceptions if something is wrong 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em res}]return code from Sync\-Client::sync() \item[{\em report}]the sync report stored in the \doxyref{Sync\-Client}{p.}{classSyncClient} \end{description}
+\end{Desc}
+\index{ClientTest@{Client\-Test}!compareDatabases@{compareDatabases}}
+\index{compareDatabases@{compareDatabases}!ClientTest@{Client\-Test}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Local\-Tests::compare\-Databases (const char $\ast$ {\em ref\-File}, {\bf Sync\-Source} \& {\em copy}, bool {\em raise\-Assert} = {\tt true})\hspace{0.3cm}{\tt  [virtual, inherited]}}\label{group__ClientTest_ga71193120c1176e08647ccdf9e5f4548}
+
+
+takes two databases, exports them, then compares them using synccompare 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em ref\-File}]existing file with source reference items, NULL uses a dump of sync source A instead \item[{\em copy}]a sync source which contains the copied items, begin/end\-Sync will be called \item[{\em raise\-Assert}]raise assertion if comparison yields differences (defaults to true) \end{description}
+\end{Desc}
+\index{ClientTest@{Client\-Test}!countItemsOfType@{countItemsOfType}}
+\index{countItemsOfType@{countItemsOfType}!ClientTest@{Client\-Test}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int count\-Items\-Of\-Type ({\bf Sync\-Source} $\ast$ {\em source}, item\-Type {\em type})}\label{group__ClientTest_gb4b747156b72636a3b7048dcc1787799}
+
+
+utility function which counts items of a certain kind known to the sync source 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em source}]valid source ready to iterate; NULL triggers an assert \item[{\em item\-Type}]determines which iterator functions are used \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]number of valid items iterated over \end{Desc}
+\index{ClientTest@{Client\-Test}!createLocalTests@{createLocalTests}}
+\index{createLocalTests@{createLocalTests}!ClientTest@{Client\-Test}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Local\-Tests} $\ast$ Client\-Test::create\-Local\-Tests (const std::string \& {\em name}, int {\em source\-Param}, {\bf Client\-Test::Config} \& {\em co})\hspace{0.3cm}{\tt  [virtual, inherited]}}\label{group__ClientTest_g26ded0f915248600703d73380b3b3b24}
+
+
+Creates an instance of \doxyref{Local\-Tests}{p.}{classLocalTests} (default implementation) or a class derived from it. 
+
+\doxyref{Local\-Tests}{p.}{classLocalTests} provides tests which cover the \doxyref{Sync\-Source}{p.}{classSyncSource} interface and can be executed without a Sync\-ML server. It also contains utility functions for working with Sync\-Sources.
+
+A \doxyref{Client\-Test}{p.}{classClientTest} implementation can, but doesn't have to extend these tests by instantiating a derived class here. \index{ClientTest@{Client\-Test}!createSyncTests@{createSyncTests}}
+\index{createSyncTests@{createSyncTests}!ClientTest@{Client\-Test}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Sync\-Tests} $\ast$ Client\-Test::create\-Sync\-Tests (const std::string \& {\em name}, std::vector$<$ int $>$ {\em source\-Indices}, bool {\em is\-Client\-A} = {\tt true})\hspace{0.3cm}{\tt  [virtual, inherited]}}\label{group__ClientTest_g0fa32aef3b2e3423b12e6ae3df7a596c}
+
+
+Creates an instance of \doxyref{Sync\-Tests}{p.}{classSyncTests} (default) or a class derived from it. 
+
+\doxyref{Sync\-Tests}{p.}{classSyncTests} provides tests which cover the actual interaction with a Sync\-ML server.
+
+A \doxyref{Client\-Test}{p.}{classClientTest} implementation can, but doesn't have to extend these tests by instantiating a derived class here. \index{ClientTest@{Client\-Test}!getTestData@{getTestData}}
+\index{getTestData@{getTestData}!ClientTest@{Client\-Test}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Client\-Test::get\-Test\-Data (const char $\ast$ {\em type}, {\bf Config} \& {\em config})\hspace{0.3cm}{\tt  [static, inherited]}}\label{group__ClientTest_g7b51aaa5b68b806d3719e7d74e4c2bc0}
+
+
+A derived class can use this call to get default test cases, but still has to add callbacks which create sources and execute a sync session. 
+
+Some of the test cases are compiled into the library, other depend on the auxiliary files from the \char`\"{}test\char`\"{} directory. Currently supported types:\begin{itemize}
+\item vcard30 = v\-Card 3.0 contacts\item vcard21 = v\-Card 2.1 contacts\item ical20 = i\-Cal 2.0 events\item vcal10 = v\-Cal 1.0 events\item itodo20 = i\-Cal 2.0 tasks \end{itemize}
+\index{ClientTest@{Client\-Test}!insert@{insert}}
+\index{insert@{insert}!ClientTest@{Client\-Test}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}std::string Local\-Tests::insert ({\bf Create\-Source} {\em create\-Source}, const char $\ast$ {\em data}, bool {\em relaxed} = {\tt false})\hspace{0.3cm}{\tt  [virtual, inherited]}}\label{group__ClientTest_g97b2b3724b5378862453e8ddf4a1fa80}
+
+
+opens source and inserts the given item; can be called regardless whether the data source already contains items or not 
+
+The type of the item is unset; it is assumed that the source can handle that.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em relaxed}]if true, then disable some of the additional checks after adding the item \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the UID of the inserted item \end{Desc}
+\index{ClientTest@{Client\-Test}!insertManyItems@{insertManyItems}}
+\index{insertManyItems@{insertManyItems}!ClientTest@{Client\-Test}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Local\-Tests::insert\-Many\-Items ({\bf Create\-Source} {\em create\-Source}, int {\em start\-Index} = {\tt 1}, int {\em num\-Items} = {\tt 0}, int {\em size} = {\tt -1})\hspace{0.3cm}{\tt  [virtual, inherited]}}\label{group__ClientTest_g08c17db8b00624d8dc940d882dc8a336}
+
+
+insert artificial items, number of them determined by TEST\_\-EVOLUTION\_\-NUM\_\-ITEMS unless passed explicitly 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em create\-Source}]a factory for the sync source that is to be used \item[{\em start\-Index}]IDs are generated starting with this value \item[{\em num\-Items}]number of items to be inserted if non-null, otherwise TEST\_\-EVOLUTION\_\-NUM\_\-ITEMS is used \item[{\em size}]minimum size for new items \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]number of items inserted \end{Desc}
+\index{ClientTest@{Client\-Test}!postSync@{postSync}}
+\index{postSync@{postSync}!ClientTest@{Client\-Test}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}USE\_\-NAMESPACE void Client\-Test::post\-Sync (int {\em res}, const std::string \& {\em logname})\hspace{0.3cm}{\tt  [virtual, inherited]}}\label{group__ClientTest_gf7c1d6ba20efac0427e67f9791a3cd79}
+
+
+This is called after successful \doxyref{sync()}{p.}{classClientTest_5e5a95277a8c953307c6c4c9415fe627} calls (res == 0) as well as after unsuccessful ones (res != 1). 
+
+The default implementation sleeps for the number of seconds specified when constructing this instance and copies the server log if one was named.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em res}]result of \doxyref{sync()}{p.}{classClientTest_5e5a95277a8c953307c6c4c9415fe627} \item[{\em logname}]base name of the current sync log (without \char`\"{}.client.[AB].log\char`\"{} suffix) \end{description}
+\end{Desc}
+\index{ClientTest@{Client\-Test}!registerTests@{registerTests}}
+\index{registerTests@{registerTests}!ClientTest@{Client\-Test}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Client\-Test::register\-Tests ()\hspace{0.3cm}{\tt  [virtual, inherited]}}\label{group__ClientTest_g44bbf4c7cf9b7dbce51b9f4eacf5a064}
+
+
+This function registers tests using this instance of \doxyref{Client\-Test}{p.}{classClientTest} for later use during a test run. 
+
+The instance must remain valid until after the tests were run. To run them use a separate test runner, like the one from client-test-main.cpp. \index{ClientTest@{Client\-Test}!update@{update}}
+\index{update@{update}!ClientTest@{Client\-Test}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Local\-Tests::update ({\bf Create\-Source} {\em create\-Source}, const char $\ast$ {\em data}, bool {\em check} = {\tt true})\hspace{0.3cm}{\tt  [virtual, inherited]}}\label{group__ClientTest_g6d20c34c6796ec6caec7bfc19be3270d}
+
+
+assumes that exactly one element is currently inserted and updates it with the given item 
+
+The type of the item is cleared, as in \doxyref{insert()}{p.}{group__ClientTest_g97b2b3724b5378862453e8ddf4a1fa80} above.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em check}]if true, then reopen the source and verify that the reported items are as expected \end{description}
+\end{Desc}

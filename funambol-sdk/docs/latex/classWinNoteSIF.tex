@@ -1,0 +1,91 @@
+\section{Win\-Note\-SIF Class Reference}
+\label{classWinNoteSIF}\index{WinNoteSIF@{WinNoteSIF}}
+Rapresents a note object for Windows Clients, for SIF format.  
+
+
+{\tt \#include $<$Win\-Note\-SIF.h$>$}
+
+Inheritance diagram for Win\-Note\-SIF:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=58pt]{classWinNoteSIF__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Win\-Note\-SIF:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=58pt]{classWinNoteSIF__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Win\-Note\-SIF} ()\label{classWinNoteSIF_8990a7240efa449eb4d8bc73182906ce}
+
+\begin{CompactList}\small\item\em Default Constructor. \item\end{CompactList}\item 
+{\bf Win\-Note\-SIF} (const wstring data\-String, const wchar\_\-t $\ast$$\ast$fields)
+\begin{CompactList}\small\item\em Constructor: fills property\-Map parsing the passed SIF. \item\end{CompactList}\item 
+{\bf $\sim$Win\-Note\-SIF} ()\label{classWinNoteSIF_5d6da2d92abe589f8fabcbd86db56e54}
+
+\begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\item 
+int {\bf parse} (const wstring data\-String)
+\begin{CompactList}\small\item\em Parse a SIF string and fills the property\-Map. \item\end{CompactList}\item 
+wstring \& {\bf to\-String} ()
+\begin{CompactList}\small\item\em Format and return a SIF string from the property\-Map. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Rapresents a note object for Windows Clients, for SIF format. 
+
+The object can be filled passing a SIF string, or filling directly the map. Calling 'to\-String()' a SIF is formatted and returned. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{WinNoteSIF@{Win\-Note\-SIF}!WinNoteSIF@{WinNoteSIF}}
+\index{WinNoteSIF@{WinNoteSIF}!WinNoteSIF@{Win\-Note\-SIF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Win\-Note\-SIF::Win\-Note\-SIF (const wstring {\em data\-String}, const wchar\_\-t $\ast$$\ast$ {\em fields})}\label{classWinNoteSIF_44cc1601d1ace24b6221a6e26e1ae489}
+
+
+Constructor: fills property\-Map parsing the passed SIF. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em data\-String}]the input SIF string \item[{\em fields}]the NULL terminated array of SIF fields \item[{\em fields}]the NULL terminated array of SIF fields for recurrence pattern \end{description}
+\end{Desc}
+
+
+\subsection{Member Function Documentation}
+\index{WinNoteSIF@{Win\-Note\-SIF}!parse@{parse}}
+\index{parse@{parse}!WinNoteSIF@{Win\-Note\-SIF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Win\-Note\-SIF::parse (const wstring {\em data\-String})\hspace{0.3cm}{\tt  [virtual]}}\label{classWinNoteSIF_7f8bbba172900f9c9289f55c0e01d210}
+
+
+Parse a SIF string and fills the property\-Map. 
+
+The map is cleared and will contain only found properties at the end of the parsing. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em data\-String}]input SIF string to be parsed \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 if no errors \end{Desc}
+
+
+Reimplemented from {\bf Win\-Note} \doxyref{}{p.}{classWinNote_8ca4c231350dc634b3ad1955404c70d0}.\index{WinNoteSIF@{Win\-Note\-SIF}!toString@{toString}}
+\index{toString@{toString}!WinNoteSIF@{Win\-Note\-SIF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}wstring\& Win\-Note\-SIF::to\-String ()\hspace{0.3cm}{\tt  [virtual]}}\label{classWinNoteSIF_5f88029bfafb4c6e8d08730454efef3a}
+
+
+Format and return a SIF string from the property\-Map. 
+
+Not supported properties are ignored and so not formatted as they don't have a correspondence in property\-Map. \begin{Desc}
+\item[Returns:]the SIF string formatted, reference to internal wstring \end{Desc}
+
+
+Reimplemented from {\bf Win\-Note} \doxyref{}{p.}{classWinNote_4f4e440b6a792b5839da51c295ba8913}.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/windows/vocl/Win\-Note\-SIF.h\end{CompactItemize}

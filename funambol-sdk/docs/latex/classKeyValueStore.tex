@@ -1,0 +1,110 @@
+\section{Key\-Value\-Store Class Reference}
+\label{classKeyValueStore}\index{KeyValueStore@{KeyValueStore}}
+This is the interface for the handling of key/value pairs.  
+
+
+{\tt \#include $<$Key\-Value\-Store.h$>$}
+
+Inheritance diagram for Key\-Value\-Store:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{classKeyValueStore__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual {\bf $\sim$Key\-Value\-Store} ()\label{classKeyValueStore_d58b3fa85cbe1010a8adf5d47625ff7d}
+
+\begin{CompactList}\small\item\em Virtual destructor. \item\end{CompactList}\item 
+virtual String\-Buffer {\bf read\-Property\-Value} (const char $\ast$prop) const=0
+\begin{CompactList}\small\item\em Returns the value of the given property. \item\end{CompactList}\item 
+virtual int {\bf set\-Property\-Value} (const char $\ast$prop, const char $\ast$value)=0
+\begin{CompactList}\small\item\em Sets a property value. \item\end{CompactList}\item 
+virtual int {\bf remove\-Property} (const char $\ast$prop)=0
+\begin{CompactList}\small\item\em Remove a certain property. \item\end{CompactList}\item 
+virtual {\bf Enumeration} \& {\bf get\-Properties} () const=0\label{classKeyValueStore_4d9be2af90391040ceef51ab261751e9}
+
+\begin{CompactList}\small\item\em Get all the properties that are currently defined. \item\end{CompactList}\item 
+virtual int {\bf save} ()=0
+\begin{CompactList}\small\item\em Ensure that all properties are stored persistently. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This is the interface for the handling of key/value pairs. 
+
+Some implementations might store them in some kind of background storage, others might only save them transiently in memory.
+
+This class defines the common methods that have to be specialized by implementation on filesystem, registry, db... 
+
+
+
+\subsection{Member Function Documentation}
+\index{KeyValueStore@{Key\-Value\-Store}!readPropertyValue@{readPropertyValue}}
+\index{readPropertyValue@{readPropertyValue}!KeyValueStore@{Key\-Value\-Store}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual String\-Buffer Key\-Value\-Store::read\-Property\-Value (const char $\ast$ {\em prop}) const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classKeyValueStore_b2761e4c37d95c30c978ff1a928af047}
+
+
+Returns the value of the given property. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em prop}]- the property name\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]A NULL String\-Buffer in the returned implies that the property was not set. Otherwise the value it was set to is returned (which can be \char`\"{}\char`\"{}, the empty string). \end{Desc}
+
+
+Implemented in {\bf Array\-List\-Key\-Value\-Store} \doxyref{}{p.}{classArrayListKeyValueStore_1c655c2f6b2a82d72dea73ee210cae7e}, and {\bf SQLKey\-Value\-Store} \doxyref{}{p.}{classSQLKeyValueStore_6efb8a4c66d818df9571e5e81300a938}.\index{KeyValueStore@{Key\-Value\-Store}!setPropertyValue@{setPropertyValue}}
+\index{setPropertyValue@{setPropertyValue}!KeyValueStore@{Key\-Value\-Store}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Key\-Value\-Store::set\-Property\-Value (const char $\ast$ {\em prop}, const char $\ast$ {\em value})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classKeyValueStore_7b202d8d64dd966b19e34a91d86dd0de}
+
+
+Sets a property value. 
+
+The value might be cached inside the implementation of this interface. To ensure that it is stored persistently and to do error checking, call \doxyref{save()}{p.}{classKeyValueStore_62d7f0c759f3aa6f9e70380c84a60aaa}.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em prop}]- the property name \item[{\em value}]- the property value (zero terminated string)\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]int 0 on success, an error code otherwise \end{Desc}
+
+
+Implemented in {\bf Array\-List\-Key\-Value\-Store} \doxyref{}{p.}{classArrayListKeyValueStore_ffb10e2a129233210f3160315d6b228f}, and {\bf SQLKey\-Value\-Store} \doxyref{}{p.}{classSQLKeyValueStore_f3eb8e98ece90f390f5459c44f0c653b}.\index{KeyValueStore@{Key\-Value\-Store}!removeProperty@{removeProperty}}
+\index{removeProperty@{removeProperty}!KeyValueStore@{Key\-Value\-Store}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Key\-Value\-Store::remove\-Property (const char $\ast$ {\em prop})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classKeyValueStore_95f1706e2b004c6abc3a874ba0f5cfed}
+
+
+Remove a certain property. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em prop}]the name of the property which is to be removed\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]int 0 on success, an error code otherwise \end{Desc}
+
+
+Implemented in {\bf Array\-List\-Key\-Value\-Store} \doxyref{}{p.}{classArrayListKeyValueStore_16ac7c4f8c92261b89e1ef682b8a8b3b}, and {\bf SQLKey\-Value\-Store} \doxyref{}{p.}{classSQLKeyValueStore_7314067e7fc6219420042bd8501d1db4}.\index{KeyValueStore@{Key\-Value\-Store}!save@{save}}
+\index{save@{save}!KeyValueStore@{Key\-Value\-Store}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Key\-Value\-Store::save ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classKeyValueStore_62d7f0c759f3aa6f9e70380c84a60aaa}
+
+
+Ensure that all properties are stored persistently. 
+
+If setting a property led to an error earlier, this call will indicate the failure.
+
+\begin{Desc}
+\item[Returns:]0 - success, failure otherwise \end{Desc}
+
+
+Implemented in {\bf Array\-List\-Key\-Value\-Store} \doxyref{}{p.}{classArrayListKeyValueStore_a171a3cac343a6a7eb65c7c1d330bd0b}, {\bf Property\-File} \doxyref{}{p.}{classPropertyFile_f6258c0d8d6360f4a024384617d4009e}, and {\bf SQLKey\-Value\-Store} \doxyref{}{p.}{classSQLKeyValueStore_5dc2c0a3df8e4e38deca4eab5909e753}.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/common/base/util/Key\-Value\-Store.h\end{CompactItemize}

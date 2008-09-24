@@ -1,0 +1,159 @@
+\section{FConnection Class Reference}
+\label{classFConnection}\index{FConnection@{FConnection}}
+This class is a singleton, used to manage the network connection.  
+
+
+{\tt \#include $<$FConnection.h$>$}
+
+Collaboration diagram for FConnection:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=92pt]{classFConnection__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual {\bf $\sim$FConnection} ()\label{classFConnection_dd4e336d85e62eaa34d4066c7f70cd0e}
+
+\begin{CompactList}\small\item\em Destructor. Closes the connection and the session. \item\end{CompactList}\item 
+const int {\bf start\-Connection} ()
+\begin{CompactList}\small\item\em Starts a new GPRS connection using the default IAP, which name is stored in the member 'i\-IAPDefault\-Name'. \item\end{CompactList}\item 
+const int {\bf start\-Connection} (const String\-Buffer \&a\-IAPName)
+\begin{CompactList}\small\item\em Starts a new GPRS connection, given the IAP name. \item\end{CompactList}\item 
+void {\bf close\-Connection} ()
+\begin{CompactList}\small\item\em Closes the active connection. \item\end{CompactList}\item 
+const int {\bf stop\-Connection} ()
+\begin{CompactList}\small\item\em Stops the entire connection by disconnecting the underlying network interface immediately, regardless of whether other clients are using it or not. \item\end{CompactList}\item 
+const bool {\bf is\-Connected} ()
+\begin{CompactList}\small\item\em Checks if the connection is active or down. \item\end{CompactList}\item 
+const String\-Buffer \& {\bf get\-Local\-Ip\-Address} ()
+\begin{CompactList}\small\item\em Returns the local IP address of the device. \item\end{CompactList}\item 
+void {\bf set\-IAPName} (const String\-Buffer \&a\-IAPName)
+\begin{CompactList}\small\item\em Sets the IAP name, that will be used in \doxyref{start\-Connection()}{p.}{classFConnection_d1b12e5dbed90523a9d7266a9fffe7cd}. \item\end{CompactList}\item 
+String\-Buffer \& {\bf get\-IAPName} ()\label{classFConnection_a9e088b69756553d0e5453e3fbe9cdea}
+
+\begin{CompactList}\small\item\em Returns the current IAP name. \item\end{CompactList}\item 
+RArray$<$ HBuf\-C $\ast$ $>$ {\bf Get\-All\-IAPNames} ()
+\begin{CompactList}\small\item\em Returns an array of (new allocated) descriptors, with all the current IAP names. \item\end{CompactList}\item 
+RConnection $\ast$ {\bf get\-Connection} ()\label{classFConnection_8538651cbc2025da79c5ea03c9bae619}
+
+\begin{CompactList}\small\item\em Returns a pointer to the (internally owned) RConnection. \item\end{CompactList}\item 
+RSocket\-Serv $\ast$ {\bf get\-Session} ()\label{classFConnection_31dab46005b26eb44e02b653f4ad57e7}
+
+\begin{CompactList}\small\item\em Returns a pointer to the (internally owned) Socket\-Serv. \item\end{CompactList}\item 
+TInt {\bf get\-Last\-Error} ()\label{classFConnection_c873e5893558df4c300d70e402b908cd}
+
+\begin{CompactList}\small\item\em Returns the last error code. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static {\bf FConnection} $\ast$ {\bf get\-Instance} ()\label{classFConnection_ea540e0c2ddd64357b8365b039cdadeb}
+
+\begin{CompactList}\small\item\em Method to get the sole instance of \doxyref{FConnection}{p.}{classFConnection}. \item\end{CompactList}\item 
+static void {\bf dispose} ()\label{classFConnection_4efe5c14ec5bce8386747c7113558b7b}
+
+\begin{CompactList}\small\item\em Method to destroy the instance of \doxyref{FConnection}{p.}{classFConnection}. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf FConnection} ()\label{classFConnection_a9565b77a384c69154e27519d36df859}
+
+\begin{CompactList}\small\item\em Default constructor. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This class is a singleton, used to manage the network connection. 
+
+Get the only instance of \doxyref{FConnection}{p.}{classFConnection} calling \doxyref{FConnection::get\-Instance()}{p.}{classFConnection_ea540e0c2ddd64357b8365b039cdadeb}. Owns the RSocket\-Serv and RConnection of the current connection, that can be used exterally calling \doxyref{get\-Connection()}{p.}{classFConnection_8538651cbc2025da79c5ea03c9bae619} and \doxyref{get\-Session()}{p.}{classFConnection_31dab46005b26eb44e02b653f4ad57e7}. 
+
+
+
+\subsection{Member Function Documentation}
+\index{FConnection@{FConnection}!startConnection@{startConnection}}
+\index{startConnection@{startConnection}!FConnection@{FConnection}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const int FConnection::start\-Connection ()}\label{classFConnection_d1b12e5dbed90523a9d7266a9fffe7cd}
+
+
+Starts a new GPRS connection using the default IAP, which name is stored in the member 'i\-IAPDefault\-Name'. 
+
+The method set\-IAPDefault\-Name() should be called before this method, to set the IAP to be used - otherwise, the user will be prompted to select the IAP. \begin{Desc}
+\item[Returns:]0 if no error \end{Desc}
+\index{FConnection@{FConnection}!startConnection@{startConnection}}
+\index{startConnection@{startConnection}!FConnection@{FConnection}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const int FConnection::start\-Connection (const String\-Buffer \& {\em a\-IAPName})}\label{classFConnection_738be4e68744d0f41d80d1475333a5f9}
+
+
+Starts a new GPRS connection, given the IAP name. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em a\-IAPName}]\char`\"{}Ask\char`\"{} or \char`\"{}\char`\"{} : if we want to prompt the user to select the IAP \char`\"{}Default\char`\"{} : will use the default IAP of the system, no prompts \char`\"{}$<$name$>$\char`\"{} : will use the $<$name$>$ IAP, no prompts. If not found, will prompt the user to select the IAP \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 if no error \end{Desc}
+\index{FConnection@{FConnection}!closeConnection@{closeConnection}}
+\index{closeConnection@{closeConnection}!FConnection@{FConnection}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void FConnection::close\-Connection ()}\label{classFConnection_b7fb6ca51113f9458501b0c6b10cdf5e}
+
+
+Closes the active connection. 
+
+The connection will not be dropped immediately: it will be dropped when there is no more data traffic on the connection.
+
+\begin{Desc}
+\item[Note:]If a client needs to shutdown the connection in a hard way, then use \doxyref{stop\-Connection()}{p.}{classFConnection_d0bdf205aa8e3c2b8fe465eda9b01c19} instead of this method. \end{Desc}
+\index{FConnection@{FConnection}!stopConnection@{stopConnection}}
+\index{stopConnection@{stopConnection}!FConnection@{FConnection}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const int FConnection::stop\-Connection ()}\label{classFConnection_d0bdf205aa8e3c2b8fe465eda9b01c19}
+
+
+Stops the entire connection by disconnecting the underlying network interface immediately, regardless of whether other clients are using it or not. 
+
+Applications using the connection will be sent the socket error code KErr\-Cancel.
+
+\begin{Desc}
+\item[Note:]If a client needs to graciously shutdown the connection, \doxyref{close\-Connection()}{p.}{classFConnection_b7fb6ca51113f9458501b0c6b10cdf5e} should be used instead of this method. \end{Desc}
+\begin{Desc}
+\item[Returns:]0 if no error \end{Desc}
+\index{FConnection@{FConnection}!isConnected@{isConnected}}
+\index{isConnected@{isConnected}!FConnection@{FConnection}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const bool FConnection::is\-Connected ()}\label{classFConnection_06fcedfeec439458c3b7a25968a76867}
+
+
+Checks if the connection is active or down. 
+
+Between active connection, we search for the one started with \doxyref{start\-Connection()}{p.}{classFConnection_d1b12e5dbed90523a9d7266a9fffe7cd}. \begin{Desc}
+\item[Returns:]true if connection is active \end{Desc}
+\index{FConnection@{FConnection}!getLocalIpAddress@{getLocalIpAddress}}
+\index{getLocalIpAddress@{getLocalIpAddress}!FConnection@{FConnection}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const String\-Buffer\& FConnection::get\-Local\-Ip\-Address ()}\label{classFConnection_a99aa6b5888f59a0baa688ae0f66a5bd}
+
+
+Returns the local IP address of the device. 
+
+TODO \index{FConnection@{FConnection}!setIAPName@{setIAPName}}
+\index{setIAPName@{setIAPName}!FConnection@{FConnection}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void FConnection::set\-IAPName (const String\-Buffer \& {\em a\-IAPName})\hspace{0.3cm}{\tt  [inline]}}\label{classFConnection_39fee8e76f5a6675a83ddd12cb10cad2}
+
+
+Sets the IAP name, that will be used in \doxyref{start\-Connection()}{p.}{classFConnection_d1b12e5dbed90523a9d7266a9fffe7cd}. 
+
+This method should be called at the beginning, so that subsequent calls to \doxyref{start\-Connection()}{p.}{classFConnection_d1b12e5dbed90523a9d7266a9fffe7cd} will use this IAP. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em a\-IAPName}]the name of the IAP \end{description}
+\end{Desc}
+\index{FConnection@{FConnection}!GetAllIAPNames@{GetAllIAPNames}}
+\index{GetAllIAPNames@{GetAllIAPNames}!FConnection@{FConnection}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}RArray$<$HBuf\-C$\ast$$>$ FConnection::Get\-All\-IAPNames ()}\label{classFConnection_2b01df12661784cab4244757bc876e27}
+
+
+Returns an array of (new allocated) descriptors, with all the current IAP names. 
+
+The caller has the ownership of the array, so he should take care of deleting it (calling Close()). 
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/symbian/base/FConnection.h\end{CompactItemize}

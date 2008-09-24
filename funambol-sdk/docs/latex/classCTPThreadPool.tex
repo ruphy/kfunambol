@@ -1,0 +1,37 @@
+\section{CTPThread\-Pool Class Reference}
+\label{classCTPThreadPool}\index{CTPThreadPool@{CTPThreadPool}}
+This class implements a pool of thread to be used by the CTP.  
+
+
+{\tt \#include $<$CTPThread\-Pool.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf CTPThread\-Pool} ()\label{classCTPThreadPool_3ac6667a9ac6ab42221d9c84c6cb8c85}
+
+\begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
+Cmd\-Timeout\-Thread $\ast$ {\bf create\-Cmd\-Timeout\-Thread} ()\label{classCTPThreadPool_73e8f053eb0c3a7203fe17a75a1ff5fb}
+
+\begin{CompactList}\small\item\em Creates a new timeout thread. \item\end{CompactList}\item 
+Heartbeat\-Thread $\ast$ {\bf create\-Heartbeat\-Thread} ()\label{classCTPThreadPool_999e489fdb1e537938b622b336875374}
+
+\begin{CompactList}\small\item\em Creates a new heartbeat thread. \item\end{CompactList}\item 
+Receiver\-Thread $\ast$ {\bf create\-Receiver\-Thread} ()\label{classCTPThreadPool_d65c476cfbff1e31327c3baf728d7fa4}
+
+\begin{CompactList}\small\item\em Creates a new receiver thread. \item\end{CompactList}\item 
+void {\bf cleanup} ()\label{classCTPThreadPool_fdafcc67fcbf62e7e4b44169e5e146b2}
+
+\begin{CompactList}\small\item\em Cleanup any thread object that has terminated its execution. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This class implements a pool of thread to be used by the CTP. 
+
+The purpose is not reusing existing threads, but rather to ensure that thread objects are properly release when no longer running. This class is a very simple form of garbage collection for CTP threads. The cleanup is not performed automatically but must be explicitelly invoked. Since CTP has periodic activity this is not a problem in this context. 
+
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/common/push/CTPThread\-Pool.h\end{CompactItemize}

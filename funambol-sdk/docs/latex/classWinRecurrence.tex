@@ -1,0 +1,113 @@
+\section{Win\-Recurrence Class Reference}
+\label{classWinRecurrence}\index{WinRecurrence@{WinRecurrence}}
+Rapresents a recurrence pattern object for Windows Clients.  
+
+
+{\tt \#include $<$Win\-Recurrence.h$>$}
+
+Inheritance diagram for Win\-Recurrence:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=74pt]{classWinRecurrence__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Win\-Recurrence:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=67pt]{classWinRecurrence__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Win\-Recurrence} ()\label{classWinRecurrence_121f20f76fb54815a92d89a160af4f86}
+
+\begin{CompactList}\small\item\em Default Constructor. \item\end{CompactList}\item 
+{\bf Win\-Recurrence} (const wstring data\-String, const DATE date=0)
+\begin{CompactList}\small\item\em Constructor: fills property\-Map parsing the v\-Calendar RRULE string. \item\end{CompactList}\item 
+virtual {\bf $\sim$Win\-Recurrence} ()\label{classWinRecurrence_578175d9bc7e4c355e76a698c1af196e}
+
+\begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\item 
+virtual int {\bf parse} (const wstring data\-String)
+\begin{CompactList}\small\item\em Parse a v\-Calendar RRULE string and fills the property\-Map. \item\end{CompactList}\item 
+virtual wstring \& {\bf to\-String} ()\label{classWinRecurrence_a5c0292c07cdd6672bfd247bdf34c4a8}
+
+\begin{CompactList}\small\item\em Format and return a v\-Calendar RRULE string from the property\-Map. \item\end{CompactList}\item 
+const DATE {\bf get\-Start\-Date} ()\label{classWinRecurrence_76f98f816b58be299923dfa3a1d23f61}
+
+\begin{CompactList}\small\item\em Returns the start\-Date (double format). \item\end{CompactList}\item 
+void {\bf set\-Start\-Date} (const DATE date)\label{classWinRecurrence_4d45f736d2a05bcb2cffe8c02b2901b5}
+
+\begin{CompactList}\small\item\em Sets the start\-Date (double format). \item\end{CompactList}\item 
+const bool {\bf has\-Timezone} ()\label{classWinRecurrence_ea3a4b70a1dca3a84ef6691242e73b50}
+
+\begin{CompactList}\small\item\em Returns the 'use\-Timezone' flag value. \item\end{CompactList}\item 
+void {\bf set\-Use\-Timezone} (bool val)\label{classWinRecurrence_4f26d06788f99aa215b3e55005704648}
+
+\begin{CompactList}\small\item\em Sets the 'use\-Timezone' flag to the given value. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+DATE {\bf start\-Date}\label{classWinRecurrence_965f545a6fe8a4f7677c1ed05d933455}
+
+\begin{CompactList}\small\item\em The start date (double format) of the correspondent event/task It's necessary to parse correctly the RRULE string. \item\end{CompactList}\item 
+bool {\bf use\-Timezone}
+\begin{CompactList}\small\item\em true if the parent calendar has a timezone information, and uses it. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Rapresents a recurrence pattern object for Windows Clients. 
+
+The object can be filled passing a v\-Calendar RRULE string, or filling directly the map. Calling 'to\-String()' a v\-Calendar RRULE is formatted and returned. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{WinRecurrence@{Win\-Recurrence}!WinRecurrence@{WinRecurrence}}
+\index{WinRecurrence@{WinRecurrence}!WinRecurrence@{Win\-Recurrence}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Win\-Recurrence::Win\-Recurrence (const wstring {\em data\-String}, const DATE {\em date} = {\tt 0})}\label{classWinRecurrence_af5d85efab9972815267c24598d684f1}
+
+
+Constructor: fills property\-Map parsing the v\-Calendar RRULE string. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em data\-String}]input RRULE string to parse \item[{\em date}]start date (double format) of the correspondent event/task \end{description}
+\end{Desc}
+
+
+\subsection{Member Function Documentation}
+\index{WinRecurrence@{Win\-Recurrence}!parse@{parse}}
+\index{parse@{parse}!WinRecurrence@{Win\-Recurrence}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Win\-Recurrence::parse (const wstring {\em data\-String})\hspace{0.3cm}{\tt  [virtual]}}\label{classWinRecurrence_b536ac773fa3f3dbcce4da4248e13045}
+
+
+Parse a v\-Calendar RRULE string and fills the property\-Map. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em data\-String}]input RRULE string to parse \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 if no errors \end{Desc}
+
+
+Implements {\bf Win\-Item} \doxyref{}{p.}{classWinItem_1d7a0c54c09f0bbe080806e202f72e51}.
+
+Reimplemented in {\bf Win\-Recurrence\-SIF} \doxyref{}{p.}{classWinRecurrenceSIF_e5c7df89cde1d282d2fe32468ab168b8}.
+
+\subsection{Member Data Documentation}
+\index{WinRecurrence@{Win\-Recurrence}!useTimezone@{useTimezone}}
+\index{useTimezone@{useTimezone}!WinRecurrence@{Win\-Recurrence}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool {\bf Win\-Recurrence::use\-Timezone}\hspace{0.3cm}{\tt  [protected]}}\label{classWinRecurrence_55b8e72acc3fe5052c351a2b2175a421}
+
+
+true if the parent calendar has a timezone information, and uses it. 
+
+Recurring props are in local time if this flag is true. 
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/windows/vocl/Win\-Recurrence.h\end{CompactItemize}

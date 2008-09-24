@@ -1,0 +1,5 @@
+base referer
+rect $classSyncManagerConfig.html 59,175 211,199
+rect $classAbstractSyncConfig.html 5,84 157,108
+rect $classSyncSourceConfig.html 181,84 323,108
+rect $classAbstractSyncSourceConfig.html 153,7 351,31

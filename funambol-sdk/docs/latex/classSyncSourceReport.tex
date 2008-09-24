@@ -1,0 +1,145 @@
+\section{Sync\-Source\-Report Class Reference}
+\label{classSyncSourceReport}\index{SyncSourceReport@{SyncSourceReport}}
+\doxyref{Sync\-Source\-Report}{p.}{classSyncSourceReport} class rapresents the report of each \doxyref{Sync\-Source}{p.}{classSyncSource} synchronized.  
+
+
+{\tt \#include $<$Sync\-Source\-Report.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\textbf{Sync\-Source\-Report} (const char $\ast$name=NULL)\label{classSyncSourceReport_d1a1269ae53995ef0242613fe2d7d7d9}
+
+\item 
+\textbf{Sync\-Source\-Report} ({\bf Sync\-Source\-Report} \&ssr)\label{classSyncSourceReport_35b0ebb0ecb4fd8afd6375597b007479}
+
+\item 
+const int {\bf get\-Last\-Error\-Code} () const\label{classSyncSourceReport_fc32e151b7c992ff99dd3e1d5e8de9c6}
+
+\begin{CompactList}\small\item\em source specific error code, see also \doxyref{Sync\-Report::get\-Last\-Error\-Code()}{p.}{classSyncReport_5f20d458a01f6c08193463c981e4b9cc} \item\end{CompactList}\item 
+const {\bf Source\-State} {\bf get\-State} () const\label{classSyncSourceReport_833b46ea6b1f72cd9837472ce8451d75}
+
+\begin{CompactList}\small\item\em the current state of the source, see Source\-State \item\end{CompactList}\item 
+const char $\ast$ {\bf get\-Last\-Error\-Msg} () const\label{classSyncSourceReport_05708463409cf507e4dcc9f5a7934d15}
+
+\begin{CompactList}\small\item\em source specific error message, see also \doxyref{Sync\-Report::get\-Last\-Error\-Msg()}{p.}{classSyncReport_bc2a8622cae802872e9aa4547f2a1947} \item\end{CompactList}\item 
+const char $\ast$ {\bf get\-Source\-Name} () const\label{classSyncSourceReport_67aa0f387e2022aadf64c5c2d4f77f76}
+
+\begin{CompactList}\small\item\em the unique name of the source that this report is about \item\end{CompactList}\item 
+void \textbf{set\-Last\-Error\-Code} (const int code)\label{classSyncSourceReport_58fbd77f14dd7195644ade9b3cec95d8}
+
+\item 
+void \textbf{set\-State} (const {\bf Source\-State} s)\label{classSyncSourceReport_1ae6d2ea30667548c52f0d70329b9151}
+
+\item 
+void \textbf{set\-Last\-Error\-Msg} (const char $\ast$msg)\label{classSyncSourceReport_7be524a4b5d93990c84444118e51275a}
+
+\item 
+void \textbf{set\-Source\-Name} (const char $\ast$name)\label{classSyncSourceReport_2caa1bae2c5abc5f148af8483e2a13f7}
+
+\item 
+bool {\bf check\-State} ()
+\begin{CompactList}\small\item\em Check the state of this source. \item\end{CompactList}\item 
+Item\-Report $\ast$ {\bf get\-Item\-Report} (const char $\ast$target, const char $\ast$command, int index)
+\begin{CompactList}\small\item\em Get internal pointer to a specific Item\-Report. \item\end{CompactList}\item 
+int {\bf get\-Item\-Report\-Count} (const char $\ast$target, const char $\ast$command)
+\begin{CompactList}\small\item\em Return the total number of Item\-Report for a specific list. \item\end{CompactList}\item 
+int \textbf{get\-Item\-Report\-Successful\-Count} (const char $\ast$target, const char $\ast$command)\label{classSyncSourceReport_fb6d09abe59fd866e61f3038f236f1fa}
+
+\item 
+int \textbf{get\-Item\-Report\-Failed\-Count} (const char $\ast$target, const char $\ast$command)\label{classSyncSourceReport_7306882f953791c3cc62d8450d4a2d36}
+
+\item 
+int \textbf{get\-Item\-Report\-Already\-Exist\-Count} (const char $\ast$target, const char $\ast$command)\label{classSyncSourceReport_5dcb192c63c1f6f503d6c07037809725}
+
+\item 
+void {\bf add\-Item} (const char $\ast$target, const char $\ast$command, const WCHAR $\ast$ID, const int status, const WCHAR $\ast$status\-Message)
+\begin{CompactList}\small\item\em Used to add an Item\-Report to a specific list. \item\end{CompactList}\item 
+Array\-List $\ast$ {\bf get\-List} (const char $\ast$target, const char $\ast$command) const
+\begin{CompactList}\small\item\em Utility to switch on the right list, based on target and command. \item\end{CompactList}\item 
+{\bf Sync\-Source\-Report} \& {\bf operator=} (const {\bf Sync\-Source\-Report} \&ssr)\label{classSyncSourceReport_8895789c29a200bff4b7500633cf5fa5}
+
+\begin{CompactList}\small\item\em Assign operator. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Attributes}
+\begin{CompactItemize}
+\item 
+static const char $\ast$const {\bf targets} [$\,$]\label{classSyncSourceReport_c73bf43322feb0fc6c32a2e7c8e26aa7}
+
+\begin{CompactList}\small\item\em all valid strings for \char`\"{}target\char`\"{}, NULL terminated \item\end{CompactList}\item 
+static const char $\ast$const {\bf commands} [$\,$]\label{classSyncSourceReport_751e471150cbfdaf31f180c9c793118a}
+
+\begin{CompactList}\small\item\em all valid strings for \char`\"{}command\char`\"{}, NULL terminated \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Sync\-Source\-Report}{p.}{classSyncSourceReport} class rapresents the report of each \doxyref{Sync\-Source}{p.}{classSyncSource} synchronized. 
+
+It is used to store the sync results for a specific syncsource, its state (active/inactive/error) and the status of each item synchronized (both on client and server side). 
+
+
+
+\subsection{Member Function Documentation}
+\index{SyncSourceReport@{Sync\-Source\-Report}!checkState@{checkState}}
+\index{checkState@{checkState}!SyncSourceReport@{Sync\-Source\-Report}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Sync\-Source\-Report::check\-State ()}\label{classSyncSourceReport_05593bfead8d38f05c45ca85f53d8c85}
+
+
+Check the state of this source. 
+
+Returns true if source is active (state = SOURCE\_\-ACTIVE). \index{SyncSourceReport@{Sync\-Source\-Report}!getItemReport@{getItemReport}}
+\index{getItemReport@{getItemReport}!SyncSourceReport@{Sync\-Source\-Report}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Item\-Report$\ast$ Sync\-Source\-Report::get\-Item\-Report (const char $\ast$ {\em target}, const char $\ast$ {\em command}, int {\em index})}\label{classSyncSourceReport_19f49755022240d31ca35ba3c185e494}
+
+
+Get internal pointer to a specific Item\-Report. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em target}]to select if client/server side (values = CLIENT - SERVER) \item[{\em command}]to select the desired list of Item\-Report (values = Add - Replace - Delete) \item[{\em index}]the index of desired item inside the list \end{description}
+\end{Desc}
+\index{SyncSourceReport@{Sync\-Source\-Report}!getItemReportCount@{getItemReportCount}}
+\index{getItemReportCount@{getItemReportCount}!SyncSourceReport@{Sync\-Source\-Report}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Sync\-Source\-Report::get\-Item\-Report\-Count (const char $\ast$ {\em target}, const char $\ast$ {\em command})}\label{classSyncSourceReport_ee8f57d6e45f481a4a4575ceb4283bb8}
+
+
+Return the total number of Item\-Report for a specific list. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em target}]to select if client/server side (values = CLIENT - SERVER) \item[{\em command}]to select the desired list of Item\-Report (values = Add - Replace - Delete) \end{description}
+\end{Desc}
+\index{SyncSourceReport@{Sync\-Source\-Report}!addItem@{addItem}}
+\index{addItem@{addItem}!SyncSourceReport@{Sync\-Source\-Report}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Sync\-Source\-Report::add\-Item (const char $\ast$ {\em target}, const char $\ast$ {\em command}, const WCHAR $\ast$ {\em ID}, const int {\em status}, const WCHAR $\ast$ {\em status\-Message})}\label{classSyncSourceReport_4d95c1817671c5100e0ce77ea9037c8c}
+
+
+Used to add an Item\-Report to a specific list. 
+
+This function is called inside API to store the status of each item added/modified/deleted on client and on server.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em target}]to select if client/server side (values = CLIENT - SERVER) \item[{\em command}]to select the desired list of Item\-Report (values = Add - Replace - Delete) \item[{\em ID}]the LUID of item (used to create the Item\-Report element) \item[{\em status}]the status code of the operation (used to create the Item\-Report element) \item[{\em status\-Message}]the status message associated to the operation (used to create the Item\-Report element) \end{description}
+\end{Desc}
+\index{SyncSourceReport@{Sync\-Source\-Report}!getList@{getList}}
+\index{getList@{getList}!SyncSourceReport@{Sync\-Source\-Report}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Array\-List$\ast$ Sync\-Source\-Report::get\-List (const char $\ast$ {\em target}, const char $\ast$ {\em command}) const}\label{classSyncSourceReport_3ad6b4ff3e40d9aff66309a51121e527}
+
+
+Utility to switch on the right list, based on target and command. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em target}]to select if client/server side (values = CLIENT - SERVER) \item[{\em command}]to select the desired list of Item\-Report (values = Add - Replace - Delete) \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]a pointer to the desired Array\-List \end{Desc}
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/common/spds/Sync\-Source\-Report.h\end{CompactItemize}

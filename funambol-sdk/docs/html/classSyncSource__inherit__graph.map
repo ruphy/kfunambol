@@ -1,0 +1,5 @@
+base referer
+rect $classCacheSyncSource.html 47,82 185,106
+rect $classFileSyncSource.html 231,82 351,106
+rect $classBriefcaseCacheSyncSource.html 5,156 205,180
+rect $classRawFileSyncSource.html 229,156 376,180

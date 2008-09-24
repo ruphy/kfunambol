@@ -1,0 +1,171 @@
+\section{Sync\-Tests Class Reference}
+\label{classSyncTests}\index{SyncTests@{SyncTests}}
+Tests synchronization with one or more sync sources enabled.  
+
+
+{\tt \#include $<$Client\-Test.h$>$}
+
+Collaboration diagram for Sync\-Tests:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=97pt]{classSyncTests__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\textbf{Sync\-Tests} (const std::string \&name, {\bf Client\-Test} \&cl, std::vector$<$ int $>$ source\-Indices, bool is\-Client\-A=true)\label{group__ClientTest_g8151b4754ebada4c91ba7b3357c09340}
+
+\item 
+virtual void {\bf add\-Tests} ()\label{group__ClientTest_g0c115370b643f0ae29651ec5eca96ac6}
+
+\begin{CompactList}\small\item\em adds the supported tests to the instance itself \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+{\bf Client\-Test} \& {\bf client}\label{classSyncTests_6aaa2b713f873e4da6aee849f47c16b2}
+
+\begin{CompactList}\small\item\em the client we are testing \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Types}
+\begin{CompactItemize}
+\item 
+enum {\bf Delete\-All\-Mode} \{ {\bf DELETE\_\-ALL\_\-SYNC}, 
+{\bf DELETE\_\-ALL\_\-REFRESH}
+ \}
+\item 
+typedef std::vector$<$ std::pair$<$ int, {\bf Local\-Tests} $\ast$ $>$ $>$::iterator \textbf{source\_\-it}\label{classSyncTests_849ab2af78fa353b89f931fc733fd7f9}
+
+\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+virtual void {\bf compare\-Databases} ()\label{group__ClientTest_g9a35819a2444dfc014d80829e3e66854}
+
+\begin{CompactList}\small\item\em compare databases of first and second client \item\end{CompactList}\item 
+virtual void {\bf delete\-All} ({\bf Delete\-All\-Mode} mode=DELETE\_\-ALL\_\-SYNC)\label{group__ClientTest_gbee1a8b27486370ceaf62de22484f860}
+
+\begin{CompactList}\small\item\em deletes all items locally and on server \item\end{CompactList}\item 
+virtual void {\bf do\-Copy} ()\label{group__ClientTest_g277e3859a0a4a53e6aaf07be7e9f2270}
+
+\begin{CompactList}\small\item\em get both clients in sync with empty server, then copy one item from client A to B \item\end{CompactList}\item 
+virtual void {\bf refresh\-Client} ()\label{group__ClientTest_g6b95430e46d700d243c0bc6183af857c}
+
+\begin{CompactList}\small\item\em replicate server database locally: same as SYNC\_\-REFRESH\_\-FROM\_\-SERVER, but done with explicit local delete and then a SYNC\_\-SLOW because some servers do no support SYNC\_\-REFRESH\_\-FROM\_\-SERVER \item\end{CompactList}\item 
+virtual void \textbf{test\-Two\-Way\-Sync} ()\label{classSyncTests_5d65383d1d695301aacf08172a774a65}
+
+\item 
+virtual void \textbf{test\-Slow\-Sync} ()\label{classSyncTests_ca550efdbb28395da20a9b11ecaddb39}
+
+\item 
+virtual void \textbf{test\-Refresh\-From\-Server\-Sync} ()\label{classSyncTests_91fe05db8e8401409b89e58555117bcb}
+
+\item 
+virtual void \textbf{test\-Refresh\-From\-Client\-Sync} ()\label{classSyncTests_7c281135d0c8d4dc40b85174863acb38}
+
+\item 
+virtual void \textbf{test\-Delete\-All\-Sync} ()\label{classSyncTests_c86ac790fbd9f6831d6c5d34f972f52a}
+
+\item 
+virtual void \textbf{test\-Delete\-All\-Refresh} ()\label{group__ClientTest_g4007a8f7fc5f6eef8c4f8b4957b6a2ef}
+
+\item 
+virtual void \textbf{test\-Refresh\-Semantic} ()\label{group__ClientTest_g88497822126fdca142e29c13798b3170}
+
+\item 
+virtual void \textbf{test\-Refresh\-Status} ()\label{group__ClientTest_g593aab56531693a8ea4e1333aa0d07cf}
+
+\item 
+void \textbf{test\-Copy} ()\label{classSyncTests_eaca36a84f49613054f3bf6fac462bce}
+
+\item 
+virtual void \textbf{test\-Update} ()\label{group__ClientTest_g5649b3f5b06d88f0f1778a4a223c1bdc}
+
+\item 
+virtual void \textbf{test\-Complex\-Update} ()\label{group__ClientTest_g2dabee0fa3793d4ffd0ce88687f2ff48}
+
+\item 
+virtual void \textbf{test\-Delete} ()\label{group__ClientTest_ga24dfca5868f14752ea9a166b0343bba}
+
+\item 
+virtual void \textbf{test\-Merge} ()\label{group__ClientTest_g7c550ddd9d45d65777407b9c737302b8}
+
+\item 
+virtual void \textbf{test\-Twinning} ()\label{group__ClientTest_g8886b48ecb10aa8095cb8c241c73bc4f}
+
+\item 
+virtual void \textbf{test\-One\-Way\-From\-Server} ()\label{group__ClientTest_g848f373e16d8147f91d317c305727d99}
+
+\item 
+virtual void \textbf{test\-One\-Way\-From\-Client} ()\label{group__ClientTest_g6cbd4840faf86736f179b2fdbe1cdeb5}
+
+\item 
+virtual void \textbf{test\-Items} ()\label{group__ClientTest_g7cf4398a50d643e0008917183cd4fc80}
+
+\item 
+virtual void \textbf{test\-Add\-Update} ()\label{group__ClientTest_g543f7ddc2a38b12121f8ba645938e01d}
+
+\item 
+void \textbf{test\-Max\-Msg} ()\label{classSyncTests_c8cfb5aca7308562850d5885e75316c9}
+
+\item 
+void \textbf{test\-Large\-Object} ()\label{classSyncTests_afea187949b8a6e6561dd4272e9b51e0}
+
+\item 
+void \textbf{test\-Large\-Object\-Bin} ()\label{classSyncTests_61906edf547721a974ad84477249350e}
+
+\item 
+void \textbf{test\-Large\-Object\-Encoded} ()\label{classSyncTests_eed075d55f0596cdbedfd02723e076b6}
+
+\item 
+virtual void \textbf{test\-Many\-Items} ()\label{group__ClientTest_g7c3fcd639c65121b128297b98bf61f2e}
+
+\item 
+virtual void {\bf do\-Var\-Sizes} (bool with\-Max\-Msg\-Size, bool with\-Large\-Object, const char $\ast$encoding)\label{group__ClientTest_gb52b1e85cb76057d7f7cb44d63945536}
+
+\begin{CompactList}\small\item\em implements test\-Max\-Msg(), test\-Large\-Object(), test\-Large\-Object\-Encoded() using a sequence of items with varying sizes \item\end{CompactList}\item 
+virtual void {\bf sync} (Sync\-Mode sync\-Mode, const std::string \&logprefix=\char`\"{}\char`\"{}, {\bf Check\-Sync\-Report} check\-Report={\bf Check\-Sync\-Report}(), long max\-Msg\-Size=0, long max\-Obj\-Size=0, bool lo\-Support=false, const char $\ast$encoding=\char`\"{}\char`\"{})\label{group__ClientTest_g5c9078363c9e5d1e0b1cad7007bf6131}
+
+\begin{CompactList}\small\item\em executes a sync with the given options, checks the result and (optionally) the sync report \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+std::vector$<$ std::pair$<$ int, {\bf Local\-Tests} $\ast$ $>$ $>$ {\bf sources}\label{classSyncTests_c37f171e5e07499ec58739d85f892a10}
+
+\begin{CompactList}\small\item\em list with all local test classes for manipulating the sources and their index in the client \item\end{CompactList}\item 
+int $\ast$ {\bf source\-Array}\label{classSyncTests_108e6389fff7168de427eb83b3b91e00}
+
+\begin{CompactList}\small\item\em the indices from sources, terminated by -1 (for \doxyref{sync()}{p.}{group__ClientTest_g5c9078363c9e5d1e0b1cad7007bf6131}) \item\end{CompactList}\item 
+{\bf Sync\-Tests} $\ast$ {\bf access\-Client\-B}\label{classSyncTests_544aedf6c98119a1a280a3135e266129}
+
+\begin{CompactList}\small\item\em utility functions for second client \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Tests synchronization with one or more sync sources enabled. 
+
+When testing multiple sources at once only the first config is checked to see which tests can be executed. 
+
+
+
+\subsection{Member Enumeration Documentation}
+\index{SyncTests@{Sync\-Tests}!DeleteAllMode@{DeleteAllMode}}
+\index{DeleteAllMode@{DeleteAllMode}!SyncTests@{Sync\-Tests}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Sync\-Tests::Delete\-All\-Mode}\hspace{0.3cm}{\tt  [protected]}}\label{classSyncTests_6907e65c7f34448d1236e763104ab158}
+
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{DELETE_ALL_SYNC@{DELETE\_\-ALL\_\-SYNC}!SyncTests@{SyncTests}}\index{SyncTests@{SyncTests}!DELETE_ALL_SYNC@{DELETE\_\-ALL\_\-SYNC}}\item[{\em 
+DELETE\_\-ALL\_\-SYNC\label{classSyncTests_6907e65c7f34448d1236e763104ab158f7cc1432c88d346726caedd7a05fd27c}
+}]make sure client and server are in sync, delete locally, sync again \index{DELETE_ALL_REFRESH@{DELETE\_\-ALL\_\-REFRESH}!SyncTests@{SyncTests}}\index{SyncTests@{SyncTests}!DELETE_ALL_REFRESH@{DELETE\_\-ALL\_\-REFRESH}}\item[{\em 
+DELETE\_\-ALL\_\-REFRESH\label{classSyncTests_6907e65c7f34448d1236e763104ab158a90b6ed9d9af1565daccf70533e7706c}
+}]delete locally, refresh server \end{description}
+\end{Desc}
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+test/Client\-Test.h\item 
+test/Client\-Test.cpp\end{CompactItemize}

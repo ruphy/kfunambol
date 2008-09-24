@@ -1,0 +1,112 @@
+\section{Win\-Contact\-SIF Class Reference}
+\label{classWinContactSIF}\index{WinContactSIF@{WinContactSIF}}
+Rapresents a contact object for Windows Clients, in SIF format.  
+
+
+{\tt \#include $<$wincontactsif.h$>$}
+
+Inheritance diagram for Win\-Contact\-SIF:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=66pt]{classWinContactSIF__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Win\-Contact\-SIF:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=66pt]{classWinContactSIF__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Win\-Contact\-SIF} ()\label{classWinContactSIF_9e21c9ba164c045908e5bbee5d59d383}
+
+\begin{CompactList}\small\item\em Default Constructor. \item\end{CompactList}\item 
+{\bf Win\-Contact\-SIF} (const wstring data\-String, const wchar\_\-t $\ast$$\ast$fields)
+\begin{CompactList}\small\item\em Constructor: fills property\-Map parsing the passed SIF. \item\end{CompactList}\item 
+{\bf $\sim$Win\-Contact\-SIF} ()\label{classWinContactSIF_93c4943ff360726a01b2ca430143c025}
+
+\begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\item 
+int {\bf parse} (const wstring data\-String)
+\begin{CompactList}\small\item\em Parse a v\-Card string and fills the property\-Map. \item\end{CompactList}\item 
+wstring \& {\bf to\-String} ()
+\begin{CompactList}\small\item\em Format and return a SIF string from the property\-Map. \item\end{CompactList}\item 
+void {\bf add\-Photo\-To\-SIF} (wstring property\-Value)\label{classWinContactSIF_6add2ae8b919b97907c3207d1a6ec0d0}
+
+\begin{CompactList}\small\item\em Adds a tag $<$Photo type=\char`\"{}JPEG\char`\"{}$>$Property\-Value$<$/Photo$>$ into 'sif' string. \item\end{CompactList}\item 
+wstring {\bf adapt\-To\-SIFSpecs} (const wstring \&prop\-Name, const wstring \&prop\-Value)
+\begin{CompactList}\small\item\em Transform the value of the specified property according to the SIF specifications. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Rapresents a contact object for Windows Clients, in SIF format. 
+
+The object can be filled passing a SIF string, or filling directly the map. Calling 'to\-String()' a SIF is formatted and returned. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{WinContactSIF@{Win\-Contact\-SIF}!WinContactSIF@{WinContactSIF}}
+\index{WinContactSIF@{WinContactSIF}!WinContactSIF@{Win\-Contact\-SIF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Win\-Contact\-SIF::Win\-Contact\-SIF (const wstring {\em data\-String}, const wchar\_\-t $\ast$$\ast$ {\em fields})}\label{classWinContactSIF_246fd55a1234e3bb60fdcd0677b70430}
+
+
+Constructor: fills property\-Map parsing the passed SIF. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em data\-String}]the input SIF string \item[{\em fields}]the NULL terminated array of SIF fields \end{description}
+\end{Desc}
+
+
+\subsection{Member Function Documentation}
+\index{WinContactSIF@{Win\-Contact\-SIF}!parse@{parse}}
+\index{parse@{parse}!WinContactSIF@{Win\-Contact\-SIF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Win\-Contact\-SIF::parse (const wstring {\em data\-String})\hspace{0.3cm}{\tt  [virtual]}}\label{classWinContactSIF_c35fd82ecb504bd46c2c7a590943a168}
+
+
+Parse a v\-Card string and fills the property\-Map. 
+
+The map is cleared and will contain only found properties at the end of the parsing. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em data\-String}]input SIF string to be parsed \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 if no errors \end{Desc}
+
+
+Reimplemented from {\bf Win\-Contact} \doxyref{}{p.}{classWinContact_0958c3a8b77fb4370a02866d3ad745f2}.\index{WinContactSIF@{Win\-Contact\-SIF}!toString@{toString}}
+\index{toString@{toString}!WinContactSIF@{Win\-Contact\-SIF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}wstring\& Win\-Contact\-SIF::to\-String ()\hspace{0.3cm}{\tt  [virtual]}}\label{classWinContactSIF_3aadf2527bebb869d5159f34120d7978}
+
+
+Format and return a SIF string from the property\-Map. 
+
+Not supported properties are ignored and so not formatted as they don't have a correspondence in property\-Map. \begin{Desc}
+\item[Returns:]the SIF string formatted, reference to internal wstring \end{Desc}
+
+
+Reimplemented from {\bf Win\-Contact} \doxyref{}{p.}{classWinContact_8010235f582c4ba2c35dca9bd951720f}.\index{WinContactSIF@{Win\-Contact\-SIF}!adaptToSIFSpecs@{adaptToSIFSpecs}}
+\index{adaptToSIFSpecs@{adaptToSIFSpecs}!WinContactSIF@{Win\-Contact\-SIF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}wstring Win\-Contact\-SIF::adapt\-To\-SIFSpecs (const wstring \& {\em prop\-Name}, const wstring \& {\em prop\-Value})}\label{classWinContactSIF_83d8f7e7bb422ba44d18977fc069280f}
+
+
+Transform the value of the specified property according to the SIF specifications. 
+
+The values are formatted following the vcard and icalendar specs that in some cases they are different from the SIF expectations. If there are no differences, prop\-Value is returned.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em prop\-Name}][IN] the property name \item[{\em prop\-Value}][IN] the property value \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the converted value if necessary \end{Desc}
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/windows/vocl/wincontactsif.h\end{CompactItemize}

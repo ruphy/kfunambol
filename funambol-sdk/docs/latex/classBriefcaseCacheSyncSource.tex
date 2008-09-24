@@ -1,0 +1,173 @@
+\section{Briefcase\-Cache\-Sync\-Source Class Reference}
+\label{classBriefcaseCacheSyncSource}\index{BriefcaseCacheSyncSource@{BriefcaseCacheSyncSource}}
+Synchronizes the content of files in a certain directory and handles the modification and cache or listener structure.  
+
+
+{\tt \#include $<$Briefcase\-Cache\-Sync\-Source.h$>$}
+
+Inheritance diagram for Briefcase\-Cache\-Sync\-Source:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=97pt]{classBriefcaseCacheSyncSource__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Briefcase\-Cache\-Sync\-Source:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{classBriefcaseCacheSyncSource__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\textbf{Briefcase\-Cache\-Sync\-Source} (const WCHAR $\ast$name, {\bf Abstract\-Sync\-Source\-Config} $\ast$sc)\label{classBriefcaseCacheSyncSource_fc5fc95bc97fbc2b5b865721433f06bf}
+
+\item 
+void \textbf{assign} ({\bf Briefcase\-Cache\-Sync\-Source} \&s)\label{classBriefcaseCacheSyncSource_56676fc2447320091b1f02a94de5c378}
+
+\item 
+void {\bf set\-Dir} (const char $\ast$p)\label{classBriefcaseCacheSyncSource_75f16798e97cfbf7b9907b55a3e8097c}
+
+\begin{CompactList}\small\item\em set/get the directory where to sync the files \item\end{CompactList}\item 
+const String\-Buffer \& \textbf{get\-Dir} ()\label{classBriefcaseCacheSyncSource_ba3c1988995d66b409166f6f49fe00fb}
+
+\item 
+int {\bf save\-File\-Data} (File\-Data \&file)
+\begin{CompactList}\small\item\em Save the file inside the filesystem. \item\end{CompactList}\item 
+int {\bf save\-File\-Data} (Sync\-Item \&item, bool is\-Update)
+\begin{CompactList}\small\item\em Save the file inside the filesystem. \item\end{CompactList}\item 
+int {\bf parse\-File\-Data} (File\-Data \&file, Sync\-Item \&item)\label{classBriefcaseCacheSyncSource_794442b789a844d6f255025745ca2708}
+
+\begin{CompactList}\small\item\em Parse the file object Return 0 is success otherwise failure. \item\end{CompactList}\item 
+{\bf Enumeration} $\ast$ {\bf get\-All\-Item\-List} ()
+\begin{CompactList}\small\item\em Get the list of all the keys stored in a String\-Buffer. \item\end{CompactList}\item 
+int {\bf remove\-All\-Items} ()
+\begin{CompactList}\small\item\em Removes all the item of the sync source. \item\end{CompactList}\item 
+int {\bf insert\-Item} (Sync\-Item \&item)
+\begin{CompactList}\small\item\em Called by the sync engine to add an item that the server has sent. \item\end{CompactList}\item 
+int {\bf modify\-Item} (Sync\-Item \&item)
+\begin{CompactList}\small\item\em Called by the sync engine to update an item that the source already should have. \item\end{CompactList}\item 
+int {\bf remove\-Item} (Sync\-Item \&item)
+\begin{CompactList}\small\item\em Called by the sync engine to update an item that the source already should have. \item\end{CompactList}\item 
+void $\ast$ {\bf get\-Item\-Content} (String\-Buffer \&key, size\_\-t $\ast$size)
+\begin{CompactList}\small\item\em Get the content of an item given the key. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Synchronizes the content of files in a certain directory and handles the modification and cache or listener structure. 
+
+
+
+\subsection{Member Function Documentation}
+\index{BriefcaseCacheSyncSource@{Briefcase\-Cache\-Sync\-Source}!saveFileData@{saveFileData}}
+\index{saveFileData@{saveFileData}!BriefcaseCacheSyncSource@{Briefcase\-Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Briefcase\-Cache\-Sync\-Source::save\-File\-Data (File\-Data \& {\em file})}\label{classBriefcaseCacheSyncSource_23465b0598293b417347c91881a5e935}
+
+
+Save the file inside the filesystem. 
+
+Return 0 is success otherwise failure \index{BriefcaseCacheSyncSource@{Briefcase\-Cache\-Sync\-Source}!saveFileData@{saveFileData}}
+\index{saveFileData@{saveFileData}!BriefcaseCacheSyncSource@{Briefcase\-Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Briefcase\-Cache\-Sync\-Source::save\-File\-Data (Sync\-Item \& {\em item}, bool {\em is\-Update})}\label{classBriefcaseCacheSyncSource_2e0f4fbc1ee18d0bd43678fff6c3d24e}
+
+
+Save the file inside the filesystem. 
+
+It doesn't use the File\-Data Sync\-MLobject but it uses only the data as inside
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em item}]the item from which get the data \item[{\em is\-Update}]it says if the item must to be add (false) or updated (true) \end{description}
+\end{Desc}
+\index{BriefcaseCacheSyncSource@{Briefcase\-Cache\-Sync\-Source}!getAllItemList@{getAllItemList}}
+\index{getAllItemList@{getAllItemList}!BriefcaseCacheSyncSource@{Briefcase\-Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Enumeration}$\ast$ Briefcase\-Cache\-Sync\-Source::get\-All\-Item\-List ()\hspace{0.3cm}{\tt  [virtual]}}\label{classBriefcaseCacheSyncSource_b36960ad1297b0d2886ca40c3bee83ee}
+
+
+Get the list of all the keys stored in a String\-Buffer. 
+
+It reads all the files name in the directory. The directory is set in the sync source. 
+
+Implements {\bf Cache\-Sync\-Source} \doxyref{}{p.}{classCacheSyncSource_4948e75960aac2250617013f0f2c9d74}.\index{BriefcaseCacheSyncSource@{Briefcase\-Cache\-Sync\-Source}!removeAllItems@{removeAllItems}}
+\index{removeAllItems@{removeAllItems}!BriefcaseCacheSyncSource@{Briefcase\-Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Briefcase\-Cache\-Sync\-Source::remove\-All\-Items ()\hspace{0.3cm}{\tt  [virtual]}}\label{classBriefcaseCacheSyncSource_3f38994c8e59342a30de5ad793df3fb6}
+
+
+Removes all the item of the sync source. 
+
+It is called by the engine in the case of a refresh from server to clean all the client items before receiving the server ones. 
+
+Implements {\bf Sync\-Source} \doxyref{}{p.}{classSyncSource_cca2caca3163f7cb179f3e38c188f5f7}.\index{BriefcaseCacheSyncSource@{Briefcase\-Cache\-Sync\-Source}!insertItem@{insertItem}}
+\index{insertItem@{insertItem}!BriefcaseCacheSyncSource@{Briefcase\-Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Briefcase\-Cache\-Sync\-Source::insert\-Item (Sync\-Item \& {\em item})\hspace{0.3cm}{\tt  [virtual]}}\label{classBriefcaseCacheSyncSource_6e9a42186fb534603f13eca46f5e4b7f}
+
+
+Called by the sync engine to add an item that the server has sent. 
+
+The sync source is expected to add it to its database, then set the key to the local key assigned to the new item. Alternatively the sync source can match the new item against one of the existing items and return that key.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em item}]the item as sent by the server \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Sync\-ML status code \end{Desc}
+
+
+Implements {\bf Cache\-Sync\-Source} \doxyref{}{p.}{classCacheSyncSource_0e7c91c6433cfe60e82bd35cada23c56}.\index{BriefcaseCacheSyncSource@{Briefcase\-Cache\-Sync\-Source}!modifyItem@{modifyItem}}
+\index{modifyItem@{modifyItem}!BriefcaseCacheSyncSource@{Briefcase\-Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Briefcase\-Cache\-Sync\-Source::modify\-Item (Sync\-Item \& {\em item})\hspace{0.3cm}{\tt  [virtual]}}\label{classBriefcaseCacheSyncSource_72d88d657c489787e260501400dddb5c}
+
+
+Called by the sync engine to update an item that the source already should have. 
+
+The item's key is the local key of that item.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em item}]the item as sent by the server \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Sync\-ML status code \end{Desc}
+
+
+Implements {\bf Cache\-Sync\-Source} \doxyref{}{p.}{classCacheSyncSource_45760711354feddb886c863598e2a9d2}.\index{BriefcaseCacheSyncSource@{Briefcase\-Cache\-Sync\-Source}!removeItem@{removeItem}}
+\index{removeItem@{removeItem}!BriefcaseCacheSyncSource@{Briefcase\-Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Briefcase\-Cache\-Sync\-Source::remove\-Item (Sync\-Item \& {\em item})\hspace{0.3cm}{\tt  [virtual]}}\label{classBriefcaseCacheSyncSource_6a1c2465b05c14df5659dc1f2573da8a}
+
+
+Called by the sync engine to update an item that the source already should have. 
+
+The item's key is the local key of that item, no data is provided.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em item}]the item as sent by the server \end{description}
+\end{Desc}
+
+
+Implements {\bf Cache\-Sync\-Source} \doxyref{}{p.}{classCacheSyncSource_341c8c4bba5999016c01087f25c76f13}.\index{BriefcaseCacheSyncSource@{Briefcase\-Cache\-Sync\-Source}!getItemContent@{getItemContent}}
+\index{getItemContent@{getItemContent}!BriefcaseCacheSyncSource@{Briefcase\-Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Briefcase\-Cache\-Sync\-Source::get\-Item\-Content (String\-Buffer \& {\em key}, size\_\-t $\ast$ {\em size})\hspace{0.3cm}{\tt  [virtual]}}\label{classBriefcaseCacheSyncSource_dde4fdd141c7ec9beffce33fca26ab42}
+
+
+Get the content of an item given the key. 
+
+It is used to populate the Sync\-Item before the engine uses it in the usual flow of the sync. It is used also by the item\-Handler if needed (i.e. in the cache implementation)
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em key}]the local key of the item \item[{\em size}]OUT: the size of the content \end{description}
+\end{Desc}
+
+
+Implements {\bf Cache\-Sync\-Source} \doxyref{}{p.}{classCacheSyncSource_165f9c680c238d15c72b173c4950c1c2}.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/common/examples/Briefcase\-Cache\-Sync\-Source.h\end{CompactItemize}

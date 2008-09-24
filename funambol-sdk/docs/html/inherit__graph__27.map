@@ -1,0 +1,13 @@
+base referer
+rect $classWinItem.html 7,126 81,150
+rect $classWinContact.html 144,6 240,30
+rect $classWinEvent.html 151,54 233,78
+rect $classWinNote.html 153,102 231,126
+rect $classWinRecipient.html 139,150 245,174
+rect $classWinRecurrence.html 132,198 252,222
+rect $classWinTask.html 155,246 229,270
+rect $classWinContactSIF.html 313,6 431,30
+rect $classWinEventSIF.html 320,54 424,78
+rect $classWinNoteSIF.html 324,102 420,126
+rect $classWinRecurrenceSIF.html 303,198 441,222
+rect $classWinTaskSIF.html 325,246 419,270

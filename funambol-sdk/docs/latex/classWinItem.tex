@@ -1,0 +1,222 @@
+\section{Win\-Item Class Reference}
+\label{classWinItem}\index{WinItem@{WinItem}}
+Rapresents an item object for Windows Clients.  
+
+
+{\tt \#include $<$Win\-Item.h$>$}
+
+Inheritance diagram for Win\-Item:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{classWinItem__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Win\-Item} ()\label{classWinItem_3e54e49284023f63f5aa8f373f9eeb3e}
+
+\begin{CompactList}\small\item\em Default Constructor. \item\end{CompactList}\item 
+virtual {\bf $\sim$Win\-Item} ()\label{classWinItem_946dd98be725b3fb0221803ebda5ad22}
+
+\begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\item 
+int {\bf get\-Property\-Map\-Size} ()\label{classWinItem_30bc79a71f532125ad17bf1476f24628}
+
+\begin{CompactList}\small\item\em Returns the size of property\-Map;. \item\end{CompactList}\item 
+map$<$ wstring, wstring $>$ \& {\bf get\-Property\-Map} ()\label{classWinItem_ea8c94e0511eb9b25ef3a984bf84d23e}
+
+\begin{CompactList}\small\item\em Returns a reference to the internal property\-Map. \item\end{CompactList}\item 
+void {\bf set\-Property} (const wstring property\-Name, const wstring property\-Value)
+\begin{CompactList}\small\item\em Sets a property value of name 'property\-Name'. \item\end{CompactList}\item 
+void {\bf set\-Int\-Property} (const wstring property\-Name, const int int\-Value)
+\begin{CompactList}\small\item\em Sets a integer property value of name 'property\-Name'. \item\end{CompactList}\item 
+bool {\bf get\-Property} (const wstring property\-Name, wstring \&property\-Value)
+\begin{CompactList}\small\item\em Gets a property value from its name. \item\end{CompactList}\item 
+wstring \& {\bf get\-Property\-Ref} (const wstring property\-Name, bool $\ast$found)
+\begin{CompactList}\small\item\em Gets a property value from its name. \item\end{CompactList}\item 
+bool {\bf get\-Int\-Property} (const wstring property\-Name, int $\ast$int\-Value)
+\begin{CompactList}\small\item\em Gets a property value from its name, and convert into a integer value. \item\end{CompactList}\item 
+void \textbf{remove\-Element} (wstring key)\label{classWinItem_6b2bf63a16f2f8d598977632b20941b0}
+
+\item 
+void {\bf reset\-Property\-Map} ()\label{classWinItem_ec1b28ce1cfbaf52820752085aa2ae59}
+
+\begin{CompactList}\small\item\em Reset the property\-Map (clear all rows). \item\end{CompactList}\item 
+void {\bf reset\-All\-Values} ()\label{classWinItem_295c1a5a083f389d76a3fb199e7b395a}
+
+\begin{CompactList}\small\item\em Reset all fields values of the property\-Map (only values). \item\end{CompactList}\item 
+virtual wstring \& {\bf to\-String} ()=0
+\begin{CompactList}\small\item\em Format and return a string from the property\-Map. \item\end{CompactList}\item 
+virtual int {\bf parse} (const wstring data\-String)=0
+\begin{CompactList}\small\item\em Parse a string and fills the property\-Map. \item\end{CompactList}\item 
+virtual long {\bf get\-CRC} ()
+\begin{CompactList}\small\item\em Return the crc value of the internal map with all values. \item\end{CompactList}\item 
+WCHAR $\ast$ {\bf get\-VObject\-Property\-Value} (VObject $\ast$vo, const WCHAR $\ast$property\-Name)
+\begin{CompactList}\small\item\em Utility to safe-retrieve the property value inside VObject 'vo'. \item\end{CompactList}\item 
+virtual wstring \& {\bf get\-Name} ()
+\begin{CompactList}\small\item\em Util function that returns the name of the item, usually the \char`\"{}Subject\char`\"{} property. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+map$<$ wstring, wstring $>$ {\bf property\-Map}
+\begin{CompactList}\small\item\em Map $<$property\-Name, property\-Value$>$ of props exchanged. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{CompactItemize}
+\item 
+static unsigned long {\bf crc32Table} [256]\label{classWinItem_68b806ed50cc158d4e78fbf3308f7225}
+
+\begin{CompactList}\small\item\em The table used to calculate the crc. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Rapresents an item object for Windows Clients. 
+
+Contains a map of $<$property\-Name,property\-Value$>$ for all properties exchanged and methods to get/set them. 
+
+
+
+\subsection{Member Function Documentation}
+\index{WinItem@{Win\-Item}!setProperty@{setProperty}}
+\index{setProperty@{setProperty}!WinItem@{Win\-Item}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Win\-Item::set\-Property (const wstring {\em property\-Name}, const wstring {\em property\-Value})}\label{classWinItem_7e3bf23d883ca1bc1a5da1a0ea365614}
+
+
+Sets a property value of name 'property\-Name'. 
+
+Stores the value into the property\-Map, adds a new row $<$name, value$>$ if the property is not found, otherwise existing value is overwritten. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em property\-Name}]the name of property to set \item[{\em property\-Value}]the value of property to set \end{description}
+\end{Desc}
+\index{WinItem@{Win\-Item}!setIntProperty@{setIntProperty}}
+\index{setIntProperty@{setIntProperty}!WinItem@{Win\-Item}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Win\-Item::set\-Int\-Property (const wstring {\em property\-Name}, const int {\em int\-Value})}\label{classWinItem_40dbe2cb8af486ed67ea7702d3178746}
+
+
+Sets a integer property value of name 'property\-Name'. 
+
+Like 'set\-Property', but the input value is integer and it's formatted into a string. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em property\-Name}]the name of property to set \item[{\em property\-Value}]the integer value of property to set \end{description}
+\end{Desc}
+\index{WinItem@{Win\-Item}!getProperty@{getProperty}}
+\index{getProperty@{getProperty}!WinItem@{Win\-Item}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Win\-Item::get\-Property (const wstring {\em property\-Name}, wstring \& {\em property\-Value})}\label{classWinItem_fa4e76258ea4724098360fdc4bbe208e}
+
+
+Gets a property value from its name. 
+
+Retrieves the value from the property\-Map. If property is not found, returns false. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em property\-Name}]the name of property to retrieve \item[{\em property\-Value}][IN-OUT] the value of property, it's set to empty string if the property is not found \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if property found, false if not found \end{Desc}
+\index{WinItem@{Win\-Item}!getPropertyRef@{getPropertyRef}}
+\index{getPropertyRef@{getPropertyRef}!WinItem@{Win\-Item}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}wstring\& Win\-Item::get\-Property\-Ref (const wstring {\em property\-Name}, bool $\ast$ {\em found})}\label{classWinItem_294f3f19f862a4a0d574537ea043e6a3}
+
+
+Gets a property value from its name. 
+
+Retrieves the value from the property\-Map. Returns a reference to the internal value of property inside the map (value not copied). \begin{Desc}
+\item[Note:]If property not found, returns a reference to the 'bad\-String' static member of this class.\end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em property\-Name}]the name of property to retrieve \item[{\em property\-Value}][IN-OUT] true if property found, false if not found \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the value of property found, by reference \end{Desc}
+\index{WinItem@{Win\-Item}!getIntProperty@{getIntProperty}}
+\index{getIntProperty@{getIntProperty}!WinItem@{Win\-Item}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Win\-Item::get\-Int\-Property (const wstring {\em property\-Name}, int $\ast$ {\em int\-Value})}\label{classWinItem_afd8de0c988b94345116b5336c876d56}
+
+
+Gets a property value from its name, and convert into a integer value. 
+
+Retrieves the value from the property\-Map. If property is not found or not correctly converted into int, returns false. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em property\-Name}]the name of property to retrieve \item[{\em property\-Value}][IN-OUT] the value of property, integer value \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if property found, false if not found or wrong format \end{Desc}
+\index{WinItem@{Win\-Item}!toString@{toString}}
+\index{toString@{toString}!WinItem@{Win\-Item}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual wstring\& Win\-Item::to\-String ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classWinItem_03832f44de60b01908967f8e7f793c27}
+
+
+Format and return a string from the property\-Map. 
+
+Not supported properties are ignored and so not formatted as they don't have a correspondence in property\-Map. \begin{Desc}
+\item[Returns:]the string formatted, reference to internal wstring \end{Desc}
+
+
+Implemented in {\bf Win\-Contact} \doxyref{}{p.}{classWinContact_8010235f582c4ba2c35dca9bd951720f}, {\bf Win\-Contact\-SIF} \doxyref{}{p.}{classWinContactSIF_3aadf2527bebb869d5159f34120d7978}, {\bf Win\-Event} \doxyref{}{p.}{classWinEvent_48ec46a5018215f4bdba1afb4cc9abc2}, {\bf Win\-Event\-SIF} \doxyref{}{p.}{classWinEventSIF_d74d240677945d0359a8f2631ba2ff2c}, {\bf Win\-Note} \doxyref{}{p.}{classWinNote_4f4e440b6a792b5839da51c295ba8913}, {\bf Win\-Note\-SIF} \doxyref{}{p.}{classWinNoteSIF_5f88029bfafb4c6e8d08730454efef3a}, {\bf Win\-Recipient} \doxyref{}{p.}{classWinRecipient_cdfa5bd5ca2239fc185526b4eb326d62}, {\bf Win\-Recurrence} \doxyref{}{p.}{classWinRecurrence_a5c0292c07cdd6672bfd247bdf34c4a8}, {\bf Win\-Recurrence\-SIF} \doxyref{}{p.}{classWinRecurrenceSIF_910c4d6981414045bdd99b4dde89231e}, {\bf Win\-Task} \doxyref{}{p.}{classWinTask_8b22b82b47e3ff93c43470190c666679}, and {\bf Win\-Task\-SIF} \doxyref{}{p.}{classWinTaskSIF_72f960393c4cf9518d31a7d9038a0909}.\index{WinItem@{Win\-Item}!parse@{parse}}
+\index{parse@{parse}!WinItem@{Win\-Item}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Win\-Item::parse (const wstring {\em data\-String})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classWinItem_1d7a0c54c09f0bbe080806e202f72e51}
+
+
+Parse a string and fills the property\-Map. 
+
+The map is cleared and will contain only found properties at the end of the parsing. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em data\-String}]input v\-Card string to be parsed \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 if no errors \end{Desc}
+
+
+Implemented in {\bf Win\-Contact} \doxyref{}{p.}{classWinContact_0958c3a8b77fb4370a02866d3ad745f2}, {\bf Win\-Contact\-SIF} \doxyref{}{p.}{classWinContactSIF_c35fd82ecb504bd46c2c7a590943a168}, {\bf Win\-Event} \doxyref{}{p.}{classWinEvent_cfaf35e40fc0a6ef46fcac259debe8e0}, {\bf Win\-Event\-SIF} \doxyref{}{p.}{classWinEventSIF_361d652d6381dd79de5aa78bcb607038}, {\bf Win\-Note} \doxyref{}{p.}{classWinNote_8ca4c231350dc634b3ad1955404c70d0}, {\bf Win\-Note\-SIF} \doxyref{}{p.}{classWinNoteSIF_7f8bbba172900f9c9289f55c0e01d210}, {\bf Win\-Recipient} \doxyref{}{p.}{classWinRecipient_6b767fda8dcac791df9dae56f924df72}, {\bf Win\-Recurrence} \doxyref{}{p.}{classWinRecurrence_b536ac773fa3f3dbcce4da4248e13045}, {\bf Win\-Recurrence\-SIF} \doxyref{}{p.}{classWinRecurrenceSIF_e5c7df89cde1d282d2fe32468ab168b8}, {\bf Win\-Task} \doxyref{}{p.}{classWinTask_c2bcdc3efd342da125aa6325785ad1a6}, and {\bf Win\-Task\-SIF} \doxyref{}{p.}{classWinTaskSIF_caffc818a380c59cd7af50d0a6931110}.\index{WinItem@{Win\-Item}!getCRC@{getCRC}}
+\index{getCRC@{getCRC}!WinItem@{Win\-Item}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual long Win\-Item::get\-CRC ()\hspace{0.3cm}{\tt  [virtual]}}\label{classWinItem_ab35f0bbc4ef12aec9edffc3ec4b8fe4}
+
+
+Return the crc value of the internal map with all values. 
+
+It uses only the values of the map not the key. Can be overrided by derived classes if other properties are involved (e.g. Events have recucurrence props and exceptions) 
+
+Reimplemented in {\bf Win\-Event} \doxyref{}{p.}{classWinEvent_c9ddc17b9a03d1a0a1921e3033242bd0}, and {\bf Win\-Task} \doxyref{}{p.}{classWinTask_f355c347bff6689d8795af92caa618e7}.\index{WinItem@{Win\-Item}!getVObjectPropertyValue@{getVObjectPropertyValue}}
+\index{getVObjectPropertyValue@{getVObjectPropertyValue}!WinItem@{Win\-Item}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}WCHAR$\ast$ Win\-Item::get\-VObject\-Property\-Value (VObject $\ast$ {\em vo}, const WCHAR $\ast$ {\em property\-Name})}\label{classWinItem_c03d7826a2ba764826943cfe6d3f884d}
+
+
+Utility to safe-retrieve the property value inside VObject 'vo'. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em vo}]: VObject to read from \item[{\em property\-Name}]: the property name requested \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the property value (NULL if not found) \end{Desc}
+\index{WinItem@{Win\-Item}!getName@{getName}}
+\index{getName@{getName}!WinItem@{Win\-Item}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual wstring\& Win\-Item::get\-Name ()\hspace{0.3cm}{\tt  [virtual]}}\label{classWinItem_85ca3ea3c04d4e4af8b516a4bf4ee736}
+
+
+Util function that returns the name of the item, usually the \char`\"{}Subject\char`\"{} property. 
+
+It should be implemented by derived classes to return a desired value. If property doesn't exist, returns \char`\"{}$<$NULL$>$\char`\"{} 
+
+Reimplemented in {\bf Win\-Contact} \doxyref{}{p.}{classWinContact_1e3068ce2414d67b96604b5bc8556a74}.
+
+\subsection{Member Data Documentation}
+\index{WinItem@{Win\-Item}!propertyMap@{propertyMap}}
+\index{propertyMap@{propertyMap}!WinItem@{Win\-Item}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}map$<$wstring,wstring$>$ {\bf Win\-Item::property\-Map}}\label{classWinItem_caf89a0ce55fb8ddb918ef4ca1ff42ba}
+
+
+Map $<$property\-Name, property\-Value$>$ of props exchanged. 
+
+\begin{itemize}
+\item Client to Server: contains props supported by Client, MUST be filled by Client calling \doxyref{set\-Property()}{p.}{classWinItem_7e3bf23d883ca1bc1a5da1a0ea365614} for each property, before calling \doxyref{to\-String()}{p.}{classWinItem_03832f44de60b01908967f8e7f793c27}.\item Server to Client: contains props parsed from v\-Card/v\-Calendar, it's automatically filled by parsers of derived classes. Client SHOULD call \doxyref{get\-Property()}{p.}{classWinItem_fa4e76258ea4724098360fdc4bbe208e} for each property he wants to retrieve, after calling \doxyref{parse()}{p.}{classWinItem_1d7a0c54c09f0bbe080806e202f72e51}. \end{itemize}
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/windows/vocl/Win\-Item.h\end{CompactItemize}

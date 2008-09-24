@@ -1,0 +1,144 @@
+\section{Test\-File\-Source Class Reference}
+\label{classTestFileSource}\index{TestFileSource@{TestFileSource}}
+This code uses the \doxyref{Client\-Test}{p.}{classClientTest} and \doxyref{Raw\-File\-Sync\-Source}{p.}{classRawFileSyncSource} to test real synchronization against a server.  
+
+
+Inheritance diagram for Test\-File\-Source:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=65pt]{classTestFileSource__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Test\-File\-Source:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=65pt]{classTestFileSource__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\textbf{Test\-File\-Source} (const std::string \&id)\label{classTestFileSource_38795d39a67674607ad6d47b473dcd90}
+
+\item 
+virtual int {\bf get\-Num\-Sources} ()
+\begin{CompactList}\small\item\em Data sources are enumbered from 0 to n-1 for the purpose of testing. \item\end{CompactList}\item 
+virtual void \textbf{get\-Source\-Config} (int source, Config \&config)\label{classTestFileSource_81530c8887362cf79fccae8102965054}
+
+\item 
+virtual {\bf Client\-Test} $\ast$ {\bf get\-Client\-B} ()
+\begin{CompactList}\small\item\em The instance to use as second client. \item\end{CompactList}\item 
+virtual bool {\bf is\-B64Enabled} ()\label{classTestFileSource_42a2b1fd11be3dbaebbce83427608058}
+
+\begin{CompactList}\small\item\em Returning true enables tests which only work if the server is a Funambol server which supports the \char`\"{}b64\char`\"{} encoding of items on the transport level. \item\end{CompactList}\item 
+virtual int {\bf sync} (const int $\ast$active\-Sources, Sync\-Mode sync\-Mode, const {\bf Check\-Sync\-Report} \&check\-Report, long max\-Msg\-Size, long max\-Obj\-Size, bool lo\-Support, const char $\ast$encoding=0)
+\begin{CompactList}\small\item\em Execute a synchronization with the selected sync sources and the selected synchronization options. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This code uses the \doxyref{Client\-Test}{p.}{classClientTest} and \doxyref{Raw\-File\-Sync\-Source}{p.}{classRawFileSyncSource} to test real synchronization against a server. 
+
+More than one \doxyref{Raw\-File\-Sync\-Source}{p.}{classRawFileSyncSource} can be active at once and each of them may (but does not have to be) used for different kinds of data. The name of the source determines which data is stored in it: it must be something supported by the \doxyref{Client\-Test}{p.}{classClientTest} class, because that is where the test data comes from.
+
+At least the following kinds of data are currently supported by the \doxyref{Client\-Test}{p.}{classClientTest} class (see \doxyref{Client\-Test::get\-Test\-Data()}{p.}{group__ClientTest_g7b51aaa5b68b806d3719e7d74e4c2bc0} for more information):\begin{itemize}
+\item vcard30 = v\-Card 3.0 contacts\item vcard21 = v\-Card 2.1 contacts\item ical20 = i\-Calendar 2.0 calendar events\item vcal10 = v\-Calendar 1.0 calendar events\item itodo20 = i\-Calendar 2.0 tasks\end{itemize}
+
+
+Configuration is done by environment variables which indicate which part below the root node \char`\"{}client-test\char`\"{} of the the configuration tree to use; beyond that everything needed for synchronization is read from the configuration tree.
+
+\begin{itemize}
+\item CLIENT\_\-TEST\_\-SERVER = maps to name of root node in configuration tree\item CLIENT\_\-TEST\_\-SOURCES = comma separated list of active sources, names as listed above\item CLIENT\_\-TEST\_\-DELAY = number of seconds to sleep between syncs, required by some servers\item CLIENT\_\-TEST\_\-LOG = logfile name of a server, can be empty: if given, then the content of that file will be copied and stored together with the client log (only works on Unix)\item CLIENT\_\-TEST\_\-NUM\_\-ITEMS = numbers of contacts/events/... to use during local and sync tests which create artificial items\end{itemize}
+
+
+For example, on Linux running 
+
+\footnotesize\begin{verbatim}
+CLIENT_TEST_SERVER=funambol CLIENT_TEST_SOURCES=vcard21,vcal10 ./client-test
+\end{verbatim}
+\normalsize
+
+
+expects the following configuration layout: 
+
+\footnotesize\begin{verbatim}
+~/.sync4j/client-test/
+                      funambol_1/spds/
+                                      syncml/config.text
+                                      sources/
+                                              vcard21/config.txt
+                                              vcal10/config.txt
+                      funambol_1/spds/
+                                      <same as for funambol_1>
+\end{verbatim}
+\normalsize
+
+
+If any of the configuration nodes does not exist yet, then it will be created, but further information may have to be added, in particular:\begin{itemize}
+\item server URL\item server user name, password\item sources uri\end{itemize}
+
+
+The CLIENT\_\-TEST\_\-SERVER also has another meaning: it is used as hint by the synccompare.pl script and causes it to automatically ignore known, acceptable data modifications caused by sending an item to a server and back again. Currently the script recognizes \char`\"{}funambol\char`\"{}, \char`\"{}scheduleworld\char`\"{}, \char`\"{}synthesis\char`\"{} and \char`\"{}egroupware\char`\"{} as special server names.
+
+The two configurations are used to simulate synchronization between two different clients.
+
+The file sources will store their items in sub directories of a \char`\"{}client-data\char`\"{} directory created in the current working directory.
+
+Here is an example of using the CLIENT\_\-TEST\_\-LOG: 
+
+\footnotesize\begin{verbatim}
+CLIENT_TEST_SERVER=funambol \
+CLIENT_TEST_LOG=/opt/Funambol-3.0/ds-server/logs/funambol_ds.log \
+CLIENT_TEST_SOURCES=vcard21 \
+   ./client-test
+\end{verbatim}
+\normalsize
+
+
+will create files with the suffix .client.A.log for synchronizations with the first client and .client.B.log for the second client. The base name of these files is unique, so the corresponding part of the server log is stored with the same base name and .server.log as suffix. 
+
+
+
+\subsection{Member Function Documentation}
+\index{TestFileSource@{Test\-File\-Source}!getNumSources@{getNumSources}}
+\index{getNumSources@{getNumSources}!TestFileSource@{Test\-File\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Test\-File\-Source::get\-Num\-Sources ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classTestFileSource_902fb0eb77c02d4a55f46d36f611bafa}
+
+
+Data sources are enumbered from 0 to n-1 for the purpose of testing. 
+
+This call returns n. 
+
+Implements {\bf Client\-Test} \doxyref{}{p.}{classClientTest_d7b3592d2623c8076ffc43c4600a2f16}.\index{TestFileSource@{Test\-File\-Source}!getClientB@{getClientB}}
+\index{getClientB@{getClientB}!TestFileSource@{Test\-File\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Client\-Test}$\ast$ Test\-File\-Source::get\-Client\-B ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classTestFileSource_9330cd09cfbe9b0d81e50bdc71432a03}
+
+
+The instance to use as second client. 
+
+Returning NULL disables all checks which require a second client. The returned pointer must remain valid throughout the life time of the tests.
+
+The second client must be configured to access the same server and have data sources which match the ones from the primary client. 
+
+Implements {\bf Client\-Test} \doxyref{}{p.}{classClientTest_44aff5e4f5e3a92cd4bacadca6f52716}.\index{TestFileSource@{Test\-File\-Source}!sync@{sync}}
+\index{sync@{sync}!TestFileSource@{Test\-File\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Test\-File\-Source::sync (const int $\ast$ {\em active\-Sources}, Sync\-Mode {\em sync\-Mode}, const {\bf Check\-Sync\-Report} \& {\em check\-Report}, long {\em max\-Msg\-Size}, long {\em max\-Obj\-Size}, bool {\em lo\-Support}, const char $\ast$ {\em encoding} = {\tt 0})\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classTestFileSource_755fa61dbfe32288a7c68e37e21e21ea}
+
+
+Execute a synchronization with the selected sync sources and the selected synchronization options. 
+
+The log file in LOG has been set up already for the synchronization run and should not be changed by the client.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em active\-Sources}]a -1 terminated array of sync source indices \item[{\em sync\-Mode}]the synchronization mode to be used \item[{\em check\-Report}]has to be called after a successful or unsuccessful sync, will dump the report and (optionally) check the result; beware, the later may throw exceptions inside CPPUNIT macros \item[{\em max\-Msg\-Size}]$>$0: enable the maximum message size, else disable it \item[{\em max\-Obj\-Size}]same as max\-Msg\-Size for maximum object size \item[{\em lo\-Support}]if true, then the sync is expected to enable Large Object support \item[{\em encoding}]if non-empty, then let client library transform all items into this format (guaranteed to be not NULL)\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]return code of Sync\-Client::sync() \end{Desc}
+
+
+Implements {\bf Client\-Test} \doxyref{}{p.}{classClientTest_5e5a95277a8c953307c6c4c9415fe627}.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+test/client-test.cpp\end{CompactItemize}

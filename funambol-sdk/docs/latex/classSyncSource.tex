@@ -1,0 +1,460 @@
+\section{Sync\-Source Class Reference}
+\label{classSyncSource}\index{SyncSource@{SyncSource}}
+This is the main API that a Sync\-ML client developer needs to implement to let the sync engine access the client's data.  
+
+
+{\tt \#include $<$Sync\-Source.h$>$}
+
+Inheritance diagram for Sync\-Source:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=161pt]{classSyncSource__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Sync\-Source:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=158pt]{classSyncSource__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Sync\-Source} (const WCHAR $\ast$name, {\bf Abstract\-Sync\-Source\-Config} $\ast$sc)
+\begin{CompactList}\small\item\em Constructor: create a \doxyref{Sync\-Source}{p.}{classSyncSource} with the specified name. \item\end{CompactList}\item 
+const WCHAR $\ast$ {\bf get\-Name} ()
+\begin{CompactList}\small\item\em Get the source name. \item\end{CompactList}\item 
+void {\bf set\-Config} ({\bf Abstract\-Sync\-Source\-Config} $\ast$sc)\label{classSyncSource_63a5f58f5354679a48456aff3ad71f88}
+
+\begin{CompactList}\small\item\em use this directly after constructing the source when passing the configuration to the constructor directly is not possible \item\end{CompactList}\item 
+const {\bf Abstract\-Sync\-Source\-Config} \& {\bf get\-Config} () const\label{classSyncSource_641c9457b145e62719798c743e26798f}
+
+\begin{CompactList}\small\item\em read-only access to configuration \item\end{CompactList}\item 
+{\bf Abstract\-Sync\-Source\-Config} \& {\bf get\-Config} ()\label{classSyncSource_a5ed83fcecf28f1a48740ea7afe84f01}
+
+\begin{CompactList}\small\item\em read-write access to configuration \item\end{CompactList}\item 
+{\bf Sync\-Source\-Report} $\ast$ {\bf get\-Report} ()\label{classSyncSource_d35478ce25818c4a4449c0f6dcefe703}
+
+\begin{CompactList}\small\item\em Return pointer to report object. \item\end{CompactList}\item 
+void {\bf set\-Report} ({\bf Sync\-Source\-Report} $\ast$sr)
+\begin{CompactList}\small\item\em Set the report pointer with the given one (no copy, only assign the pointer to the external one). \item\end{CompactList}\item 
+Sync\-Mode {\bf get\-Preferred\-Sync\-Mode} ()
+\begin{CompactList}\small\item\em Get \& Set the preferred synchronization mode for the \doxyref{Sync\-Source}{p.}{classSyncSource}. \item\end{CompactList}\item 
+void \textbf{set\-Preferred\-Sync\-Mode} (Sync\-Mode sync\-Mode)\label{classSyncSource_dca02d27e2d0228e4f2286561f7cbd31}
+
+\item 
+Sync\-Mode {\bf get\-Sync\-Mode} ()
+\begin{CompactList}\small\item\em Get \& Sets the server imposed synchronization mode for the \doxyref{Sync\-Source}{p.}{classSyncSource}. \item\end{CompactList}\item 
+void \textbf{set\-Sync\-Mode} (Sync\-Mode sync\-Mode)\label{classSyncSource_947a9ad2a6c6da86e9e77a70fc883c8c}
+
+\item 
+unsigned long {\bf get\-Last\-Sync} ()
+\begin{CompactList}\small\item\em Get \& Set the timestamp in milliseconds of the last synchronization. \item\end{CompactList}\item 
+void \textbf{set\-Last\-Sync} (unsigned long timestamp)\label{classSyncSource_e5ec20f1578ed7891da4be7873cad3fc}
+
+\item 
+unsigned long {\bf get\-Next\-Sync} ()
+\begin{CompactList}\small\item\em Gets \& Sets the timestamp in milliseconds of the next synchronization. \item\end{CompactList}\item 
+void \textbf{set\-Next\-Sync} (unsigned long timestamp)\label{classSyncSource_7850f76d34a3ae7fe05df1afc5c1e753}
+
+\item 
+void {\bf set\-Last\-Anchor} (const char $\ast$last)\label{classSyncSource_73931be2a94b90ca808a41a9f3f8b22f}
+
+\begin{CompactList}\small\item\em Gets \& Sets the last anchor associated to the source. \item\end{CompactList}\item 
+const char $\ast$ \textbf{get\-Last\-Anchor} ()\label{classSyncSource_d405619ec81cda625e71eee161f19af6}
+
+\item 
+const char $\ast$ {\bf get\-Next\-Anchor} ()\label{classSyncSource_bc100022ce6e837a9ac1dd0d0778a80c}
+
+\begin{CompactList}\small\item\em Gets \& Sets the next anchor associated to the source. \item\end{CompactList}\item 
+void \textbf{set\-Next\-Anchor} (const char $\ast$next)\label{classSyncSource_8038a610b00136d7b0c1a08b9d8b6a79}
+
+\item 
+Source\-Filter $\ast$ {\bf get\-Filter} ()\label{classSyncSource_3793f45147a6adb3004da8113ab988d3}
+
+\begin{CompactList}\small\item\em Gets filter. \item\end{CompactList}\item 
+void {\bf set\-Filter} (Source\-Filter $\ast$f)
+\begin{CompactList}\small\item\em Sets filter. \item\end{CompactList}\item 
+virtual int {\bf begin\-Sync} ()
+\begin{CompactList}\small\item\em Called by the engine from inside Sync\-Client::sync() at the begin of the sync. \item\end{CompactList}\item 
+virtual int {\bf end\-Sync} ()
+\begin{CompactList}\small\item\em Called by the engine from inside Sync\-Client::sync() at the end of the sync. \item\end{CompactList}\item 
+virtual void {\bf set\-Item\-Status} (const WCHAR $\ast$, int)
+\begin{CompactList}\small\item\em called by the sync engine with the status returned by the server for a certain item that the client sent to the server \item\end{CompactList}\item 
+virtual void {\bf set\-Item\-Status} (const WCHAR $\ast$key, int status, const char $\ast$)
+\begin{CompactList}\small\item\em called by the sync engine with the status returned by the server for a certain item that the client sent to the server. \item\end{CompactList}\item 
+virtual void {\bf server\-Status\-Package\-Ended} ()
+\begin{CompactList}\small\item\em Indicates that all the server status of the current package of the client items has been processed by the engine. \item\end{CompactList}\item 
+virtual void {\bf client\-Status\-Package\-Ended} ()
+\begin{CompactList}\small\item\em Indicates that all the client status of the current package of the server items that has been processed by the client and are going to be sent to the server. \item\end{CompactList}\item 
+virtual int {\bf remove\-All\-Items} ()=0
+\begin{CompactList}\small\item\em Removes all the item of the sync source. \item\end{CompactList}\item 
+virtual Sync\-Item $\ast$ {\bf get\-First\-Item\-Key} ()=0
+\begin{CompactList}\small\item\em Return the key of the first Sync\-Item of all. \item\end{CompactList}\item 
+virtual Sync\-Item $\ast$ {\bf get\-Next\-Item\-Key} ()=0
+\begin{CompactList}\small\item\em Return the key of the next Sync\-Item of all. \item\end{CompactList}\item 
+virtual Sync\-Item $\ast$ {\bf get\-First\-Item} ()=0
+\begin{CompactList}\small\item\em Return the first Sync\-Item of all. \item\end{CompactList}\item 
+virtual Sync\-Item $\ast$ {\bf get\-Next\-Item} ()=0
+\begin{CompactList}\small\item\em Return the next Sync\-Item of all. \item\end{CompactList}\item 
+virtual Sync\-Item $\ast$ {\bf get\-First\-New\-Item} ()=0
+\begin{CompactList}\small\item\em Return the first Sync\-Item of new one. \item\end{CompactList}\item 
+virtual Sync\-Item $\ast$ {\bf get\-Next\-New\-Item} ()=0
+\begin{CompactList}\small\item\em Return the next Sync\-Item of new one. \item\end{CompactList}\item 
+virtual Sync\-Item $\ast$ {\bf get\-First\-Updated\-Item} ()=0
+\begin{CompactList}\small\item\em Return the first Sync\-Item of updated one. \item\end{CompactList}\item 
+virtual Sync\-Item $\ast$ {\bf get\-Next\-Updated\-Item} ()=0
+\begin{CompactList}\small\item\em Return the next Sync\-Item of updated one. \item\end{CompactList}\item 
+virtual Sync\-Item $\ast$ {\bf get\-First\-Deleted\-Item} ()=0
+\begin{CompactList}\small\item\em Return the first Sync\-Item of updated one. \item\end{CompactList}\item 
+virtual Sync\-Item $\ast$ {\bf get\-Next\-Deleted\-Item} ()=0
+\begin{CompactList}\small\item\em Return the next Sync\-Item of updated one. \item\end{CompactList}\item 
+virtual int {\bf add\-Item} (Sync\-Item \&item)=0
+\begin{CompactList}\small\item\em Called by the sync engine to add an item that the server has sent. \item\end{CompactList}\item 
+virtual int {\bf update\-Item} (Sync\-Item \&item)=0
+\begin{CompactList}\small\item\em Called by the sync engine to update an item that the source already should have. \item\end{CompactList}\item 
+virtual int {\bf delete\-Item} (Sync\-Item \&item)=0
+\begin{CompactList}\small\item\em Called by the sync engine to update an item that the source already should have. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+void {\bf assign} ({\bf Sync\-Source} \&s)\label{classSyncSource_63c3f4d089ad2e20b3c4bd11412e083a}
+
+\begin{CompactList}\small\item\em copies all elements, to be used by derived class' clone() implementation \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+{\bf Abstract\-Sync\-Source\-Config} $\ast$ \textbf{config}\label{classSyncSource_8a0c43093a35d454aef8ea6f7c79b3f9}
+
+\item 
+{\bf Sync\-Source\-Report} $\ast$ \textbf{report}\label{classSyncSource_688087e929eedb193de4b31c68d094d4}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This is the main API that a Sync\-ML client developer needs to implement to let the sync engine access the client's data. 
+
+Each client may provide access to one or more sources. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{SyncSource@{Sync\-Source}!SyncSource@{SyncSource}}
+\index{SyncSource@{SyncSource}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Sync\-Source::Sync\-Source (const WCHAR $\ast$ {\em name}, {\bf Abstract\-Sync\-Source\-Config} $\ast$ {\em sc})}\label{classSyncSource_c1818c15ca701529367dbde83b912125}
+
+
+Constructor: create a \doxyref{Sync\-Source}{p.}{classSyncSource} with the specified name. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em name}]the name of the \doxyref{Sync\-Source}{p.}{classSyncSource} \item[{\em sc}]configuration for the sync source: the instance must remain valid throughout the lifetime of the sync source because it keeps a reference to it and uses it as its own. A NULL pointer is allowed for unit testing outside of the sync framework; the sync source then references a global config instance to avoid crashes, but modifying that config will not make much sense. The pointer may also be set directly after creating the \doxyref{Sync\-Source}{p.}{classSyncSource}, which is useful when a derived class creates the config in its own constructor. \end{description}
+\end{Desc}
+
+
+\subsection{Member Function Documentation}
+\index{SyncSource@{Sync\-Source}!getName@{getName}}
+\index{getName@{getName}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const WCHAR$\ast$ Sync\-Source::get\-Name ()}\label{classSyncSource_f7b9390c6dae0ca0c4c0c7a653cce8b0}
+
+
+Get the source name. 
+
+\begin{Desc}
+\item[Returns:]- the source name (a pointer to the object buffer, will be released at object destruction) \end{Desc}
+\index{SyncSource@{Sync\-Source}!setReport@{setReport}}
+\index{setReport@{setReport}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Sync\-Source::set\-Report ({\bf Sync\-Source\-Report} $\ast$ {\em sr})}\label{classSyncSource_4d64f52577deac565e37f48bb0add528}
+
+
+Set the report pointer with the given one (no copy, only assign the pointer to the external one). 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em sr}]the report for this sync source \end{description}
+\end{Desc}
+\index{SyncSource@{Sync\-Source}!getPreferredSyncMode@{getPreferredSyncMode}}
+\index{getPreferredSyncMode@{getPreferredSyncMode}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Sync\-Mode Sync\-Source::get\-Preferred\-Sync\-Mode ()}\label{classSyncSource_823b0696238943b77afee8117e0cfca5}
+
+
+Get \& Set the preferred synchronization mode for the \doxyref{Sync\-Source}{p.}{classSyncSource}. 
+
+Taken initially from the configuration by \doxyref{set\-Config()}{p.}{classSyncSource_63a5f58f5354679a48456aff3ad71f88}, it can then be modified by the client. The code synchronization code itself reads this value, but it doesn't modify it. \index{SyncSource@{Sync\-Source}!getSyncMode@{getSyncMode}}
+\index{getSyncMode@{getSyncMode}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Sync\-Mode Sync\-Source::get\-Sync\-Mode ()}\label{classSyncSource_90a5862f902558849d130da11c2152b7}
+
+
+Get \& Sets the server imposed synchronization mode for the \doxyref{Sync\-Source}{p.}{classSyncSource}. 
+
+Agreed upon with the server during the initial exchange with the server. The \doxyref{Sync\-Source}{p.}{classSyncSource} can react to it in \doxyref{begin\-Sync()}{p.}{classSyncSource_4528182386f3faba682514b74cc5a47d}, in particular it must wipe its local data during a refresh from server. \index{SyncSource@{Sync\-Source}!getLastSync@{getLastSync}}
+\index{getLastSync@{getLastSync}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned long Sync\-Source::get\-Last\-Sync ()}\label{classSyncSource_3d9a4dbac07d9ba446b15700b268d716}
+
+
+Get \& Set the timestamp in milliseconds of the last synchronization. 
+
+The reference time of the timestamp is platform specific. \index{SyncSource@{Sync\-Source}!getNextSync@{getNextSync}}
+\index{getNextSync@{getNextSync}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned long Sync\-Source::get\-Next\-Sync ()}\label{classSyncSource_463ab0cdb6eadb70878fc79973bfb71f}
+
+
+Gets \& Sets the timestamp in milliseconds of the next synchronization. 
+
+The reference time of the timestamp is platform specific. \index{SyncSource@{Sync\-Source}!setFilter@{setFilter}}
+\index{setFilter@{setFilter}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Sync\-Source::set\-Filter (Source\-Filter $\ast$ {\em f})}\label{classSyncSource_8bf489beb02900f261e6c0c24710fc24}
+
+
+Sets filter. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em f}]the new filter \end{description}
+\end{Desc}
+\index{SyncSource@{Sync\-Source}!beginSync@{beginSync}}
+\index{beginSync@{beginSync}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Sync\-Source::begin\-Sync ()\hspace{0.3cm}{\tt  [virtual]}}\label{classSyncSource_4528182386f3faba682514b74cc5a47d}
+
+
+Called by the engine from inside Sync\-Client::sync() at the begin of the sync. 
+
+The \doxyref{Sync\-Source}{p.}{classSyncSource} can do every initialization it needs. The server has been contacted, so in particular \doxyref{get\-Sync\-Mode()}{p.}{classSyncSource_90a5862f902558849d130da11c2152b7} can now be used to find out what the sync mode for this synchronization run will be. After this call the iterators for Sync\-Items must return valid results for the current sync mode.
+
+The synchronization stops if this function return a non-zero value.
+
+\begin{Desc}
+\item[Returns:]- 0 on success, an error otherwise \end{Desc}
+
+
+Reimplemented in {\bf File\-Sync\-Source} \doxyref{}{p.}{classFileSyncSource_d6d5dcd4c70c95498ecb696157e6a23b}.\index{SyncSource@{Sync\-Source}!endSync@{endSync}}
+\index{endSync@{endSync}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Sync\-Source::end\-Sync ()\hspace{0.3cm}{\tt  [virtual]}}\label{classSyncSource_b38ef3f6e287b2582f004734e4f6e954}
+
+
+Called by the engine from inside Sync\-Client::sync() at the end of the sync. 
+
+The \doxyref{Sync\-Source}{p.}{classSyncSource} can do any needed commit action to save the state of the items. The engine commits to the server the changes applied in the transaction only if this function return 0.
+
+FIXME: the return code is currently ignored by the sync engine
+
+\begin{Desc}
+\item[Returns:]- 0 on success, an error otherwise \end{Desc}
+
+
+Reimplemented in {\bf Cache\-Sync\-Source} \doxyref{}{p.}{classCacheSyncSource_b68c82e35dc5f0c4fa226319f6ebe705}, and {\bf File\-Sync\-Source} \doxyref{}{p.}{classFileSyncSource_963ac6cf29738c95d77a4db21234125f}.\index{SyncSource@{Sync\-Source}!setItemStatus@{setItemStatus}}
+\index{setItemStatus@{setItemStatus}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual void Sync\-Source::set\-Item\-Status (const WCHAR $\ast$, int)\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classSyncSource_435b921504585857c2788a5bd9f2702c}
+
+
+called by the sync engine with the status returned by the server for a certain item that the client sent to the server 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em key}]the local key of the item \item[{\em status}]the Sync\-ML status returned by the server \end{description}
+\end{Desc}
+\begin{Desc}
+\item[{\bf Deprecated}]\end{Desc}
+\begin{Desc}
+\item[Since:]Sync\-ML API v7 \end{Desc}
+
+
+Reimplemented in {\bf File\-Sync\-Source} \doxyref{}{p.}{classFileSyncSource_11a179c5774377f5f75e7a40916d1a54}.\index{SyncSource@{Sync\-Source}!setItemStatus@{setItemStatus}}
+\index{setItemStatus@{setItemStatus}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual void Sync\-Source::set\-Item\-Status (const WCHAR $\ast$ {\em key}, int {\em status}, const char $\ast$)\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classSyncSource_347938a68a5033130e5ae3f9f0dfff4d}
+
+
+called by the sync engine with the status returned by the server for a certain item that the client sent to the server. 
+
+It contains also the proper command associated to the item.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em key}]the local key of the item \item[{\em status}]the Sync\-ML status returned by the server \item[{\em command}]the Sync\-ML command associated to the item \end{description}
+\end{Desc}
+
+
+Reimplemented in {\bf Cache\-Sync\-Source} \doxyref{}{p.}{classCacheSyncSource_7326b8f54971e979c10e2cb04daa3aa4}.\index{SyncSource@{Sync\-Source}!serverStatusPackageEnded@{serverStatusPackageEnded}}
+\index{serverStatusPackageEnded@{serverStatusPackageEnded}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual void Sync\-Source::server\-Status\-Package\-Ended ()\hspace{0.3cm}{\tt  [virtual]}}\label{classSyncSource_9443376b49c06affb8e5099db913ede7}
+
+
+Indicates that all the server status of the current package of the client items has been processed by the engine. 
+
+This signal can be useful to update the modification arrays 
+
+Reimplemented in {\bf Cache\-Sync\-Source} \doxyref{}{p.}{classCacheSyncSource_9fbf319a0753992bc22ee4ae01458d66}.\index{SyncSource@{Sync\-Source}!clientStatusPackageEnded@{clientStatusPackageEnded}}
+\index{clientStatusPackageEnded@{clientStatusPackageEnded}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual void Sync\-Source::client\-Status\-Package\-Ended ()\hspace{0.3cm}{\tt  [virtual]}}\label{classSyncSource_5b68a10405b68bcd4fbfc8d0ae3baa0b}
+
+
+Indicates that all the client status of the current package of the server items that has been processed by the client and are going to be sent to the server. 
+
+This signal can be useful to update the modification arrays 
+
+Reimplemented in {\bf Cache\-Sync\-Source} \doxyref{}{p.}{classCacheSyncSource_a0a8e0c059e9810e63ac3ea2c87b1cd5}.\index{SyncSource@{Sync\-Source}!removeAllItems@{removeAllItems}}
+\index{removeAllItems@{removeAllItems}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Sync\-Source::remove\-All\-Items ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classSyncSource_cca2caca3163f7cb179f3e38c188f5f7}
+
+
+Removes all the item of the sync source. 
+
+It is called by the engine in the case of a refresh from server to clean all the client items before receiving the server ones. It is called after the \doxyref{begin\-Sync()}{p.}{classSyncSource_4528182386f3faba682514b74cc5a47d} method.
+
+\begin{Desc}
+\item[Returns:]0 if the remote succeded. \end{Desc}
+
+
+Implemented in {\bf File\-Sync\-Source} \doxyref{}{p.}{classFileSyncSource_4232c7012c3c84c9e23a947be59c05b9}, and {\bf Briefcase\-Cache\-Sync\-Source} \doxyref{}{p.}{classBriefcaseCacheSyncSource_3f38994c8e59342a30de5ad793df3fb6}.\index{SyncSource@{Sync\-Source}!getFirstItemKey@{getFirstItemKey}}
+\index{getFirstItemKey@{getFirstItemKey}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual Sync\-Item$\ast$ Sync\-Source::get\-First\-Item\-Key ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classSyncSource_4608b13dd581d006be667fbeaead2f70}
+
+
+Return the key of the first Sync\-Item of all. 
+
+It is used in case of refresh sync and retrieve all the keys of the data source. 
+
+Implemented in {\bf Cache\-Sync\-Source} \doxyref{}{p.}{classCacheSyncSource_f342003c8a9eabba7f624b5268a564f3}, and {\bf File\-Sync\-Source} \doxyref{}{p.}{classFileSyncSource_74c2c8ebd35b1ac53a4fe0ec96737693}.\index{SyncSource@{Sync\-Source}!getNextItemKey@{getNextItemKey}}
+\index{getNextItemKey@{getNextItemKey}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual Sync\-Item$\ast$ Sync\-Source::get\-Next\-Item\-Key ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classSyncSource_04b602c713d650f661aaf43572d81f59}
+
+
+Return the key of the next Sync\-Item of all. 
+
+It is used in case of refresh sync and retrieve all the keys of the data source. 
+
+Implemented in {\bf Cache\-Sync\-Source} \doxyref{}{p.}{classCacheSyncSource_d3474cc0881a5fc312c04999a5e2c152}, and {\bf File\-Sync\-Source} \doxyref{}{p.}{classFileSyncSource_74bb5eaf5a0be578a6369cfa2f6e72db}.\index{SyncSource@{Sync\-Source}!getFirstItem@{getFirstItem}}
+\index{getFirstItem@{getFirstItem}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual Sync\-Item$\ast$ Sync\-Source::get\-First\-Item ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classSyncSource_6f06bbd971fcbc028ce74e66bfa3a4cf}
+
+
+Return the first Sync\-Item of all. 
+
+It is used in case of slow sync and retrieve the entire data source content. 
+
+Implemented in {\bf Cache\-Sync\-Source} \doxyref{}{p.}{classCacheSyncSource_5aefe23e267e4f2e5987cfcaf2599dcb}, and {\bf File\-Sync\-Source} \doxyref{}{p.}{classFileSyncSource_c1fbb0cf67f42a0957fdaa76b6c3e363}.\index{SyncSource@{Sync\-Source}!getNextItem@{getNextItem}}
+\index{getNextItem@{getNextItem}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual Sync\-Item$\ast$ Sync\-Source::get\-Next\-Item ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classSyncSource_f4f0cadb95759d1f714b77c77d1ac6c1}
+
+
+Return the next Sync\-Item of all. 
+
+It is used in case of slow sync and retrieve the entire data source content. 
+
+Implemented in {\bf Cache\-Sync\-Source} \doxyref{}{p.}{classCacheSyncSource_fc9caba3f1cd1b360d99924dd806e028}, and {\bf File\-Sync\-Source} \doxyref{}{p.}{classFileSyncSource_8d7bb2e24c40d47afc99499409c9c003}.\index{SyncSource@{Sync\-Source}!getFirstNewItem@{getFirstNewItem}}
+\index{getFirstNewItem@{getFirstNewItem}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual Sync\-Item$\ast$ Sync\-Source::get\-First\-New\-Item ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classSyncSource_a4a1141dafaa9d369c5994e83208c106}
+
+
+Return the first Sync\-Item of new one. 
+
+It is used in case of fast sync and retrieve the new data source content. 
+
+Implemented in {\bf Cache\-Sync\-Source} \doxyref{}{p.}{classCacheSyncSource_b7e104d4480b0dded248c55673604d01}, and {\bf File\-Sync\-Source} \doxyref{}{p.}{classFileSyncSource_6e2257f8011bb2cf41cd13d60da5e9ca}.\index{SyncSource@{Sync\-Source}!getNextNewItem@{getNextNewItem}}
+\index{getNextNewItem@{getNextNewItem}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual Sync\-Item$\ast$ Sync\-Source::get\-Next\-New\-Item ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classSyncSource_7b0ecf6ef78830b86b7634e660b970ba}
+
+
+Return the next Sync\-Item of new one. 
+
+It is used in case of fast sync and retrieve the new data source content. 
+
+Implemented in {\bf Cache\-Sync\-Source} \doxyref{}{p.}{classCacheSyncSource_7176720e70825bee6a57f71a32f6a642}, and {\bf File\-Sync\-Source} \doxyref{}{p.}{classFileSyncSource_3ccf322eb41ed41bad5ae5606bc237aa}.\index{SyncSource@{Sync\-Source}!getFirstUpdatedItem@{getFirstUpdatedItem}}
+\index{getFirstUpdatedItem@{getFirstUpdatedItem}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual Sync\-Item$\ast$ Sync\-Source::get\-First\-Updated\-Item ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classSyncSource_0f1309b03694ca3af538fa287f3b67ec}
+
+
+Return the first Sync\-Item of updated one. 
+
+It is used in case of fast sync and retrieve the new data source content. 
+
+Implemented in {\bf Cache\-Sync\-Source} \doxyref{}{p.}{classCacheSyncSource_35565718c50695ff28e4cda4235c5ea4}, and {\bf File\-Sync\-Source} \doxyref{}{p.}{classFileSyncSource_b67277a8a3fd508d8a2bdbf8c85f0bc5}.\index{SyncSource@{Sync\-Source}!getNextUpdatedItem@{getNextUpdatedItem}}
+\index{getNextUpdatedItem@{getNextUpdatedItem}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual Sync\-Item$\ast$ Sync\-Source::get\-Next\-Updated\-Item ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classSyncSource_0a81ac5902766067c2ee886dc481a371}
+
+
+Return the next Sync\-Item of updated one. 
+
+It is used in case of fast sync and retrieve the new data source content. 
+
+Implemented in {\bf Cache\-Sync\-Source} \doxyref{}{p.}{classCacheSyncSource_2d2dd1d4bdf7d93f239bf391aad79335}, and {\bf File\-Sync\-Source} \doxyref{}{p.}{classFileSyncSource_f67c62119228137b04ea6bd1607a8510}.\index{SyncSource@{Sync\-Source}!getFirstDeletedItem@{getFirstDeletedItem}}
+\index{getFirstDeletedItem@{getFirstDeletedItem}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual Sync\-Item$\ast$ Sync\-Source::get\-First\-Deleted\-Item ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classSyncSource_a7e086bb00e085cc2ad76431674c5fe9}
+
+
+Return the first Sync\-Item of updated one. 
+
+It is used in case of fast sync and retrieve the new data source content. 
+
+Implemented in {\bf Cache\-Sync\-Source} \doxyref{}{p.}{classCacheSyncSource_41faa1fa3ab648ce76a6c27d6745f3c4}, and {\bf File\-Sync\-Source} \doxyref{}{p.}{classFileSyncSource_8a24847ac9ed84fa4182634db774cb6d}.\index{SyncSource@{Sync\-Source}!getNextDeletedItem@{getNextDeletedItem}}
+\index{getNextDeletedItem@{getNextDeletedItem}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual Sync\-Item$\ast$ Sync\-Source::get\-Next\-Deleted\-Item ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classSyncSource_a6dea9891d27073f1905020170fa81b0}
+
+
+Return the next Sync\-Item of updated one. 
+
+It is used in case of fast sync and retrieve the new data source content. 
+
+Implemented in {\bf Cache\-Sync\-Source} \doxyref{}{p.}{classCacheSyncSource_a82c623410068876a3d71a26141274fc}, and {\bf File\-Sync\-Source} \doxyref{}{p.}{classFileSyncSource_664245d43f77220418179b254f722e17}.\index{SyncSource@{Sync\-Source}!addItem@{addItem}}
+\index{addItem@{addItem}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Sync\-Source::add\-Item (Sync\-Item \& {\em item})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classSyncSource_0d60a2f99dc8340320e8b60779b07205}
+
+
+Called by the sync engine to add an item that the server has sent. 
+
+The sync source is expected to add it to its database, then set the key to the local key assigned to the new item. Alternatively the sync source can match the new item against one of the existing items and return that key.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em item}]the item as sent by the server \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Sync\-ML status code \end{Desc}
+
+
+Implemented in {\bf Cache\-Sync\-Source} \doxyref{}{p.}{classCacheSyncSource_53cf1db5314341f02b30f7498c009eb7}, {\bf File\-Sync\-Source} \doxyref{}{p.}{classFileSyncSource_0a59b49757b5767865e9d868abff693c}, and {\bf Raw\-File\-Sync\-Source} \doxyref{}{p.}{classRawFileSyncSource_51789448b478a39a4218e15fd71b685f}.\index{SyncSource@{Sync\-Source}!updateItem@{updateItem}}
+\index{updateItem@{updateItem}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Sync\-Source::update\-Item (Sync\-Item \& {\em item})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classSyncSource_b334e10882e18289dbd627d468d47a74}
+
+
+Called by the sync engine to update an item that the source already should have. 
+
+The item's key is the local key of that item.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em item}]the item as sent by the server \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Sync\-ML status code \end{Desc}
+
+
+Implemented in {\bf Cache\-Sync\-Source} \doxyref{}{p.}{classCacheSyncSource_70ffee80d924462b45e2f4e0868d3c87}, {\bf File\-Sync\-Source} \doxyref{}{p.}{classFileSyncSource_3cfc67d2d4906ffd0ecc244ba074bb80}, and {\bf Raw\-File\-Sync\-Source} \doxyref{}{p.}{classRawFileSyncSource_c6c7478380b6c8794f8914d75a2e2957}.\index{SyncSource@{Sync\-Source}!deleteItem@{deleteItem}}
+\index{deleteItem@{deleteItem}!SyncSource@{Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Sync\-Source::delete\-Item (Sync\-Item \& {\em item})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classSyncSource_c3faa327d0bc1a51f33d46c58a3b9020}
+
+
+Called by the sync engine to update an item that the source already should have. 
+
+The item's key is the local key of that item, no data is provided.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em item}]the item as sent by the server \end{description}
+\end{Desc}
+
+
+Implemented in {\bf Cache\-Sync\-Source} \doxyref{}{p.}{classCacheSyncSource_630eb7c331077fcf1899a76a5ca0c783}, and {\bf File\-Sync\-Source} \doxyref{}{p.}{classFileSyncSource_4c78ae5c7ec9aa4845a5e98299fb2f24}.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/common/spds/Sync\-Source.h\end{CompactItemize}

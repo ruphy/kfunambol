@@ -1,0 +1,386 @@
+\section{Cache\-Sync\-Source Class Reference}
+\label{classCacheSyncSource}\index{CacheSyncSource@{CacheSyncSource}}
+This is an extension of the basic \doxyref{Sync\-Source}{p.}{classSyncSource} that a Sync\-ML client developer could implement to let the sync engine access the client's data.  
+
+
+{\tt \#include $<$Cache\-Sync\-Source.h$>$}
+
+Inheritance diagram for Cache\-Sync\-Source:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=97pt]{classCacheSyncSource__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Cache\-Sync\-Source:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{classCacheSyncSource__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Cache\-Sync\-Source} (const WCHAR $\ast$name, {\bf Abstract\-Sync\-Source\-Config} $\ast$sc, {\bf Key\-Value\-Store} $\ast$cache=NULL)
+\begin{CompactList}\small\item\em Constructor: create a \doxyref{Cache\-Sync\-Source}{p.}{classCacheSyncSource} with the specified name. \item\end{CompactList}\item 
+void {\bf set\-Item\-Status} (const WCHAR $\ast$key, int status, const char $\ast$command)
+\begin{CompactList}\small\item\em called by the sync engine with the status returned by the server for a certain item that the client sent to the server. \item\end{CompactList}\item 
+Sync\-Item $\ast$ {\bf get\-First\-Item\-Key} ()
+\begin{CompactList}\small\item\em Return the key of the first Sync\-Item of all. \item\end{CompactList}\item 
+Sync\-Item $\ast$ {\bf get\-Next\-Item\-Key} ()
+\begin{CompactList}\small\item\em Return the key of the next Sync\-Item of all. \item\end{CompactList}\item 
+Sync\-Item $\ast$ {\bf get\-First\-Item} ()
+\begin{CompactList}\small\item\em Return the first Sync\-Item of all. \item\end{CompactList}\item 
+Sync\-Item $\ast$ {\bf get\-Next\-Item} ()
+\begin{CompactList}\small\item\em Return the next Sync\-Item of all. \item\end{CompactList}\item 
+Sync\-Item $\ast$ {\bf get\-First\-New\-Item} ()
+\begin{CompactList}\small\item\em Return the first Sync\-Item of new one. \item\end{CompactList}\item 
+Sync\-Item $\ast$ {\bf get\-Next\-New\-Item} ()
+\begin{CompactList}\small\item\em Return the next Sync\-Item of new one. \item\end{CompactList}\item 
+Sync\-Item $\ast$ {\bf get\-First\-Updated\-Item} ()
+\begin{CompactList}\small\item\em Return the first Sync\-Item of updated one. \item\end{CompactList}\item 
+Sync\-Item $\ast$ {\bf get\-Next\-Updated\-Item} ()
+\begin{CompactList}\small\item\em Return the next Sync\-Item of updated one. \item\end{CompactList}\item 
+Sync\-Item $\ast$ {\bf get\-First\-Deleted\-Item} ()
+\begin{CompactList}\small\item\em Return the first Sync\-Item of updated one. \item\end{CompactList}\item 
+Sync\-Item $\ast$ {\bf get\-Next\-Deleted\-Item} ()
+\begin{CompactList}\small\item\em Return the next Sync\-Item of updated one. \item\end{CompactList}\item 
+void {\bf server\-Status\-Package\-Ended} ()
+\begin{CompactList}\small\item\em Indicates that all the server status of the current package of the client items has been processed by the engine. \item\end{CompactList}\item 
+void {\bf client\-Status\-Package\-Ended} ()
+\begin{CompactList}\small\item\em Indicates that all the client status of the current package of the server items that has been processed by the client and are going to be sent to the server. \item\end{CompactList}\item 
+int {\bf end\-Sync} ()\label{classCacheSyncSource_b68c82e35dc5f0c4fa226319f6ebe705}
+
+\begin{CompactList}\small\item\em In the first implementatation, in which server\-Status\-Package\-Ended and client\-Status\-Package\-Ended are not yet impelemented, the end sync will udpate the whole cache status persistently. \item\end{CompactList}\item 
+virtual String\-Buffer {\bf get\-Item\-Signature} (String\-Buffer \&key)
+\begin{CompactList}\small\item\em Get the signature of an item given the key. \item\end{CompactList}\item 
+virtual void $\ast$ {\bf get\-Item\-Content} (String\-Buffer \&key, size\_\-t $\ast$size)=0
+\begin{CompactList}\small\item\em Get the content of an item given the key. \item\end{CompactList}\item 
+virtual {\bf Enumeration} $\ast$ {\bf get\-All\-Item\-List} ()=0
+\begin{CompactList}\small\item\em Get an array list containing all the String\-Buffer keys of all items. \item\end{CompactList}\item 
+virtual int {\bf insert\-Item} (Sync\-Item \&item)=0
+\begin{CompactList}\small\item\em Called by the sync engine to add an item that the server has sent. \item\end{CompactList}\item 
+virtual int {\bf modify\-Item} (Sync\-Item \&item)=0
+\begin{CompactList}\small\item\em Called by the sync engine to update an item that the source already should have. \item\end{CompactList}\item 
+virtual int {\bf remove\-Item} (Sync\-Item \&item)=0
+\begin{CompactList}\small\item\em Called by the sync engine to update an item that the source already should have. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+int {\bf save\-Cache} ()\label{classCacheSyncSource_ee17790521ec25c756840cb5da99de9f}
+
+\begin{CompactList}\small\item\em Save the current cache in what is implemented by \doxyref{Key\-Value\-Store}{p.}{classKeyValueStore} (a file or wathever). \item\end{CompactList}\item 
+int {\bf add\-Item} (Sync\-Item \&item)
+\begin{CompactList}\small\item\em Called by the sync engine to add an item that the server has sent. \item\end{CompactList}\item 
+int {\bf update\-Item} (Sync\-Item \&item)
+\begin{CompactList}\small\item\em Called by the sync engine to update an item that the source already should have. \item\end{CompactList}\item 
+int {\bf delete\-Item} (Sync\-Item \&item)
+\begin{CompactList}\small\item\em Called by the sync engine to update an item that the source already should have. \item\end{CompactList}\item 
+int {\bf update\-In\-Cache} (Key\-Value\-Pair \&k, const char $\ast$action=REPLACE)
+\begin{CompactList}\small\item\em Used to update the cache adding, replacing or deleting. \item\end{CompactList}\item 
+int {\bf insert\-In\-Cache} (Key\-Value\-Pair \&k)\label{classCacheSyncSource_c3234648fd49aa690e9ece56323ffedc}
+
+\begin{CompactList}\small\item\em To insert in the cache. \item\end{CompactList}\item 
+int {\bf remove\-From\-Cache} (Key\-Value\-Pair \&k)\label{classCacheSyncSource_22f658f5d6272ee3e87918e63d3caaa5}
+
+\begin{CompactList}\small\item\em To remove from cache. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This is an extension of the basic \doxyref{Sync\-Source}{p.}{classSyncSource} that a Sync\-ML client developer could implement to let the sync engine access the client's data. 
+
+It provides the logic to retrieve the item modification to be exchanged with the server 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{CacheSyncSource@{Cache\-Sync\-Source}!CacheSyncSource@{CacheSyncSource}}
+\index{CacheSyncSource@{CacheSyncSource}!CacheSyncSource@{Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Cache\-Sync\-Source::Cache\-Sync\-Source (const WCHAR $\ast$ {\em name}, {\bf Abstract\-Sync\-Source\-Config} $\ast$ {\em sc}, {\bf Key\-Value\-Store} $\ast$ {\em cache} = {\tt NULL})}\label{classCacheSyncSource_3eabd43ca0667b7afb2f1302af1c630d}
+
+
+Constructor: create a \doxyref{Cache\-Sync\-Source}{p.}{classCacheSyncSource} with the specified name. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em name}]the name of the \doxyref{Sync\-Source}{p.}{classSyncSource} \item[{\em sc}]configuration for the sync source: the instance must remain valid throughout the lifetime of the sync source because it keeps a reference to it and uses it as its own. A NULL pointer is allowed for unit testing outside of the sync framework; the sync source then references a global config instance to avoid crashes, but modifying that config will not make much sense. The pointer may also be set directly after creating the \doxyref{Sync\-Source}{p.}{classSyncSource}, which is useful when a derived class creates the config in its own constructor. \item[{\em cache}]the store for the cache. Released by the \doxyref{Cache\-Sync\-Source}{p.}{classCacheSyncSource} \end{description}
+\end{Desc}
+
+
+\subsection{Member Function Documentation}
+\index{CacheSyncSource@{Cache\-Sync\-Source}!addItem@{addItem}}
+\index{addItem@{addItem}!CacheSyncSource@{Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Cache\-Sync\-Source::add\-Item (Sync\-Item \& {\em item})\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classCacheSyncSource_53cf1db5314341f02b30f7498c009eb7}
+
+
+Called by the sync engine to add an item that the server has sent. 
+
+The implementation calls the insert\-Item method that must be implemented by the user. Also used to update the item 
+
+Implements {\bf Sync\-Source} \doxyref{}{p.}{classSyncSource_0d60a2f99dc8340320e8b60779b07205}.\index{CacheSyncSource@{Cache\-Sync\-Source}!updateItem@{updateItem}}
+\index{updateItem@{updateItem}!CacheSyncSource@{Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Cache\-Sync\-Source::update\-Item (Sync\-Item \& {\em item})\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classCacheSyncSource_70ffee80d924462b45e2f4e0868d3c87}
+
+
+Called by the sync engine to update an item that the source already should have. 
+
+The item's key is the local key of that item.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em item}]the item as sent by the server \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Sync\-ML status code \end{Desc}
+
+
+Implements {\bf Sync\-Source} \doxyref{}{p.}{classSyncSource_b334e10882e18289dbd627d468d47a74}.\index{CacheSyncSource@{Cache\-Sync\-Source}!deleteItem@{deleteItem}}
+\index{deleteItem@{deleteItem}!CacheSyncSource@{Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Cache\-Sync\-Source::delete\-Item (Sync\-Item \& {\em item})\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classCacheSyncSource_630eb7c331077fcf1899a76a5ca0c783}
+
+
+Called by the sync engine to update an item that the source already should have. 
+
+The item's key is the local key of that item, no data is provided.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em item}]the item as sent by the server \end{description}
+\end{Desc}
+
+
+Implements {\bf Sync\-Source} \doxyref{}{p.}{classSyncSource_c3faa327d0bc1a51f33d46c58a3b9020}.\index{CacheSyncSource@{Cache\-Sync\-Source}!updateInCache@{updateInCache}}
+\index{updateInCache@{updateInCache}!CacheSyncSource@{Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Cache\-Sync\-Source::update\-In\-Cache (Key\-Value\-Pair \& {\em k}, const char $\ast$ {\em action} = {\tt REPLACE})\hspace{0.3cm}{\tt  [protected]}}\label{classCacheSyncSource_b1596b35e26f11f0e12ab6299f16bf9d}
+
+
+Used to update the cache adding, replacing or deleting. 
+
+The Key\-Value\-Pair contains the pair UID/signature. It is provided by the proper method who calls this. It udpates the cache that is in memory. The action by default is Replace. \index{CacheSyncSource@{Cache\-Sync\-Source}!setItemStatus@{setItemStatus}}
+\index{setItemStatus@{setItemStatus}!CacheSyncSource@{Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Cache\-Sync\-Source::set\-Item\-Status (const WCHAR $\ast$ {\em key}, int {\em status}, const char $\ast$ {\em command})\hspace{0.3cm}{\tt  [virtual]}}\label{classCacheSyncSource_7326b8f54971e979c10e2cb04daa3aa4}
+
+
+called by the sync engine with the status returned by the server for a certain item that the client sent to the server. 
+
+It contains also the proper command associated to the item. It is used to update the current array of cache.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em key}]- the local key of the item \item[{\em status}]- the Sync\-ML status returned by the server \item[{\em command}]- the Sync\-ML command associated to the item \end{description}
+\end{Desc}
+
+
+Reimplemented from {\bf Sync\-Source} \doxyref{}{p.}{classSyncSource_347938a68a5033130e5ae3f9f0dfff4d}.\index{CacheSyncSource@{Cache\-Sync\-Source}!getFirstItemKey@{getFirstItemKey}}
+\index{getFirstItemKey@{getFirstItemKey}!CacheSyncSource@{Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Sync\-Item$\ast$ Cache\-Sync\-Source::get\-First\-Item\-Key ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classCacheSyncSource_f342003c8a9eabba7f624b5268a564f3}
+
+
+Return the key of the first Sync\-Item of all. 
+
+It is used in case of refresh sync and retrieve all the keys of the data source. \begin{Desc}
+\item[{\bf Deprecated}]no more used. use remove\-All\-Items instead. \end{Desc}
+
+
+Implements {\bf Sync\-Source} \doxyref{}{p.}{classSyncSource_4608b13dd581d006be667fbeaead2f70}.\index{CacheSyncSource@{Cache\-Sync\-Source}!getNextItemKey@{getNextItemKey}}
+\index{getNextItemKey@{getNextItemKey}!CacheSyncSource@{Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Sync\-Item$\ast$ Cache\-Sync\-Source::get\-Next\-Item\-Key ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classCacheSyncSource_d3474cc0881a5fc312c04999a5e2c152}
+
+
+Return the key of the next Sync\-Item of all. 
+
+It is used in case of refresh sync and retrieve all the keys of the data source. \begin{Desc}
+\item[{\bf Deprecated}]no more used. use remove\-All\-Items instead. \end{Desc}
+
+
+Implements {\bf Sync\-Source} \doxyref{}{p.}{classSyncSource_04b602c713d650f661aaf43572d81f59}.\index{CacheSyncSource@{Cache\-Sync\-Source}!getFirstItem@{getFirstItem}}
+\index{getFirstItem@{getFirstItem}!CacheSyncSource@{Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Sync\-Item$\ast$ Cache\-Sync\-Source::get\-First\-Item ()\hspace{0.3cm}{\tt  [virtual]}}\label{classCacheSyncSource_5aefe23e267e4f2e5987cfcaf2599dcb}
+
+
+Return the first Sync\-Item of all. 
+
+It is used in case of slow sync and retrieve the entire data source content. 
+
+Implements {\bf Sync\-Source} \doxyref{}{p.}{classSyncSource_6f06bbd971fcbc028ce74e66bfa3a4cf}.\index{CacheSyncSource@{Cache\-Sync\-Source}!getNextItem@{getNextItem}}
+\index{getNextItem@{getNextItem}!CacheSyncSource@{Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Sync\-Item$\ast$ Cache\-Sync\-Source::get\-Next\-Item ()\hspace{0.3cm}{\tt  [virtual]}}\label{classCacheSyncSource_fc9caba3f1cd1b360d99924dd806e028}
+
+
+Return the next Sync\-Item of all. 
+
+It is used in case of slow sync and retrieve the entire data source content. 
+
+Implements {\bf Sync\-Source} \doxyref{}{p.}{classSyncSource_f4f0cadb95759d1f714b77c77d1ac6c1}.\index{CacheSyncSource@{Cache\-Sync\-Source}!getFirstNewItem@{getFirstNewItem}}
+\index{getFirstNewItem@{getFirstNewItem}!CacheSyncSource@{Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Sync\-Item$\ast$ Cache\-Sync\-Source::get\-First\-New\-Item ()\hspace{0.3cm}{\tt  [virtual]}}\label{classCacheSyncSource_b7e104d4480b0dded248c55673604d01}
+
+
+Return the first Sync\-Item of new one. 
+
+It is used in case of fast sync and retrieve the new data source content. 
+
+Implements {\bf Sync\-Source} \doxyref{}{p.}{classSyncSource_a4a1141dafaa9d369c5994e83208c106}.\index{CacheSyncSource@{Cache\-Sync\-Source}!getNextNewItem@{getNextNewItem}}
+\index{getNextNewItem@{getNextNewItem}!CacheSyncSource@{Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Sync\-Item$\ast$ Cache\-Sync\-Source::get\-Next\-New\-Item ()\hspace{0.3cm}{\tt  [virtual]}}\label{classCacheSyncSource_7176720e70825bee6a57f71a32f6a642}
+
+
+Return the next Sync\-Item of new one. 
+
+It is used in case of fast sync and retrieve the new data source content. 
+
+Implements {\bf Sync\-Source} \doxyref{}{p.}{classSyncSource_7b0ecf6ef78830b86b7634e660b970ba}.\index{CacheSyncSource@{Cache\-Sync\-Source}!getFirstUpdatedItem@{getFirstUpdatedItem}}
+\index{getFirstUpdatedItem@{getFirstUpdatedItem}!CacheSyncSource@{Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Sync\-Item$\ast$ Cache\-Sync\-Source::get\-First\-Updated\-Item ()\hspace{0.3cm}{\tt  [virtual]}}\label{classCacheSyncSource_35565718c50695ff28e4cda4235c5ea4}
+
+
+Return the first Sync\-Item of updated one. 
+
+It is used in case of fast sync and retrieve the new data source content. 
+
+Implements {\bf Sync\-Source} \doxyref{}{p.}{classSyncSource_0f1309b03694ca3af538fa287f3b67ec}.\index{CacheSyncSource@{Cache\-Sync\-Source}!getNextUpdatedItem@{getNextUpdatedItem}}
+\index{getNextUpdatedItem@{getNextUpdatedItem}!CacheSyncSource@{Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Sync\-Item$\ast$ Cache\-Sync\-Source::get\-Next\-Updated\-Item ()\hspace{0.3cm}{\tt  [virtual]}}\label{classCacheSyncSource_2d2dd1d4bdf7d93f239bf391aad79335}
+
+
+Return the next Sync\-Item of updated one. 
+
+It is used in case of fast sync and retrieve the new data source content. 
+
+Implements {\bf Sync\-Source} \doxyref{}{p.}{classSyncSource_0a81ac5902766067c2ee886dc481a371}.\index{CacheSyncSource@{Cache\-Sync\-Source}!getFirstDeletedItem@{getFirstDeletedItem}}
+\index{getFirstDeletedItem@{getFirstDeletedItem}!CacheSyncSource@{Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Sync\-Item$\ast$ Cache\-Sync\-Source::get\-First\-Deleted\-Item ()\hspace{0.3cm}{\tt  [virtual]}}\label{classCacheSyncSource_41faa1fa3ab648ce76a6c27d6745f3c4}
+
+
+Return the first Sync\-Item of updated one. 
+
+It is used in case of fast sync and retrieve the new data source content. 
+
+Implements {\bf Sync\-Source} \doxyref{}{p.}{classSyncSource_a7e086bb00e085cc2ad76431674c5fe9}.\index{CacheSyncSource@{Cache\-Sync\-Source}!getNextDeletedItem@{getNextDeletedItem}}
+\index{getNextDeletedItem@{getNextDeletedItem}!CacheSyncSource@{Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Sync\-Item$\ast$ Cache\-Sync\-Source::get\-Next\-Deleted\-Item ()\hspace{0.3cm}{\tt  [virtual]}}\label{classCacheSyncSource_a82c623410068876a3d71a26141274fc}
+
+
+Return the next Sync\-Item of updated one. 
+
+It is used in case of fast sync and retrieve the new data source content. 
+
+Implements {\bf Sync\-Source} \doxyref{}{p.}{classSyncSource_a6dea9891d27073f1905020170fa81b0}.\index{CacheSyncSource@{Cache\-Sync\-Source}!serverStatusPackageEnded@{serverStatusPackageEnded}}
+\index{serverStatusPackageEnded@{serverStatusPackageEnded}!CacheSyncSource@{Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Cache\-Sync\-Source::server\-Status\-Package\-Ended ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classCacheSyncSource_9fbf319a0753992bc22ee4ae01458d66}
+
+
+Indicates that all the server status of the current package of the client items has been processed by the engine. 
+
+This signal can be useful to update the modification arrays NOT USED at the moment 
+
+Reimplemented from {\bf Sync\-Source} \doxyref{}{p.}{classSyncSource_9443376b49c06affb8e5099db913ede7}.\index{CacheSyncSource@{Cache\-Sync\-Source}!clientStatusPackageEnded@{clientStatusPackageEnded}}
+\index{clientStatusPackageEnded@{clientStatusPackageEnded}!CacheSyncSource@{Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Cache\-Sync\-Source::client\-Status\-Package\-Ended ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classCacheSyncSource_a0a8e0c059e9810e63ac3ea2c87b1cd5}
+
+
+Indicates that all the client status of the current package of the server items that has been processed by the client and are going to be sent to the server. 
+
+This signal can be useful to update the modification arrays NOT USED at the moment 
+
+Reimplemented from {\bf Sync\-Source} \doxyref{}{p.}{classSyncSource_5b68a10405b68bcd4fbfc8d0ae3baa0b}.\index{CacheSyncSource@{Cache\-Sync\-Source}!getItemSignature@{getItemSignature}}
+\index{getItemSignature@{getItemSignature}!CacheSyncSource@{Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual String\-Buffer Cache\-Sync\-Source::get\-Item\-Signature (String\-Buffer \& {\em key})\hspace{0.3cm}{\tt  [virtual]}}\label{classCacheSyncSource_b708f72b536c855b59e3c1a1146ce88c}
+
+
+Get the signature of an item given the key. 
+
+The signature could be a crc computation or a timestamp or whatever can identify uniquely the content of an item. The default implementation uses a crc computation of the value. Overriding implementation could provide something different like the timestamp or other...
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em key}]the key of the item. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the signature of the selected item \end{Desc}
+\index{CacheSyncSource@{Cache\-Sync\-Source}!getItemContent@{getItemContent}}
+\index{getItemContent@{getItemContent}!CacheSyncSource@{Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual void$\ast$ Cache\-Sync\-Source::get\-Item\-Content (String\-Buffer \& {\em key}, size\_\-t $\ast$ {\em size})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classCacheSyncSource_165f9c680c238d15c72b173c4950c1c2}
+
+
+Get the content of an item given the key. 
+
+It is used to populate the Sync\-Item before the engine uses it in the usual flow of the sync.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em key}]the local key of the item \item[{\em size}]OUT: the size of the content \end{description}
+\end{Desc}
+
+
+Implemented in {\bf Briefcase\-Cache\-Sync\-Source} \doxyref{}{p.}{classBriefcaseCacheSyncSource_dde4fdd141c7ec9beffce33fca26ab42}.\index{CacheSyncSource@{Cache\-Sync\-Source}!getAllItemList@{getAllItemList}}
+\index{getAllItemList@{getAllItemList}!CacheSyncSource@{Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Enumeration}$\ast$ Cache\-Sync\-Source::get\-All\-Item\-List ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classCacheSyncSource_4948e75960aac2250617013f0f2c9d74}
+
+
+Get an array list containing all the String\-Buffer keys of all items. 
+
+Used for the sync requiring and exchange of all items and for the sync that need to calculate the modification. It has to return a new allocated \doxyref{Enumeration}{p.}{classEnumeration} that is freed by the \doxyref{Cache\-Sync\-Source}{p.}{classCacheSyncSource} 
+
+Implemented in {\bf Briefcase\-Cache\-Sync\-Source} \doxyref{}{p.}{classBriefcaseCacheSyncSource_b36960ad1297b0d2886ca40c3bee83ee}.\index{CacheSyncSource@{Cache\-Sync\-Source}!insertItem@{insertItem}}
+\index{insertItem@{insertItem}!CacheSyncSource@{Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Cache\-Sync\-Source::insert\-Item (Sync\-Item \& {\em item})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classCacheSyncSource_0e7c91c6433cfe60e82bd35cada23c56}
+
+
+Called by the sync engine to add an item that the server has sent. 
+
+The sync source is expected to add it to its database, then set the key to the local key assigned to the new item. Alternatively the sync source can match the new item against one of the existing items and return that key.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em item}]the item as sent by the server \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Sync\-ML status code \end{Desc}
+
+
+Implemented in {\bf Briefcase\-Cache\-Sync\-Source} \doxyref{}{p.}{classBriefcaseCacheSyncSource_6e9a42186fb534603f13eca46f5e4b7f}.\index{CacheSyncSource@{Cache\-Sync\-Source}!modifyItem@{modifyItem}}
+\index{modifyItem@{modifyItem}!CacheSyncSource@{Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Cache\-Sync\-Source::modify\-Item (Sync\-Item \& {\em item})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classCacheSyncSource_45760711354feddb886c863598e2a9d2}
+
+
+Called by the sync engine to update an item that the source already should have. 
+
+The item's key is the local key of that item.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em item}]the item as sent by the server \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Sync\-ML status code \end{Desc}
+
+
+Implemented in {\bf Briefcase\-Cache\-Sync\-Source} \doxyref{}{p.}{classBriefcaseCacheSyncSource_72d88d657c489787e260501400dddb5c}.\index{CacheSyncSource@{Cache\-Sync\-Source}!removeItem@{removeItem}}
+\index{removeItem@{removeItem}!CacheSyncSource@{Cache\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Cache\-Sync\-Source::remove\-Item (Sync\-Item \& {\em item})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classCacheSyncSource_341c8c4bba5999016c01087f25c76f13}
+
+
+Called by the sync engine to update an item that the source already should have. 
+
+The item's key is the local key of that item, no data is provided.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em item}]the item as sent by the server \end{description}
+\end{Desc}
+
+
+Implemented in {\bf Briefcase\-Cache\-Sync\-Source} \doxyref{}{p.}{classBriefcaseCacheSyncSource_6a1c2465b05c14df5659dc1f2573da8a}.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/common/client/Cache\-Sync\-Source.h\end{CompactItemize}

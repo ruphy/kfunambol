@@ -1,0 +1,81 @@
+\section{Win\-Note Class Reference}
+\label{classWinNote}\index{WinNote@{WinNote}}
+Rapresents a note object for Windows Clients.  
+
+
+{\tt \#include $<$Win\-Note.h$>$}
+
+Inheritance diagram for Win\-Note:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=58pt]{classWinNote__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Win\-Note:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=51pt]{classWinNote__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Win\-Note} ()\label{classWinNote_4017a0c36f62136fc118d52caa6119df}
+
+\begin{CompactList}\small\item\em Default Constructor. \item\end{CompactList}\item 
+{\bf Win\-Note} (const wstring data\-String)\label{classWinNote_6b97aaf61c96ca9049c8507bfe886e4d}
+
+\begin{CompactList}\small\item\em Constructor: fills property\-Map parsing the passed v\-Note string. \item\end{CompactList}\item 
+{\bf $\sim$Win\-Note} ()\label{classWinNote_89ea199066490ad94421c3abfab10b31}
+
+\begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\item 
+virtual int {\bf parse} (const wstring data\-String)
+\begin{CompactList}\small\item\em Parse a v\-Note string and fills the property\-Map. \item\end{CompactList}\item 
+virtual wstring \& {\bf to\-String} ()
+\begin{CompactList}\small\item\em Format and return a v\-Note string from the property\-Map. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Rapresents a note object for Windows Clients. 
+
+The object can be filled passing a v\-Note, or filling directly the map. Calling 'to\-String()' a v\-Note is formatted and returned. 
+
+
+
+\subsection{Member Function Documentation}
+\index{WinNote@{Win\-Note}!parse@{parse}}
+\index{parse@{parse}!WinNote@{Win\-Note}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Win\-Note::parse (const wstring {\em data\-String})\hspace{0.3cm}{\tt  [virtual]}}\label{classWinNote_8ca4c231350dc634b3ad1955404c70d0}
+
+
+Parse a v\-Note string and fills the property\-Map. 
+
+The map is cleared and will contain only found properties at the end of the parsing. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em data\-String}]input v\-Note string to be parsed \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 if no errors \end{Desc}
+
+
+Implements {\bf Win\-Item} \doxyref{}{p.}{classWinItem_1d7a0c54c09f0bbe080806e202f72e51}.
+
+Reimplemented in {\bf Win\-Note\-SIF} \doxyref{}{p.}{classWinNoteSIF_7f8bbba172900f9c9289f55c0e01d210}.\index{WinNote@{Win\-Note}!toString@{toString}}
+\index{toString@{toString}!WinNote@{Win\-Note}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual wstring\& Win\-Note::to\-String ()\hspace{0.3cm}{\tt  [virtual]}}\label{classWinNote_4f4e440b6a792b5839da51c295ba8913}
+
+
+Format and return a v\-Note string from the property\-Map. 
+
+Not supported properties are ignored and so not formatted as they don't have a correspondence in property\-Map. \begin{Desc}
+\item[Returns:]the v\-Note string formatted, reference to internal wstring \end{Desc}
+
+
+Implements {\bf Win\-Item} \doxyref{}{p.}{classWinItem_03832f44de60b01908967f8e7f793c27}.
+
+Reimplemented in {\bf Win\-Note\-SIF} \doxyref{}{p.}{classWinNoteSIF_5f88029bfafb4c6e8d08730454efef3a}.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/windows/vocl/Win\-Note.h\end{CompactItemize}

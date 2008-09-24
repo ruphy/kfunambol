@@ -1,0 +1,195 @@
+\section{Sync Client}
+\label{group__Client}\index{Sync Client@{Sync Client}}
+The \char`\"{}common/client\char`\"{} directory contains classes related to writing sync clients and some specific client implementations.  
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class {\bf Array\-List\-Key\-Value\-Store}
+\begin{CompactList}\small\item\em This is the interface for the handling of the key/value that has to be written in the storage. \item\end{CompactList}\item 
+class {\bf Key\-Value\-Store}
+\begin{CompactList}\small\item\em This is the interface for the handling of key/value pairs. \item\end{CompactList}\item 
+class {\bf Property\-File}
+\begin{CompactList}\small\item\em This is the implementation of the key\-Value\-Store on filesystem. \item\end{CompactList}\item 
+class {\bf Cache\-Sync\-Source}
+\begin{CompactList}\small\item\em This is an extension of the basic \doxyref{Sync\-Source}{p.}{classSyncSource} that a Sync\-ML client developer could implement to let the sync engine access the client's data. \item\end{CompactList}\item 
+class {\bf DMTClient\-Config}
+\begin{CompactList}\small\item\em This class is an extension of \doxyref{Sync\-Manager\-Config}{p.}{classSyncManagerConfig} that is DM tree aware; this means that configuration properties are read/stored from/to the DM tree. \item\end{CompactList}\item 
+class {\bf File\-Sync\-Source}
+\begin{CompactList}\small\item\em Synchronizes the content of files in a certain directory and the file attributes using a certain XML format. \item\end{CompactList}\item 
+class \textbf{ODBCKey\-Value\-Store}
+\item 
+class {\bf Raw\-File\-Sync\-Source}
+\begin{CompactList}\small\item\em In contrast to the \doxyref{File\-Sync\-Source}{p.}{classFileSyncSource} this class does not wrap the file content and attributes in an XML format when exchanging it with the server. \item\end{CompactList}\item 
+class \textbf{SQLite\-Key\-Value\-Store}
+\item 
+class {\bf SQLKey\-Value\-Store}
+\begin{CompactList}\small\item\em This abstract class represent an implementation of \doxyref{Key\-Value\-Store}{p.}{classKeyValueStore} based on a generic SQL database. \item\end{CompactList}\item 
+class {\bf Sync\-Client}
+\begin{CompactList}\small\item\em This class wraps the common operations executed by a typical client. \item\end{CompactList}\item 
+class {\bf Briefcase\-Cache\-Sync\-Source}
+\begin{CompactList}\small\item\em Synchronizes the content of files in a certain directory and handles the modification and cache or listener structure. \item\end{CompactList}\item 
+class {\bf Abstract\-Sync\-Config}
+\begin{CompactList}\small\item\em This class provides access to all attributes of the client and its sources which the sync engine needs to read and (in a few cases) also write. \item\end{CompactList}\item 
+class {\bf Abstract\-Sync\-Source\-Config}
+\begin{CompactList}\small\item\em This class is the API expected by Sync\-Client/Sync\-Manager for each sync source. \item\end{CompactList}\item 
+class {\bf Sync\-Manager}
+\begin{CompactList}\small\item\em This is the core class which encodes the flow of messages between client and server throughout a session. \item\end{CompactList}\item 
+class {\bf Sync\-Manager\-Config}
+\begin{CompactList}\small\item\em This implementation is just a transient configuration information repository; persisting configuration settings is delegated to subclasses. \item\end{CompactList}\item 
+class {\bf Sync\-Report}
+\begin{CompactList}\small\item\em The \doxyref{Sync\-Report}{p.}{classSyncReport} class is used to summarize all results of a single synchronization. \item\end{CompactList}\item 
+class {\bf Sync\-Source}
+\begin{CompactList}\small\item\em This is the main API that a Sync\-ML client developer needs to implement to let the sync engine access the client's data. \item\end{CompactList}\item 
+class {\bf Sync\-Source\-Config}
+\begin{CompactList}\small\item\em This class is one possible implementation of the \doxyref{Abstract\-Sync\-Source\-Config}{p.}{classAbstractSyncSourceConfig} API: it implements all attributes as read/write members. \item\end{CompactList}\item 
+class {\bf Sync\-Source\-Report}
+\begin{CompactList}\small\item\em \doxyref{Sync\-Source\-Report}{p.}{classSyncSourceReport} class rapresents the report of each \doxyref{Sync\-Source}{p.}{classSyncSource} synchronized. \item\end{CompactList}\item 
+class \textbf{Blocking\-SQLite\-Key\-Value\-Store}
+\item 
+class {\bf Check\-Sync\-Report}
+\begin{CompactList}\small\item\em This class encapsulates logging and checking of a \doxyref{Sync\-Report}{p.}{classSyncReport}. \item\end{CompactList}\item 
+class {\bf Client\-Test}
+\begin{CompactList}\small\item\em This is the interface expected by the testing framework for sync clients. \item\end{CompactList}\item 
+class {\bf Create\-Source}
+\begin{CompactList}\small\item\em helper class to encapsulate \doxyref{Client\-Test::Config::createsource\_\-t}{p.}{structClientTest_1_1Config_f7d2815b26c8007d45eac2f5cfb3a232} pointer and the corresponding parameters \item\end{CompactList}\item 
+class {\bf Local\-Tests}
+\begin{CompactList}\small\item\em local test of one sync source and utility functions also used by sync tests \item\end{CompactList}\item 
+class {\bf Sync\-Tests}
+\begin{CompactList}\small\item\em Tests synchronization with one or more sync sources enabled. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \textbf{CACHE\_\-FILE\_\-NAME}~\char`\"{}cache\_\-items.dat\char`\"{}\label{group__Client_gf2fc6c3a997679e51f53dc4b742c33df}
+
+\item 
+\#define \textbf{APPLICATION\_\-URI}~\char`\"{}Funambol/Syncclient\-FILE\char`\"{}\label{group__Client_g61d7d38a3e351a14727c43dbda16da8b}
+
+\item 
+\#define \textbf{LOG\_\-TITLE}~\char`\"{}Funambol FILEClient Log\char`\"{}\label{group__Client_g00a4f2bfc573eb626b3e9435c433bbe3}
+
+\item 
+\#define \textbf{LOG\_\-PATH}~\char`\"{}.\char`\"{}\label{group__Client_g0134988ddb9f2cd0397f1ac985abd91c}
+
+\item 
+\#define \textbf{LOG\_\-LEVEL}~LOG\_\-LEVEL\_\-DEBUG\label{group__Client_g0b87e0d3bf5853bcbb0b66a7c48fdc05}
+
+\item 
+\#define \textbf{SOURCE\_\-NAME}~\char`\"{}briefcase\char`\"{}\label{group__Client_g651e5b9251b0d79de4e2038d069764c3}
+
+\item 
+\#define \textbf{WSOURCE\_\-NAME}~TEXT(\char`\"{}briefcase\char`\"{})\label{group__Client_gad645988aee3a006a6c5e2455346107e}
+
+\item 
+\#define \textbf{DEVICE\_\-ID}~\char`\"{}Funambol FILEClient\char`\"{}\label{group__Client_g0b85963cace75e76ae726bcffb04eb70}
+
+\item 
+\#define \textbf{SW\_\-VERSION}~\char`\"{}1.0\char`\"{}\label{group__Client_gd13f8dea3a5243219cd2109520fdefe4}
+
+\item 
+\#define \textbf{ERR\_\-FILE\_\-SYSTEM}~1\label{group__Client_g76bd6be5387a0393e52ec8a804782e86}
+
+\item 
+\#define \textbf{ERR\_\-NO\_\-FILES\_\-TO\_\-SYNC}~2\label{group__Client_gc319a4021628148ca95d39d54db7a965}
+
+\item 
+\#define \textbf{ERR\_\-BAD\_\-FILE\_\-CONTENT}~3\label{group__Client_g92ad7c19f9b69cd6093178226067bb7f}
+
+\item 
+\#define \textbf{DEFAULT\_\-BRIEFCASE\_\-DIR}~\char`\"{}.\char`\"{}\label{group__Client_ga7e39aece150d23dfdf2ba3e18d5e798}
+
+\item 
+\#define \textbf{DATA\_\-SIZE\_\-TOLERANCE}~1.06\label{group__Client_gbda7d1da4486539b66403524c8724db8}
+
+\item 
+\#define \textbf{CLIENT}~\char`\"{}Client\char`\"{}\label{group__Client_gf19f26460d89cfb3f212f4b0a44882e8}
+
+\item 
+\#define \textbf{SERVER}~\char`\"{}Server\char`\"{}\label{group__Client_g24cd3c37a165a8c4626d9e78df4574ff}
+
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef std::list$<$ std::string $>$ \textbf{UIDList}\label{group__Client_g496eb7e0f028c483bde34a500d82616a}
+
+\end{CompactItemize}
+\subsection*{Enumerations}
+\begin{CompactItemize}
+\item 
+enum \textbf{Sync\-Manager\-State} \{ \par
+\textbf{STATE\_\-START} =  0, 
+\textbf{STATE\_\-PKG1\_\-SENDING} =  1, 
+\textbf{STATE\_\-PKG1\_\-SENT} =  2, 
+\textbf{STATE\_\-PKG3\_\-SENDING} =  3, 
+\par
+\textbf{STATE\_\-PKG3\_\-SENT} =  4, 
+\textbf{STATE\_\-PKG5\_\-SENDING} =  5, 
+\textbf{STATE\_\-PKG5\_\-SENT} =  6
+ \}
+\item 
+enum {\bf Source\-State} \{ {\bf SOURCE\_\-ACTIVE} =  0, 
+{\bf SOURCE\_\-INACTIVE} =  1, 
+{\bf SOURCE\_\-ERROR} =  2
+ \}
+\begin{CompactList}\small\item\em Possible states of syncsource (state member). \item\end{CompactList}\item 
+enum \textbf{item\-Type} \{ \textbf{NEW\_\-ITEMS}, 
+\textbf{UPDATED\_\-ITEMS}, 
+\textbf{DELETED\_\-ITEMS}, 
+\textbf{TOTAL\_\-ITEMS}
+ \}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \textbf{create\-Config} ({\bf DMTClient\-Config} \&config)\label{group__Client_g2da4911250f9febd901938ddc762f7fe}
+
+\item 
+int {\bf count\-Items\-Of\-Type} ({\bf Sync\-Source} $\ast$source, item\-Type type)
+\begin{CompactList}\small\item\em utility function which counts items of a certain kind known to the sync source \item\end{CompactList}\item 
+UIDList {\bf list\-Items\-Of\-Type} ({\bf Sync\-Source} $\ast$source, item\-Type type)\label{group__Client_g5bbeced36d5d417ae53b6a6c11937056}
+
+\begin{CompactList}\small\item\em generates list of UIDs in the specified kind of items \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The \char`\"{}common/client\char`\"{} directory contains classes related to writing sync clients and some specific client implementations. 
+
+Using these classes is optional. Alternatively one can use the sync engine directly via the \doxyref{Sync\-Manager}{p.}{classSyncManager}, but beware that this is more complex. 
+
+\subsection{Enumeration Type Documentation}
+\index{Client@{Client}!SourceState@{SourceState}}
+\index{SourceState@{SourceState}!Client@{Client}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Source\-State}}\label{group__Client_g3b9fa56629de87376543acc6ca08ea04}
+
+
+Possible states of syncsource (state member). 
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{SOURCE_ACTIVE@{SOURCE\_\-ACTIVE}!Client@{Client}}\index{Client@{Client}!SOURCE_ACTIVE@{SOURCE\_\-ACTIVE}}\item[{\em 
+SOURCE\_\-ACTIVE\label{group__Client_gg3b9fa56629de87376543acc6ca08ea04af0a3dc1d0e57ac4ce57b6017f9b6ccb}
+}]source is part of the current sync and in a sane state \index{SOURCE_INACTIVE@{SOURCE\_\-INACTIVE}!Client@{Client}}\index{Client@{Client}!SOURCE_INACTIVE@{SOURCE\_\-INACTIVE}}\item[{\em 
+SOURCE\_\-INACTIVE\label{group__Client_gg3b9fa56629de87376543acc6ca08ea04b3018e10c87496bd435c18fe1bca97ee}
+}]source was excluded from the current sync before starting it \index{SOURCE_ERROR@{SOURCE\_\-ERROR}!Client@{Client}}\index{Client@{Client}!SOURCE_ERROR@{SOURCE\_\-ERROR}}\item[{\em 
+SOURCE\_\-ERROR\label{group__Client_gg3b9fa56629de87376543acc6ca08ea0446ac39c10a25c9a13293127260d3ef37}
+}]source encountered and error sometime during the sync \end{description}
+\end{Desc}
+
+
+
+\subsection{Function Documentation}
+\index{Client@{Client}!countItemsOfType@{countItemsOfType}}
+\index{countItemsOfType@{countItemsOfType}!Client@{Client}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int count\-Items\-Of\-Type ({\bf Sync\-Source} $\ast$ {\em source}, item\-Type {\em type})}\label{group__Client_gb4b747156b72636a3b7048dcc1787799}
+
+
+utility function which counts items of a certain kind known to the sync source 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em source}]valid source ready to iterate; NULL triggers an assert \item[{\em item\-Type}]determines which iterator functions are used \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]number of valid items iterated over \end{Desc}

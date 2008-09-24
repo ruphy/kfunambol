@@ -1,0 +1,212 @@
+\section{Client\-Test::Config Struct Reference}
+\label{structClientTest_1_1Config}\index{ClientTest::Config@{ClientTest::Config}}
+Information about a data source.  
+
+
+{\tt \#include $<$Client\-Test.h$>$}
+
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef {\bf Sync\-Source} $\ast$($\ast$) {\bf createsource\_\-t} ({\bf Client\-Test} \&client, int source, bool is\-Source\-A)
+\begin{CompactList}\small\item\em A member function of a subclass which is called to create a sync source referencing the data. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+const char $\ast$ {\bf source\-Name}\label{structClientTest_1_1Config_13606b71a37c3d8b9bac91c208a8de00}
+
+\begin{CompactList}\small\item\em The name is used in test names and has to be set. \item\end{CompactList}\item 
+const char $\ast$ {\bf uri}\label{structClientTest_1_1Config_c54fca23378e04c6910e9b85d87fefcd}
+
+\begin{CompactList}\small\item\em A default URI to be used when creating a client config. \item\end{CompactList}\item 
+{\bf createsource\_\-t} {\bf create\-Source\-A}\label{structClientTest_1_1Config_4b88084e4d9abe94aa4e5ab37c4d0b13}
+
+\begin{CompactList}\small\item\em Creates a sync source which references the primary database; it may report the same changes as the sync source used during sync tests. \item\end{CompactList}\item 
+{\bf createsource\_\-t} {\bf create\-Source\-B}
+\begin{CompactList}\small\item\em A second sync source also referencing the primary data source, but configured so that it tracks changes independently from the the primary sync source. \item\end{CompactList}\item 
+const char $\ast$ {\bf template\-Item}
+\begin{CompactList}\small\item\em The framework can generate v\-Card and v\-Calendar/i\-Calendar items automatically by copying a template item and modifying certain properties. \item\end{CompactList}\item 
+const char $\ast$ {\bf unique\-Properties}\label{structClientTest_1_1Config_63ce67039c12f690bf0cb7b2c2830e1b}
+
+\begin{CompactList}\small\item\em This is a colon (:) separated list of properties which need to be modified in template\-Item. \item\end{CompactList}\item 
+int {\bf num\-Items}\label{structClientTest_1_1Config_17621cc1f53f352e94c4d34274902bfe}
+
+\begin{CompactList}\small\item\em the number of items to create during stress tests \item\end{CompactList}\item 
+const char $\ast$ {\bf size\-Property}\label{structClientTest_1_1Config_1cb2cbb515ed39152bf4b8244a12867e}
+
+\begin{CompactList}\small\item\em This is a single property in template\-Item which can be extended to increase the size of generated items. \item\end{CompactList}\item 
+const char $\ast$ {\bf insert\-Item}
+\begin{CompactList}\small\item\em A very simple item that is inserted during basic tests. \item\end{CompactList}\item 
+const char $\ast$ {\bf update\-Item}
+\begin{CompactList}\small\item\em A slightly modified version of insert\-Item. \item\end{CompactList}\item 
+const char $\ast$ {\bf complex\-Update\-Item}
+\begin{CompactList}\small\item\em A more heavily modified version of insert\-Item. \item\end{CompactList}\item 
+const char $\ast$ {\bf merge\-Item1}
+\begin{CompactList}\small\item\em To test merge conflicts two different updates of insert\-Item are needed. \item\end{CompactList}\item 
+const char $\ast$ {\bf merge\-Item2}
+\begin{CompactList}\small\item\em The second merge update item. \item\end{CompactList}\item 
+const char $\ast$ {\bf parent\-Item}
+\begin{CompactList}\small\item\em These two items are related: one is main one, the other is a subordinate one. \item\end{CompactList}\item 
+const char $\ast$ \textbf{child\-Item}\label{structClientTest_1_1Config_97dc9112bc673d274971e9a6611110a6}
+
+\item 
+int($\ast$ {\bf dump} )({\bf Client\-Test} \&client, {\bf Sync\-Source} \&source, const char $\ast$file)
+\begin{CompactList}\small\item\em called to dump all items into a file, required by tests which need to compare items \item\end{CompactList}\item 
+int($\ast$ {\bf import} )({\bf Client\-Test} \&client, {\bf Sync\-Source} \&source, const char $\ast$file)
+\begin{CompactList}\small\item\em import test items: which these are is determined entirely by the implementor, but tests work best if several complex items are imported \item\end{CompactList}\item 
+bool($\ast$ {\bf compare} )({\bf Client\-Test} \&client, const char $\ast$file\-A, const char $\ast$file\-B)
+\begin{CompactList}\small\item\em a function which compares two files with items in the format used by \char`\"{}dump\char`\"{} \item\end{CompactList}\item 
+const char $\ast$ {\bf testcases}\label{structClientTest_1_1Config_024fe82b49035455a6602ed00f6d203f}
+
+\begin{CompactList}\small\item\em a file with test cases in the format expected by import and compare \item\end{CompactList}\item 
+const char $\ast$ {\bf type}\label{structClientTest_1_1Config_e6c8c571c3424b35ebf771e5a2dee6a0}
+
+\begin{CompactList}\small\item\em the item type normally used by the source (not used by the tests themselves; client-test.cpp uses it to initialize source configs) \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Information about a data source. 
+
+For the sake of simplicity all items pointed to are owned by the \doxyref{Client\-Test}{p.}{classClientTest} and must remain valid throughout a test session. Not setting a pointer is okay, but it will disable all tests that need the information. 
+
+
+
+\subsection{Member Typedef Documentation}
+\index{ClientTest::Config@{Client\-Test::Config}!createsource_t@{createsource\_\-t}}
+\index{createsource_t@{createsource\_\-t}!ClientTest::Config@{Client\-Test::Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Sync\-Source}$\ast$($\ast$) {\bf Client\-Test::Config::createsource\_\-t}({\bf Client\-Test} \&client, int source, bool is\-Source\-A)}\label{structClientTest_1_1Config_f7d2815b26c8007d45eac2f5cfb3a232}
+
+
+A member function of a subclass which is called to create a sync source referencing the data. 
+
+This is used in tests of the \doxyref{Sync\-Source}{p.}{classSyncSource} API itself as well as in tests which need to modify or check the data sources used during synchronization.
+
+The test framework will call begin\-Sync() and then some of the functions it wants to test. After a successful test it will call end\-Sync() which is then expected to store all changes persistently. Creating a sync source again with the same call should not report any new/updated/deleted items until such changes are made via another sync source.
+
+The instance will be deleted by the caller. Because this may be in the error case or in an exception handler, the sync source's desctructor should not thow exceptions.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em client}]the same instance to which this config belongs \item[{\em source}]index of the data source (from 0 to \doxyref{Client\-Test::get\-Num\-Sources()}{p.}{classClientTest_d7b3592d2623c8076ffc43c4600a2f16} - 1) \item[{\em is\-Source\-A}]true if the requested \doxyref{Sync\-Source}{p.}{classSyncSource} is the first one accessing that data, otherwise the second \end{description}
+\end{Desc}
+
+
+\subsection{Member Data Documentation}
+\index{ClientTest::Config@{Client\-Test::Config}!createSourceB@{createSourceB}}
+\index{createSourceB@{createSourceB}!ClientTest::Config@{Client\-Test::Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf createsource\_\-t} {\bf Client\-Test::Config::create\-Source\-B}}\label{structClientTest_1_1Config_9d8b5a3de6b9ddd500e44aaff9d59b7e}
+
+
+A second sync source also referencing the primary data source, but configured so that it tracks changes independently from the the primary sync source. 
+
+In local tests the usage is like this:\begin{itemize}
+\item add item via first \doxyref{Sync\-Source}{p.}{classSyncSource}\item iterate over new items in second \doxyref{Sync\-Source}{p.}{classSyncSource}\item check that it lists the added item\end{itemize}
+
+
+In tests with a server the usage is:\begin{itemize}
+\item do a synchronization with the server\item iterate over items in second \doxyref{Sync\-Source}{p.}{classSyncSource}\item check that the total number and number of added/updated/deleted items is as expected \end{itemize}
+\index{ClientTest::Config@{Client\-Test::Config}!templateItem@{templateItem}}
+\index{templateItem@{templateItem}!ClientTest::Config@{Client\-Test::Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ {\bf Client\-Test::Config::template\-Item}}\label{structClientTest_1_1Config_c3d389ac3acec40f2fa370fcaac411b7}
+
+
+The framework can generate v\-Card and v\-Calendar/i\-Calendar items automatically by copying a template item and modifying certain properties. 
+
+This is the template for these automatically generated items. \index{ClientTest::Config@{Client\-Test::Config}!insertItem@{insertItem}}
+\index{insertItem@{insertItem}!ClientTest::Config@{Client\-Test::Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ {\bf Client\-Test::Config::insert\-Item}}\label{structClientTest_1_1Config_a21023ae78b155bcca67d1a2ed00f83e}
+
+
+A very simple item that is inserted during basic tests. 
+
+Ideally it only contains properties supported by all servers. \index{ClientTest::Config@{Client\-Test::Config}!updateItem@{updateItem}}
+\index{updateItem@{updateItem}!ClientTest::Config@{Client\-Test::Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ {\bf Client\-Test::Config::update\-Item}}\label{structClientTest_1_1Config_810beeb15d5f135d1c2e5e5e6127050f}
+
+
+A slightly modified version of insert\-Item. 
+
+If the source has UIDs embedded into the item data, then both must have the same UID. Again all servers should better support these modified properties. \index{ClientTest::Config@{Client\-Test::Config}!complexUpdateItem@{complexUpdateItem}}
+\index{complexUpdateItem@{complexUpdateItem}!ClientTest::Config@{Client\-Test::Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ {\bf Client\-Test::Config::complex\-Update\-Item}}\label{structClientTest_1_1Config_cea02c72b4078113996f6eb274ac2432}
+
+
+A more heavily modified version of insert\-Item. 
+
+Same UID if necessary, but can test changes to items only supported by more advanced servers. \index{ClientTest::Config@{Client\-Test::Config}!mergeItem1@{mergeItem1}}
+\index{mergeItem1@{mergeItem1}!ClientTest::Config@{Client\-Test::Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ {\bf Client\-Test::Config::merge\-Item1}}\label{structClientTest_1_1Config_3b8b6d8c7f74ab9f92cf28039db04393}
+
+
+To test merge conflicts two different updates of insert\-Item are needed. 
+
+This is the first such update. \index{ClientTest::Config@{Client\-Test::Config}!mergeItem2@{mergeItem2}}
+\index{mergeItem2@{mergeItem2}!ClientTest::Config@{Client\-Test::Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ {\bf Client\-Test::Config::merge\-Item2}}\label{structClientTest_1_1Config_695b04d1081ffc6adf34671fe5fb1c8d}
+
+
+The second merge update item. 
+
+To avoid true conflicts it should update different properties than merge\-Item1, but even then servers usually have problems perfectly merging items. Therefore the test is run without expecting a certain merge result. \index{ClientTest::Config@{Client\-Test::Config}!parentItem@{parentItem}}
+\index{parentItem@{parentItem}!ClientTest::Config@{Client\-Test::Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ {\bf Client\-Test::Config::parent\-Item}}\label{structClientTest_1_1Config_d3cd2429f410c55e13423be854a826a9}
+
+
+These two items are related: one is main one, the other is a subordinate one. 
+
+The semantic is that the main item is complete on it its own, while the other normally should only be used in combination with the main one.
+
+Because Sync\-ML cannot express such dependencies between items, a \doxyref{Sync\-Source}{p.}{classSyncSource} has to be able to insert, updated and remove both items independently. However, operations which violate the semantic of the related items (like deleting the parent, but not the child) may have unspecified results (like also deleting the child). See LINKED\_\-ITEMS\_\-RELAXED\_\-SEMANTIC.
+
+One example for main and subordinate items are a recurring i\-Calendar 2.0 event and a detached recurrence. \index{ClientTest::Config@{Client\-Test::Config}!dump@{dump}}
+\index{dump@{dump}!ClientTest::Config@{Client\-Test::Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ {\bf Client\-Test::Config::dump})({\bf Client\-Test} \&client, {\bf Sync\-Source} \&source, const char $\ast$file)}\label{structClientTest_1_1Config_ad002cdd4f767eec8c7f30b8d186ef8e}
+
+
+called to dump all items into a file, required by tests which need to compare items 
+
+\doxyref{Client\-Test::dump}{p.}{group__ClientTest_g21f82c79cc49a242a9ddb28ccc4ae4cf} can be used: it will simply dump all items of the source with a blank line as separator.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em source}]sync source A already created and with begin\-Sync() called \item[{\em file}]a file name \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]error code, 0 for success \end{Desc}
+\index{ClientTest::Config@{Client\-Test::Config}!import@{import}}
+\index{import@{import}!ClientTest::Config@{Client\-Test::Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ {\bf Client\-Test::Config::import})({\bf Client\-Test} \&client, {\bf Sync\-Source} \&source, const char $\ast$file)}\label{structClientTest_1_1Config_f590f3b6b652dfb0fa566dc1440f3f11}
+
+
+import test items: which these are is determined entirely by the implementor, but tests work best if several complex items are imported 
+
+\doxyref{Client\-Test::import}{p.}{group__ClientTest_g6f8c5e62da7b5da62d4bf5e5f9f8938e} can be used if the file contains items separated by empty lines.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em source}]sync source A already created and with begin\-Sync() called \item[{\em file}]the name of the file to import \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]error code, 0 for success \end{Desc}
+\index{ClientTest::Config@{Client\-Test::Config}!compare@{compare}}
+\index{compare@{compare}!ClientTest::Config@{Client\-Test::Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool($\ast$ {\bf Client\-Test::Config::compare})({\bf Client\-Test} \&client, const char $\ast$file\-A, const char $\ast$file\-B)}\label{structClientTest_1_1Config_5ac4b98364b1c16007cc9af1f0b423dd}
+
+
+a function which compares two files with items in the format used by \char`\"{}dump\char`\"{} 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em file\-A}]first file name \item[{\em file\-B}]second file name \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the content of the files is considered equal \end{Desc}
+
+
+The documentation for this struct was generated from the following file:\begin{CompactItemize}
+\item 
+test/Client\-Test.h\end{CompactItemize}

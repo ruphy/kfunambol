@@ -1,0 +1,278 @@
+\section{Win\_\-adapter}
+\label{group__win__adapter}\index{Win_adapter@{Win\_\-adapter}}
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class {\bf Win\-Contact}
+\begin{CompactList}\small\item\em Rapresents a contact object for Windows Clients. \item\end{CompactList}\item 
+class {\bf Win\-Contact\-SIF}
+\begin{CompactList}\small\item\em Rapresents a contact object for Windows Clients, in SIF format. \item\end{CompactList}\item 
+class {\bf Win\-Event}
+\begin{CompactList}\small\item\em Rapresents an event object for Windows Clients. \item\end{CompactList}\item 
+class {\bf Win\-Event\-SIF}
+\begin{CompactList}\small\item\em Rapresents an event object for Windows Clients, for SIF format. \item\end{CompactList}\item 
+class {\bf Win\-Item}
+\begin{CompactList}\small\item\em Rapresents an item object for Windows Clients. \item\end{CompactList}\item 
+class {\bf Win\-Note}
+\begin{CompactList}\small\item\em Rapresents a note object for Windows Clients. \item\end{CompactList}\item 
+class {\bf Win\-Note\-SIF}
+\begin{CompactList}\small\item\em Rapresents a note object for Windows Clients, for SIF format. \item\end{CompactList}\item 
+class {\bf Win\-Recipient}
+\begin{CompactList}\small\item\em Rapresents a recipient object (attendee) for Windows Clients. \item\end{CompactList}\item 
+class {\bf Win\-Recurrence}
+\begin{CompactList}\small\item\em Rapresents a recurrence pattern object for Windows Clients. \item\end{CompactList}\item 
+class {\bf Win\-Recurrence\-SIF}
+\begin{CompactList}\small\item\em Rapresents a recurrence pattern object for Windows Clients, for SIF format. \item\end{CompactList}\item 
+class {\bf Win\-Task}
+\begin{CompactList}\small\item\em Rapresents an event object for Windows Clients. \item\end{CompactList}\item 
+class {\bf Win\-Task\-SIF}
+\begin{CompactList}\small\item\em Rapresents an event object for Windows Clients, for SIF format. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef double \textbf{DATE}\label{group__win__adapter_g0248b04a036728edd4ac38b46a9dddcb}
+
+\item 
+typedef list$<$ wstring $>$ \textbf{exception\-List}\label{group__win__adapter_g498150bf21b7981a7f841479e1646163}
+
+\item 
+typedef exception\-List::iterator \textbf{exceptions\-Iterator}\label{group__win__adapter_g127283520d3e73f28d86bb3480760c5f}
+
+\item 
+typedef list$<$ {\bf Win\-Recipient} $>$ \textbf{recipient\-List}\label{group__win__adapter_ge88e5fdd51b0975cc2973c901658e740}
+
+\end{CompactItemize}
+\subsection*{Enumerations}
+\begin{CompactItemize}
+\item 
+enum {\bf Win\-Sensitivity} \{ \textbf{win\-Normal} =  0, 
+\textbf{win\-Personal} =  1, 
+\textbf{win\-Private} =  2, 
+\textbf{win\-Confidential} =  3
+ \}
+\begin{CompactList}\small\item\em This is defined in MS Outlook and Pocket Outlook libraries. \item\end{CompactList}\item 
+enum {\bf Win\-Days\-Of\-Week} \{ \par
+\textbf{win\-Sunday} =  1, 
+\textbf{win\-Monday} =  2, 
+\textbf{win\-Tuesday} =  4, 
+\textbf{win\-Wednesday} =  8, 
+\par
+\textbf{win\-Thursday} =  16, 
+\textbf{win\-Friday} =  32, 
+\textbf{win\-Saturday} =  64
+ \}
+\begin{CompactList}\small\item\em This is defined in MS Outlook and Pocket Outlook libraries. \item\end{CompactList}\item 
+enum {\bf Win\-Recurrence\-Type} \{ \par
+\textbf{win\-Recurs\-Daily} =  0, 
+\textbf{win\-Recurs\-Weekly} =  1, 
+\textbf{win\-Recurs\-Monthly} =  2, 
+\textbf{win\-Recurs\-Month\-Nth} =  3, 
+\par
+\textbf{win\-Recurs\-Yearly} =  5, 
+\textbf{win\-Recurs\-Year\-Nth} =  6
+ \}
+\begin{CompactList}\small\item\em This is defined in MS Outlook and Pocket Outlook libraries. \item\end{CompactList}\item 
+enum {\bf Win\-Note\-Color} \{ \par
+\textbf{win\-Blue} =  0, 
+\textbf{win\-Green} =  1, 
+\textbf{win\-Pink} =  2, 
+\textbf{win\-Yellow} =  3, 
+\par
+\textbf{win\-White} =  4, 
+\textbf{NUM\_\-NOTE\_\-COLOR}
+ \}
+\begin{CompactList}\small\item\em This is defined in MS Outlook libraries for note property \char`\"{}Color\char`\"{}. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \textbf{to\-Lower\-Case} (std::string \&s)\label{group__win__adapter_g1befc7cf27e34da23aa73735a63068b6}
+
+\item 
+void \textbf{to\-Lower\-Case} (std::wstring \&s)\label{group__win__adapter_g769850121d1328f685dbf1d8b37478c2}
+
+\item 
+void \textbf{replace\-All} (const std::wstring \&source, const std::wstring \&dest, std::wstring \&data\-String, const int start\-Pos=0)\label{group__win__adapter_g97eaf85951ac6b202be72151c347f4ef}
+
+\item 
+int \textbf{get\-Element\-Content} (const std::wstring \&xml, const std::wstring \&tag, std::wstring \&content, unsigned int pos=0)\label{group__win__adapter_gfb9416ca3eaf9d2d9f3bc5e09bb25f2e}
+
+\item 
+int \textbf{get\-Element\-Content} (const std::wstring \&xml, const std::wstring \&tag, std::wstring \&content, const std::wstring::size\_\-type pos, std::wstring::size\_\-type \&start, std::wstring::size\_\-type \&end)\label{group__win__adapter_g7c276002285d715e0355741209fac41d}
+
+\item 
+char $\ast$ \textbf{encrypt\-Data} (const char $\ast$data, const char $\ast$password=NULL)\label{group__win__adapter_gae5b892dae29cb8568141f29fd3bbe49}
+
+\item 
+char $\ast$ \textbf{decrypt\-Data} (const char $\ast$b64Data, const char $\ast$password=NULL)\label{group__win__adapter_g03cb30f0542b052f6d295750e03ddc79}
+
+\item 
+void \textbf{double\-To\-String\-Time} (std::wstring \&string\-Date, const DATE double\-Date, bool only\-Date=false)\label{group__win__adapter_g931e4d0317858069f7b6a62d0edb2c04}
+
+\item 
+void \textbf{string\-Time\-To\-Double} (const std::wstring \&data\-String, DATE $\ast$date)\label{group__win__adapter_g1ebefc6a6caf683961fcd4937a0b1bdf}
+
+\item 
+bool \textbf{is\-All\-Day\-Format} (const std::wstring \&data\-String)\label{group__win__adapter_g3a6e6856d6c6b1bea04f1403b24f3f04}
+
+\item 
+bool \textbf{is\-All\-Day\-Interval} (const DATE startdate, const DATE enddate)\label{group__win__adapter_g2516ccba1ed8ba2e89d6198af04aecc0}
+
+\item 
+WCHAR $\ast$ \textbf{days\-Of\-Week\-To\-String} (int l)\label{group__win__adapter_g1708c53ec739108a319596bc9c0a4ac0}
+
+\item 
+int \textbf{string\-To\-Days\-Of\-Week} (WCHAR $\ast$in)\label{group__win__adapter_g6550aaa18ed5265183febf1fdfa9ceee}
+
+\item 
+int \textbf{get\-Week\-Day\-From\-Date} (DATE date)\label{group__win__adapter_gc4b0a49918268eb018cb42ef26d6c2ee}
+
+\item 
+bool \textbf{is\-Week\-Day} (WCHAR $\ast$data)\label{group__win__adapter_gfe83aee99c392bc68dc333a3317c16cb}
+
+\item 
+std::wstring {\bf get\-Date\-From\-Tz\-Rule} (const int year, SYSTEMTIME tz\-Rule)
+\begin{CompactList}\small\item\em Client to Server. \item\end{CompactList}\item 
+SYSTEMTIME {\bf get\-Tz\-Rule\-From\-Dates} (std::list$<$ std::wstring $>$ \&dates, bool $\ast$found)
+\begin{CompactList}\small\item\em Server to Client. \item\end{CompactList}\item 
+std::wstring {\bf format\-Bias} (const int bias)
+\begin{CompactList}\small\item\em Returns a wstring with the given bias formatted like \char`\"{}+/-hhmm\char`\"{}. \item\end{CompactList}\item 
+int {\bf parse\-Bias} (const WCHAR $\ast$data)
+\begin{CompactList}\small\item\em Parse a wide-char string containing bias, like \char`\"{}+0130\char`\"{} or \char`\"{}-08\char`\"{}. \item\end{CompactList}\item 
+bool {\bf is\-Same\-Timezone} (const TIME\_\-ZONE\_\-INFORMATION $\ast$tz1, const TIME\_\-ZONE\_\-INFORMATION $\ast$tz2)
+\begin{CompactList}\small\item\em Returns true if the passed tz information are the same. \item\end{CompactList}\item 
+bool {\bf is\-Same\-Systemtime} (const SYSTEMTIME $\ast$st1, const SYSTEMTIME $\ast$st2)
+\begin{CompactList}\small\item\em Returns true if the passed systemtime are the same. \item\end{CompactList}\item 
+bool {\bf has\-Day\-Light\-Saving} (const TIME\_\-ZONE\_\-INFORMATION $\ast$tz)
+\begin{CompactList}\small\item\em Check if the timezone information has a day light saving. \item\end{CompactList}\item 
+void {\bf add\-Property\-To\-SIF} (std::wstring \&sif, const std::wstring property\-Name, std::wstring property\-Value)
+\begin{CompactList}\small\item\em Adds a tag \char`\"{}$<$property\-Name$>$property\-Value$<$/property\-Name$>$\char`\"{} into 'sif' string. \item\end{CompactList}\item 
+std::wstring {\bf format\-Date\-With\-Minus} (const std::wstring \&string\-Date)\label{group__win__adapter_gbee8c819989a6961dd22e6bdb337c093}
+
+\begin{CompactList}\small\item\em Format a date like yyyy\-MMdd in yyyy-MM-dd. \item\end{CompactList}\item 
+std::wstring {\bf trim} (const std::wstring \&str)\label{group__win__adapter_gec7c2a418f87c645dcbe5f9b9b2d3ee8}
+
+\begin{CompactList}\small\item\em Trims the string passed. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+BEGIN\_\-NAMESPACE typedef map$<$ wstring, wstring $>$::iterator \textbf{map\-Iterator}\label{group__win__adapter_g622a0bcc788b6001a16141d2b9e743c0}
+
+\end{CompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\index{win_adapter@{win\_\-adapter}!WinDaysOfWeek@{WinDaysOfWeek}}
+\index{WinDaysOfWeek@{WinDaysOfWeek}!win_adapter@{win\_\-adapter}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Win\-Days\-Of\-Week}}\label{group__win__adapter_g9bdbf1efa4d44ccea94406851b934099}
+
+
+This is defined in MS Outlook and Pocket Outlook libraries. 
+
+Recurring property \char`\"{}Days\-Of\-Week\-Mask\char`\"{} is one or a combination of following values. \index{win_adapter@{win\_\-adapter}!WinRecurrenceType@{WinRecurrenceType}}
+\index{WinRecurrenceType@{WinRecurrenceType}!win_adapter@{win\_\-adapter}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Win\-Recurrence\-Type}}\label{group__win__adapter_gfd097b0102d4e9991d40f19542ecdd8d}
+
+
+This is defined in MS Outlook and Pocket Outlook libraries. 
+
+Following are the possible values for \doxyref{Win\-Recurrence}{p.}{classWinRecurrence} property \char`\"{}Recurrence\-Type\char`\"{}. \index{win_adapter@{win\_\-adapter}!WinSensitivity@{WinSensitivity}}
+\index{WinSensitivity@{WinSensitivity}!win_adapter@{win\_\-adapter}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Win\-Sensitivity}}\label{group__win__adapter_g537d09a381ad71726d97b2fad3e68ee4}
+
+
+This is defined in MS Outlook and Pocket Outlook libraries. 
+
+Following are the possible values for \doxyref{Win\-Event}{p.}{classWinEvent} property \char`\"{}Sensitivity\char`\"{}. 
+
+\subsection{Function Documentation}
+\index{win_adapter@{win\_\-adapter}!addPropertyToSIF@{addPropertyToSIF}}
+\index{addPropertyToSIF@{addPropertyToSIF}!win_adapter@{win\_\-adapter}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void add\-Property\-To\-SIF (std::wstring \& {\em sif}, const std::wstring {\em property\-Name}, std::wstring {\em property\-Value})}\label{group__win__adapter_g7fdbee17993d151fcc484cdb34d9ab56}
+
+
+Adds a tag \char`\"{}$<$property\-Name$>$property\-Value$<$/property\-Name$>$\char`\"{} into 'sif' string. 
+
+Escapes all the \char`\"{}\&\char`\"{}, \char`\"{}$<$\char`\"{}, \char`\"{}$>$\char`\"{} characters inside property\-Value.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em sif}][IN-OUT] the SIF string where we append data \item[{\em property\-Name}]name of the SIF field to append \item[{\em property\-Value}]value of the SIF field to append \end{description}
+\end{Desc}
+\index{win_adapter@{win\_\-adapter}!formatBias@{formatBias}}
+\index{formatBias@{formatBias}!win_adapter@{win\_\-adapter}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}std::wstring format\-Bias (const int {\em bias})}\label{group__win__adapter_g5fac5ca0c18f41b963fe5b3742b2f983}
+
+
+Returns a wstring with the given bias formatted like \char`\"{}+/-hhmm\char`\"{}. 
+
+Example: bias = 330 -$>$ \char`\"{}-0530\char`\"{} \index{win_adapter@{win\_\-adapter}!getDateFromTzRule@{getDateFromTzRule}}
+\index{getDateFromTzRule@{getDateFromTzRule}!win_adapter@{win\_\-adapter}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}std::wstring get\-Date\-From\-Tz\-Rule (const int {\em year}, SYSTEMTIME {\em tz\-Rule})}\label{group__win__adapter_g879bbaeece0be7c2a8e4b354d88d9e43}
+
+
+Client to Server. 
+
+Returns the formatted date of the given year, from the passed timezone rule. SYSTEMTIME structure is used to store dates, but also to store a timezone rule. In the latter, the member 'w\-Day' is the \# of week inside the month (values: 1-4), '5' means \char`\"{}the last week\char`\"{}. 'w\-Year' is = 0 to mean \char`\"{}every year\char`\"{}. For example: w\-Month=3, w\-Day\-Of\-Week=0, w\-Day=2 -$>$ means \char`\"{}the second Sunday of March\char`\"{}. Given the tz rule and the desired year, we can extract the date rapresented by this rule, as a SYSTEMTIME, and then format it like a string \char`\"{}yyyy\-MMdd\-Thhmmss\char`\"{}.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em year}]the desired year to extract the date \item[{\em tz\-Rule}]the timezone rule, as a SYSTEMTIME structure \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the date formatted like \char`\"{}yyyy\-MMdd\-Thhmmss\char`\"{} (yyyy = year) \end{Desc}
+\index{win_adapter@{win\_\-adapter}!getTzRuleFromDates@{getTzRuleFromDates}}
+\index{getTzRuleFromDates@{getTzRuleFromDates}!win_adapter@{win\_\-adapter}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}SYSTEMTIME get\-Tz\-Rule\-From\-Dates (std::list$<$ std::wstring $>$ \& {\em dates}, bool $\ast$ {\em found})}\label{group__win__adapter_ga95b394f0f68c779f3f25d6c8ede4848}
+
+
+Server to Client. 
+
+Returns the timezone rule as a SYSTEMTIME, from a list of dates. The list of dates passed are referred to different years, so that analyzing them we can calculate the tz rule and store it in a SYSTEMTIME. SYSTEMTIME structure is used to store dates, but also to store a timezone rule. Usually only 1 date is enough to get the timezone rule (e.g. date = 2008/10/5 -$>$ tz rule = first Sunday of october). We always suppose that if the occurrence is the 4th of the month we set as the 5th due to a research in the registry of windows. There are no timezone that are in the 4th week but all are in the latest week (5th)
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em dates}]list of dates for different years, in format \char`\"{}yyyy\-MMdd\-Thhmmss\char`\"{} (local time) \item[{\em found}]if the right value is found really or guess by the rule \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the timezone rule, as a SYSTEMTIME structure \end{Desc}
+\index{win_adapter@{win\_\-adapter}!hasDayLightSaving@{hasDayLightSaving}}
+\index{hasDayLightSaving@{hasDayLightSaving}!win_adapter@{win\_\-adapter}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool has\-Day\-Light\-Saving (const TIME\_\-ZONE\_\-INFORMATION $\ast$ {\em tz})}\label{group__win__adapter_g4d02356c94d9888709505408a58f11fe}
+
+
+Check if the timezone information has a day light saving. 
+
+If all the parameters (day, hours, etc... )are empty, then no daylight saving is supported.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em tz}]the timezone information to check \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if timezone needed, false otherwise \end{Desc}
+\index{win_adapter@{win\_\-adapter}!isSameSystemtime@{isSameSystemtime}}
+\index{isSameSystemtime@{isSameSystemtime}!win_adapter@{win\_\-adapter}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool is\-Same\-Systemtime (const SYSTEMTIME $\ast$ {\em st1}, const SYSTEMTIME $\ast$ {\em st2})}\label{group__win__adapter_g93e3353ae8dd4c40a2db017192a98b4f}
+
+
+Returns true if the passed systemtime are the same. 
+
+Checks all properties, ignoring only seconds and milliseconds. \index{win_adapter@{win\_\-adapter}!isSameTimezone@{isSameTimezone}}
+\index{isSameTimezone@{isSameTimezone}!win_adapter@{win\_\-adapter}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool is\-Same\-Timezone (const TIME\_\-ZONE\_\-INFORMATION $\ast$ {\em tz1}, const TIME\_\-ZONE\_\-INFORMATION $\ast$ {\em tz2})}\label{group__win__adapter_g99e075c2abc097fd1b9283afb826b4a8}
+
+
+Returns true if the passed tz information are the same. 
+
+Checks bias values and dates (names are ignored). \index{win_adapter@{win\_\-adapter}!parseBias@{parseBias}}
+\index{parseBias@{parseBias}!win_adapter@{win\_\-adapter}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int parse\-Bias (const WCHAR $\ast$ {\em data})}\label{group__win__adapter_g41359b55ca237e9a4c43b7ef0b30137e}
+
+
+Parse a wide-char string containing bias, like \char`\"{}+0130\char`\"{} or \char`\"{}-08\char`\"{}. 
+
+Returns the bias as a signed integer (e.g. \char`\"{}+0230\char`\"{} -$>$ -150) 

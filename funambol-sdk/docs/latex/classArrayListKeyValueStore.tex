@@ -1,0 +1,110 @@
+\section{Array\-List\-Key\-Value\-Store Class Reference}
+\label{classArrayListKeyValueStore}\index{ArrayListKeyValueStore@{ArrayListKeyValueStore}}
+This is the interface for the handling of the key/value that has to be written in the storage.  
+
+
+{\tt \#include $<$Array\-List\-Key\-Value\-Store.h$>$}
+
+Inheritance diagram for Array\-List\-Key\-Value\-Store:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=88pt]{classArrayListKeyValueStore__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Array\-List\-Key\-Value\-Store:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=136pt]{classArrayListKeyValueStore__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual String\-Buffer {\bf read\-Property\-Value} (const char $\ast$prop) const\label{classArrayListKeyValueStore_1c655c2f6b2a82d72dea73ee210cae7e}
+
+\begin{CompactList}\small\item\em Read a property value from the data Array\-List. \item\end{CompactList}\item 
+virtual int {\bf set\-Property\-Value} (const char $\ast$prop, const char $\ast$value)
+\begin{CompactList}\small\item\em Sets a property value. \item\end{CompactList}\item 
+virtual int {\bf remove\-Property} (const char $\ast$prop)
+\begin{CompactList}\small\item\em Remove a certain property from the data Array\-List. \item\end{CompactList}\item 
+virtual {\bf Enumeration} \& {\bf get\-Properties} () const
+\begin{CompactList}\small\item\em Read all the properties that are in the store. \item\end{CompactList}\item 
+virtual int {\bf save} ()=0
+\begin{CompactList}\small\item\em Save the current properties that are in the data arraylist. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+{\bf Array\-List\-Enumeration} {\bf data}\label{classArrayListKeyValueStore_1e9d7c218238c27ed6330cfdf5d91b8b}
+
+\begin{CompactList}\small\item\em The list contains the pair key/value that are what is in the file that is in the form key:value. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This is the interface for the handling of the key/value that has to be written in the storage. 
+
+It provides methods that has to be specialized by implementation on filesystem, registry, db... 
+
+
+
+\subsection{Member Function Documentation}
+\index{ArrayListKeyValueStore@{Array\-List\-Key\-Value\-Store}!setPropertyValue@{setPropertyValue}}
+\index{setPropertyValue@{setPropertyValue}!ArrayListKeyValueStore@{Array\-List\-Key\-Value\-Store}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Array\-List\-Key\-Value\-Store::set\-Property\-Value (const char $\ast$ {\em prop}, const char $\ast$ {\em value})\hspace{0.3cm}{\tt  [virtual]}}\label{classArrayListKeyValueStore_ffb10e2a129233210f3160315d6b228f}
+
+
+Sets a property value. 
+
+The value might be cached inside the implementation of this interface. To ensure that it is stored persistently and to do error checking, call \doxyref{save()}{p.}{classArrayListKeyValueStore_a171a3cac343a6a7eb65c7c1d330bd0b}.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em prop}]- the property name \item[{\em value}]- the property value (zero terminated string)\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]int 0 on success, an error code otherwise \end{Desc}
+
+
+Implements {\bf Key\-Value\-Store} \doxyref{}{p.}{classKeyValueStore_7b202d8d64dd966b19e34a91d86dd0de}.\index{ArrayListKeyValueStore@{Array\-List\-Key\-Value\-Store}!removeProperty@{removeProperty}}
+\index{removeProperty@{removeProperty}!ArrayListKeyValueStore@{Array\-List\-Key\-Value\-Store}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Array\-List\-Key\-Value\-Store::remove\-Property (const char $\ast$ {\em prop})\hspace{0.3cm}{\tt  [virtual]}}\label{classArrayListKeyValueStore_16ac7c4f8c92261b89e1ef682b8a8b3b}
+
+
+Remove a certain property from the data Array\-List. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em prop}]the name of the property which is to be removed \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]int 0 on success, an error code otherwise \end{Desc}
+
+
+Implements {\bf Key\-Value\-Store} \doxyref{}{p.}{classKeyValueStore_95f1706e2b004c6abc3a874ba0f5cfed}.\index{ArrayListKeyValueStore@{Array\-List\-Key\-Value\-Store}!getProperties@{getProperties}}
+\index{getProperties@{getProperties}!ArrayListKeyValueStore@{Array\-List\-Key\-Value\-Store}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Enumeration}\& Array\-List\-Key\-Value\-Store::get\-Properties () const\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classArrayListKeyValueStore_76dd8ab29e3ed0cc53c01c3fe323eb48}
+
+
+Read all the properties that are in the store. 
+
+This is an enumeration of Key\-Value\-Pairs. 
+
+Implements {\bf Key\-Value\-Store} \doxyref{}{p.}{classKeyValueStore_4d9be2af90391040ceef51ab261751e9}.\index{ArrayListKeyValueStore@{Array\-List\-Key\-Value\-Store}!save@{save}}
+\index{save@{save}!ArrayListKeyValueStore@{Array\-List\-Key\-Value\-Store}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Array\-List\-Key\-Value\-Store::save ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classArrayListKeyValueStore_a171a3cac343a6a7eb65c7c1d330bd0b}
+
+
+Save the current properties that are in the data arraylist. 
+
+\begin{Desc}
+\item[Returns:]0 - success, failure otherwise \end{Desc}
+
+
+Implements {\bf Key\-Value\-Store} \doxyref{}{p.}{classKeyValueStore_62d7f0c759f3aa6f9e70380c84a60aaa}.
+
+Implemented in {\bf Property\-File} \doxyref{}{p.}{classPropertyFile_f6258c0d8d6360f4a024384617d4009e}.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/common/base/util/Array\-List\-Key\-Value\-Store.h\end{CompactItemize}

@@ -1,0 +1,102 @@
+\section{Win\-Recurrence\-SIF Class Reference}
+\label{classWinRecurrenceSIF}\index{WinRecurrenceSIF@{WinRecurrenceSIF}}
+Rapresents a recurrence pattern object for Windows Clients, for SIF format.  
+
+
+{\tt \#include $<$Win\-Recurrence\-SIF.h$>$}
+
+Inheritance diagram for Win\-Recurrence\-SIF:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=74pt]{classWinRecurrenceSIF__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Win\-Recurrence\-SIF:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=74pt]{classWinRecurrenceSIF__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Win\-Recurrence\-SIF} ()\label{classWinRecurrenceSIF_797a29d938fe1c98c8159c714bb1f97d}
+
+\begin{CompactList}\small\item\em Default Constructor. \item\end{CompactList}\item 
+{\bf Win\-Recurrence\-SIF} (const wstring data\-String, const wchar\_\-t $\ast$$\ast$fields)
+\begin{CompactList}\small\item\em Constructor: fills property\-Map parsing the SIF rec pattern string. \item\end{CompactList}\item 
+{\bf $\sim$Win\-Recurrence\-SIF} ()\label{classWinRecurrenceSIF_71cb7b366b7dee2c524b63f00d8df347}
+
+\begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\item 
+void {\bf set\-Sif\-Fields} (const wchar\_\-t $\ast$$\ast$fields)\label{classWinRecurrenceSIF_36e8e676969ae1ae5e032c2cdf44cc85}
+
+\begin{CompactList}\small\item\em Sets the internal pointer sif\-Fields with the passed array. \item\end{CompactList}\item 
+int {\bf parse} (const wstring data\-String)
+\begin{CompactList}\small\item\em Parse a SIF string and fills the property\-Map. \item\end{CompactList}\item 
+wstring \& {\bf to\-String} ()\label{classWinRecurrenceSIF_910c4d6981414045bdd99b4dde89231e}
+
+\begin{CompactList}\small\item\em Format and return a SIF rec pattern string from the property\-Map. \item\end{CompactList}\item 
+wstring {\bf adapt\-To\-SIFSpecs} (const wstring \&prop\-Name, const wstring \&prop\-Value)
+\begin{CompactList}\small\item\em Transform the value of the specified property according to the SIF specifications. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Rapresents a recurrence pattern object for Windows Clients, for SIF format. 
+
+The object can be filled passing a SIF rec pattern string, or filling directly the map. Calling 'to\-String()' a SIF rec pattern string is formatted and returned. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{WinRecurrenceSIF@{Win\-Recurrence\-SIF}!WinRecurrenceSIF@{WinRecurrenceSIF}}
+\index{WinRecurrenceSIF@{WinRecurrenceSIF}!WinRecurrenceSIF@{Win\-Recurrence\-SIF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Win\-Recurrence\-SIF::Win\-Recurrence\-SIF (const wstring {\em data\-String}, const wchar\_\-t $\ast$$\ast$ {\em fields})}\label{classWinRecurrenceSIF_6598e6fc7170320c4f0b9d2245e63bb8}
+
+
+Constructor: fills property\-Map parsing the SIF rec pattern string. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em data\-String}]input SIF string to parse \item[{\em fields}]the NULL terminated array of SIF fields \end{description}
+\end{Desc}
+
+
+\subsection{Member Function Documentation}
+\index{WinRecurrenceSIF@{Win\-Recurrence\-SIF}!parse@{parse}}
+\index{parse@{parse}!WinRecurrenceSIF@{Win\-Recurrence\-SIF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Win\-Recurrence\-SIF::parse (const wstring {\em data\-String})\hspace{0.3cm}{\tt  [virtual]}}\label{classWinRecurrenceSIF_e5c7df89cde1d282d2fe32468ab168b8}
+
+
+Parse a SIF string and fills the property\-Map. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em data\-String}]input SIF string to parse \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 if no errors \end{Desc}
+
+
+Reimplemented from {\bf Win\-Recurrence} \doxyref{}{p.}{classWinRecurrence_b536ac773fa3f3dbcce4da4248e13045}.\index{WinRecurrenceSIF@{Win\-Recurrence\-SIF}!adaptToSIFSpecs@{adaptToSIFSpecs}}
+\index{adaptToSIFSpecs@{adaptToSIFSpecs}!WinRecurrenceSIF@{Win\-Recurrence\-SIF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}wstring Win\-Recurrence\-SIF::adapt\-To\-SIFSpecs (const wstring \& {\em prop\-Name}, const wstring \& {\em prop\-Value})}\label{classWinRecurrenceSIF_b98b2678bf1e06cd94bd3e59cdf5a02d}
+
+
+Transform the value of the specified property according to the SIF specifications. 
+
+The values are formatted following the vcard and icalendar specs that in some cases they are different from the SIF expectations. If there are no differences, prop\-Value is returned.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em prop\-Name}][IN] the property name \item[{\em prop\-Value}][IN] the property value \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the converted value if necessary \end{Desc}
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/windows/vocl/Win\-Recurrence\-SIF.h\end{CompactItemize}

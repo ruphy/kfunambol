@@ -1,0 +1,88 @@
+\section{Raw\-File\-Sync\-Source Class Reference}
+\label{classRawFileSyncSource}\index{RawFileSyncSource@{RawFileSyncSource}}
+In contrast to the \doxyref{File\-Sync\-Source}{p.}{classFileSyncSource} this class does not wrap the file content and attributes in an XML format when exchanging it with the server.  
+
+
+{\tt \#include $<$Raw\-File\-Sync\-Source.h$>$}
+
+Inheritance diagram for Raw\-File\-Sync\-Source:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=77pt]{classRawFileSyncSource__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Raw\-File\-Sync\-Source:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=158pt]{classRawFileSyncSource__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\textbf{Raw\-File\-Sync\-Source} (const WCHAR $\ast$name, {\bf Abstract\-Sync\-Source\-Config} $\ast$sc)\label{classRawFileSyncSource_f2f63f61f0c6b23dcd8615dd56816e79}
+
+\item 
+int {\bf add\-Item} (Sync\-Item \&item)
+\begin{CompactList}\small\item\em Called by the sync engine to add an item that the server has sent. \item\end{CompactList}\item 
+int {\bf update\-Item} (Sync\-Item \&item)
+\begin{CompactList}\small\item\em Called by the sync engine to update an item that the source already should have. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+bool \textbf{set\-Item\-Data} (Sync\-Item $\ast$sync\-Item)\label{classRawFileSyncSource_35c3ffeb25c859c6ff70bf6502b1a9b7}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+In contrast to the \doxyref{File\-Sync\-Source}{p.}{classFileSyncSource} this class does not wrap the file content and attributes in an XML format when exchanging it with the server. 
+
+Therefore it can be used as a peer for a servers addressbook or calendar URIs.
+
+The type of the items is taken from the sync source type property. 
+
+
+
+\subsection{Member Function Documentation}
+\index{RawFileSyncSource@{Raw\-File\-Sync\-Source}!addItem@{addItem}}
+\index{addItem@{addItem}!RawFileSyncSource@{Raw\-File\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Raw\-File\-Sync\-Source::add\-Item (Sync\-Item \& {\em item})\hspace{0.3cm}{\tt  [virtual]}}\label{classRawFileSyncSource_51789448b478a39a4218e15fd71b685f}
+
+
+Called by the sync engine to add an item that the server has sent. 
+
+The sync source is expected to add it to its database, then set the key to the local key assigned to the new item. Alternatively the sync source can match the new item against one of the existing items and return that key.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em item}]the item as sent by the server \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Sync\-ML status code \end{Desc}
+
+
+Reimplemented from {\bf File\-Sync\-Source} \doxyref{}{p.}{classFileSyncSource_0a59b49757b5767865e9d868abff693c}.\index{RawFileSyncSource@{Raw\-File\-Sync\-Source}!updateItem@{updateItem}}
+\index{updateItem@{updateItem}!RawFileSyncSource@{Raw\-File\-Sync\-Source}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Raw\-File\-Sync\-Source::update\-Item (Sync\-Item \& {\em item})\hspace{0.3cm}{\tt  [virtual]}}\label{classRawFileSyncSource_c6c7478380b6c8794f8914d75a2e2957}
+
+
+Called by the sync engine to update an item that the source already should have. 
+
+The item's key is the local key of that item.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em item}]the item as sent by the server \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Sync\-ML status code \end{Desc}
+
+
+Reimplemented from {\bf File\-Sync\-Source} \doxyref{}{p.}{classFileSyncSource_3cfc67d2d4906ffd0ecc244ba074bb80}.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/common/client/Raw\-File\-Sync\-Source.h\end{CompactItemize}

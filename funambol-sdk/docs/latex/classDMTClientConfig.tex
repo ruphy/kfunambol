@@ -1,0 +1,380 @@
+\section{DMTClient\-Config Class Reference}
+\label{classDMTClientConfig}\index{DMTClientConfig@{DMTClientConfig}}
+This class is an extension of \doxyref{Sync\-Manager\-Config}{p.}{classSyncManagerConfig} that is DM tree aware; this means that configuration properties are read/stored from/to the DM tree.  
+
+
+{\tt \#include $<$DMTClient\-Config.h$>$}
+
+Inheritance diagram for DMTClient\-Config:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=79pt]{classDMTClientConfig__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for DMTClient\-Config:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{classDMTClientConfig__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\textbf{DMTClient\-Config} (const char $\ast$root)\label{classDMTClientConfig_8bb5fe2a5ec1b80726acf0b1a3096a8a}
+
+\item 
+{\bf Sync\-Source\-Config} $\ast$ \textbf{get\-Sync\-Source\-Config} (const char $\ast$name, bool refresh=false)\label{classDMTClientConfig_8836d45e086a72804246c5ce316d03c9}
+
+\item 
+{\bf Sync\-Source\-Config} $\ast$ \textbf{get\-Sync\-Source\-Config} (unsigned int i, bool refresh=false)\label{classDMTClientConfig_f14990bb4dbd7379cf9ce66d7a0f1f54}
+
+\item 
+virtual bool \textbf{read} ()\label{classDMTClientConfig_d9011a62c930f3f7873e0c5fe225249b}
+
+\item 
+virtual bool \textbf{save} ()\label{classDMTClientConfig_ba9b05e1db8457e55e1c9da231998b8e}
+
+\item 
+virtual bool {\bf open} ()
+\begin{CompactList}\small\item\em Opens the configuration backend associated with the root context. \item\end{CompactList}\item 
+virtual Management\-Node $\ast$ {\bf get\-Sync\-MLNode} ()
+\begin{CompactList}\small\item\em Provides access to the \char`\"{}syncml\char`\"{} configuration node, can be used to read/write custom configuration options. \item\end{CompactList}\item 
+virtual int {\bf get\-Num\-Sources} ()\label{classDMTClientConfig_114cb24d473b99f1364bb6090b6cbb75}
+
+\begin{CompactList}\small\item\em Gets number of sync source configurations, -1 if not open. \item\end{CompactList}\item 
+virtual Management\-Node $\ast$ {\bf get\-Sync\-Source\-Node} (int index)
+\begin{CompactList}\small\item\em Get the specified sync source configuration. \item\end{CompactList}\item 
+virtual Management\-Node $\ast$ {\bf get\-Sync\-Source\-Node} (const char $\ast$name)\label{classDMTClientConfig_a6345618237a87c28528943939e6b6d8}
+
+\begin{CompactList}\small\item\em Get the specified sync source configuration by name. \item\end{CompactList}\item 
+virtual void {\bf close} ()
+\begin{CompactList}\small\item\em Closes the configuration backend. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+void \textbf{initialize} ()\label{classDMTClientConfig_72404ce088de8e2a16261a3c72c47962}
+
+\item 
+virtual bool \textbf{read\-Access\-Config} (Management\-Node \&n)\label{classDMTClientConfig_bc014df66776760924b37ed493244765}
+
+\item 
+virtual void \textbf{save\-Access\-Config} (Management\-Node \&n)\label{classDMTClientConfig_b3e278549a1e0e5a66f6c87c0fd36678}
+
+\item 
+virtual bool \textbf{read\-Device\-Config} (Management\-Node \&n)\label{classDMTClientConfig_6b8e8672ac03ad058eba793286e1166d}
+
+\item 
+virtual void \textbf{save\-Device\-Config} (Management\-Node \&n)\label{classDMTClientConfig_4e068e172d16ff6225b1f8e0401d26c0}
+
+\item 
+virtual bool \textbf{read\-Source\-Config} (int i, Management\-Node \&n)\label{classDMTClientConfig_f93f7b89c41fd78102dabb79fb1faf2b}
+
+\item 
+virtual void \textbf{save\-Source\-Config} (int i, Management\-Node \&n)\label{classDMTClientConfig_155e4295bf4ebf4ec49efe897b935911}
+
+\item 
+virtual bool {\bf read\-Auth\-Config} (Management\-Node \&sync\-MLNode, Management\-Node \&auth\-Node)
+\begin{CompactList}\small\item\em Called by read\-Access\-Config() to save authentication settings. \item\end{CompactList}\item 
+virtual void {\bf save\-Auth\-Config} (Management\-Node \&sync\-MLNode, Management\-Node \&auth\-Node)
+\begin{CompactList}\small\item\em Same as read\-Access\-Config() for saving the settings. \item\end{CompactList}\item 
+virtual bool {\bf read\-Conn\-Config} (Management\-Node \&sync\-MLNode, Management\-Node \&conn\-Node)
+\begin{CompactList}\small\item\em Same as read\-Access\-Config() for reading connection information. \item\end{CompactList}\item 
+virtual void {\bf save\-Conn\-Config} (Management\-Node \&sync\-MLNode, Management\-Node \&conn\-Node)
+\begin{CompactList}\small\item\em Same as read\-Access\-Config() for saving connection information. \item\end{CompactList}\item 
+virtual bool {\bf read\-Ext\-Access\-Config} (Management\-Node \&sync\-MLNode, Management\-Node \&ext\-Node)
+\begin{CompactList}\small\item\em Same as read\-Access\-Config() for reading additional access information. \item\end{CompactList}\item 
+virtual void {\bf save\-Ext\-Access\-Config} (Management\-Node \&sync\-MLNode, Management\-Node \&ext\-Node)
+\begin{CompactList}\small\item\em Same as read\-Access\-Config() for saving additional access information. \item\end{CompactList}\item 
+virtual bool {\bf read\-Dev\-Info\-Config} (Management\-Node \&sync\-MLNode, Management\-Node \&dev\-Info\-Node)
+\begin{CompactList}\small\item\em Same as read\-Access\-Config() for reading device information. \item\end{CompactList}\item 
+virtual void {\bf save\-Dev\-Info\-Config} (Management\-Node \&sync\-MLNode, Management\-Node \&dev\-Info\-Node)
+\begin{CompactList}\small\item\em Same as read\-Access\-Config() for saving device information. \item\end{CompactList}\item 
+virtual bool {\bf read\-Dev\-Detail\-Config} (Management\-Node \&sync\-MLNode, Management\-Node \&dev\-Detail\-Node)
+\begin{CompactList}\small\item\em Same as read\-Access\-Config() for reading additional device information. \item\end{CompactList}\item 
+virtual void {\bf save\-Dev\-Detail\-Config} (Management\-Node \&sync\-MLNode, Management\-Node \&dev\-Detail\-Node)
+\begin{CompactList}\small\item\em Same as read\-Access\-Config() for saving additional device information. \item\end{CompactList}\item 
+virtual bool {\bf read\-Ext\-Dev\-Config} (Management\-Node \&sync\-MLNode, Management\-Node \&ext\-Node)
+\begin{CompactList}\small\item\em Same as read\-Access\-Config() for reading some more additional device information. \item\end{CompactList}\item 
+virtual void {\bf save\-Ext\-Dev\-Config} (Management\-Node \&sync\-MLNode, Management\-Node \&ext\-Node)
+\begin{CompactList}\small\item\em Same as read\-Access\-Config() for saving some more additional device information. \item\end{CompactList}\item 
+virtual bool {\bf read\-Source\-Vars} (int i, Management\-Node \&sources\-Node, Management\-Node \&source\-Node)
+\begin{CompactList}\small\item\em Same as read\-Access\-Config() for reading variables that the library uses internally, like anchors. \item\end{CompactList}\item 
+virtual void {\bf save\-Source\-Vars} (int i, Management\-Node \&sources\-Node, Management\-Node \&source\-Node)
+\begin{CompactList}\small\item\em Same as read\-Access\-Config() for saveing variables that the library uses internally, like anchors. \item\end{CompactList}\item 
+virtual bool {\bf read\-Source\-Config} (int i, Management\-Node \&sources\-Node, Management\-Node \&source\-Node)
+\begin{CompactList}\small\item\em Same as read\-Access\-Config() for reading the normal properties of a sync source, i.e. \item\end{CompactList}\item 
+virtual void {\bf save\-Source\-Config} (int i, Management\-Node \&sources\-Node, Management\-Node \&source\-Node)
+\begin{CompactList}\small\item\em Same as read\-Access\-Config() for reading the normal properties of a sync source, i.e. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+char $\ast$ \textbf{root\-Context}\label{classDMTClientConfig_804a7a3c49bbb88b1b49a419ad4f54aa}
+
+\item 
+DMTree $\ast$ \textbf{dmt}\label{classDMTClientConfig_4f8e57a55f283213d889c34a1b65e608}
+
+\item 
+Management\-Node $\ast$ \textbf{sync\-MLNode}\label{classDMTClientConfig_1506b900c1a0c3066c01808f63753aef}
+
+\item 
+Management\-Node $\ast$ \textbf{sources\-Node}\label{classDMTClientConfig_5e2189facd1d1e8271dc8192e94b088e}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This class is an extension of \doxyref{Sync\-Manager\-Config}{p.}{classSyncManagerConfig} that is DM tree aware; this means that configuration properties are read/stored from/to the DM tree. 
+
+\begin{Desc}
+\item[{\bf Todo}]describe the properties of the DM tree and how they are grouped into device info, additional device info, extended device info, etc. \end{Desc}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{DMTClientConfig@{DMTClient\-Config}!readAuthConfig@{readAuthConfig}}
+\index{readAuthConfig@{readAuthConfig}!DMTClientConfig@{DMTClient\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual bool DMTClient\-Config::read\-Auth\-Config (Management\-Node \& {\em sync\-MLNode}, Management\-Node \& {\em auth\-Node})\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classDMTClientConfig_0aec892a974480f1fbd432969d7ba6f6}
+
+
+Called by read\-Access\-Config() to save authentication settings. 
+
+The purpose of making this function virtual is that a derived class can override it and then to read the settings from a different than the default \char`\"{}spds/syncml/auth\char`\"{} node by calling the base function with a different {\em auth\-Node\/} parameter or generate the settings in some other way.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em sync\-MLNode}]the \char`\"{}spds/syncml\char`\"{} node \item[{\em auth\-Node}]the \char`\"{}spds/syncml/auth\char`\"{} node \end{description}
+\end{Desc}
+\index{DMTClientConfig@{DMTClient\-Config}!saveAuthConfig@{saveAuthConfig}}
+\index{saveAuthConfig@{saveAuthConfig}!DMTClientConfig@{DMTClient\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual void DMTClient\-Config::save\-Auth\-Config (Management\-Node \& {\em sync\-MLNode}, Management\-Node \& {\em auth\-Node})\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classDMTClientConfig_849080553e46f3d6ceb4320d585f0c51}
+
+
+Same as read\-Access\-Config() for saving the settings. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em sync\-MLNode}]the \char`\"{}spds/syncml\char`\"{} node \item[{\em auth\-Node}]the \char`\"{}spds/syncml/auth\char`\"{} node \end{description}
+\end{Desc}
+\index{DMTClientConfig@{DMTClient\-Config}!readConnConfig@{readConnConfig}}
+\index{readConnConfig@{readConnConfig}!DMTClientConfig@{DMTClient\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual bool DMTClient\-Config::read\-Conn\-Config (Management\-Node \& {\em sync\-MLNode}, Management\-Node \& {\em conn\-Node})\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classDMTClientConfig_41db7cd62310d6b52d18824a70c5d8b7}
+
+
+Same as read\-Access\-Config() for reading connection information. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em sync\-MLNode}]the \char`\"{}spds/syncml\char`\"{} node \item[{\em conn\-Node}]the \char`\"{}spds/syncml/conn\char`\"{} node \end{description}
+\end{Desc}
+\index{DMTClientConfig@{DMTClient\-Config}!saveConnConfig@{saveConnConfig}}
+\index{saveConnConfig@{saveConnConfig}!DMTClientConfig@{DMTClient\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual void DMTClient\-Config::save\-Conn\-Config (Management\-Node \& {\em sync\-MLNode}, Management\-Node \& {\em conn\-Node})\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classDMTClientConfig_b6ad0b321e97814b4908120d70d625b3}
+
+
+Same as read\-Access\-Config() for saving connection information. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em sync\-MLNode}]the \char`\"{}spds/syncml\char`\"{} node \item[{\em conn\-Node}]the \char`\"{}spds/syncml/conn\char`\"{} node \end{description}
+\end{Desc}
+\index{DMTClientConfig@{DMTClient\-Config}!readExtAccessConfig@{readExtAccessConfig}}
+\index{readExtAccessConfig@{readExtAccessConfig}!DMTClientConfig@{DMTClient\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual bool DMTClient\-Config::read\-Ext\-Access\-Config (Management\-Node \& {\em sync\-MLNode}, Management\-Node \& {\em ext\-Node})\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classDMTClientConfig_f1403ad4417db709642220b268b6974b}
+
+
+Same as read\-Access\-Config() for reading additional access information. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em sync\-MLNode}]the \char`\"{}spds/syncml\char`\"{} node \item[{\em ext\-Node}]the \char`\"{}spds/syncml/ext\char`\"{} node \end{description}
+\end{Desc}
+\index{DMTClientConfig@{DMTClient\-Config}!saveExtAccessConfig@{saveExtAccessConfig}}
+\index{saveExtAccessConfig@{saveExtAccessConfig}!DMTClientConfig@{DMTClient\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual void DMTClient\-Config::save\-Ext\-Access\-Config (Management\-Node \& {\em sync\-MLNode}, Management\-Node \& {\em ext\-Node})\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classDMTClientConfig_dd4d563a66d48986187ab0862f708a7d}
+
+
+Same as read\-Access\-Config() for saving additional access information. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em sync\-MLNode}]the \char`\"{}spds/syncml\char`\"{} node \item[{\em ext\-Node}]the \char`\"{}spds/syncml/ext\char`\"{} node \end{description}
+\end{Desc}
+\index{DMTClientConfig@{DMTClient\-Config}!readDevInfoConfig@{readDevInfoConfig}}
+\index{readDevInfoConfig@{readDevInfoConfig}!DMTClientConfig@{DMTClient\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual bool DMTClient\-Config::read\-Dev\-Info\-Config (Management\-Node \& {\em sync\-MLNode}, Management\-Node \& {\em dev\-Info\-Node})\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classDMTClientConfig_1b211a91d2d8a8200437ea594c0c0373}
+
+
+Same as read\-Access\-Config() for reading device information. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em sync\-MLNode}]the \char`\"{}spds/syncml\char`\"{} node \item[{\em dev\-Info\-Node}]the \char`\"{}spds/syncml/devinfo\char`\"{} node \end{description}
+\end{Desc}
+\index{DMTClientConfig@{DMTClient\-Config}!saveDevInfoConfig@{saveDevInfoConfig}}
+\index{saveDevInfoConfig@{saveDevInfoConfig}!DMTClientConfig@{DMTClient\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual void DMTClient\-Config::save\-Dev\-Info\-Config (Management\-Node \& {\em sync\-MLNode}, Management\-Node \& {\em dev\-Info\-Node})\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classDMTClientConfig_96c77c2487db1eb92be8e16a226ebfbd}
+
+
+Same as read\-Access\-Config() for saving device information. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em sync\-MLNode}]the \char`\"{}spds/syncml\char`\"{} node \item[{\em dev\-Info\-Node}]the \char`\"{}spds/syncml/devinfo\char`\"{} node \end{description}
+\end{Desc}
+\index{DMTClientConfig@{DMTClient\-Config}!readDevDetailConfig@{readDevDetailConfig}}
+\index{readDevDetailConfig@{readDevDetailConfig}!DMTClientConfig@{DMTClient\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual bool DMTClient\-Config::read\-Dev\-Detail\-Config (Management\-Node \& {\em sync\-MLNode}, Management\-Node \& {\em dev\-Detail\-Node})\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classDMTClientConfig_1145dedfc5de4de06486521173c572a9}
+
+
+Same as read\-Access\-Config() for reading additional device information. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em sync\-MLNode}]the \char`\"{}spds/syncml\char`\"{} node \item[{\em dev\-Detail\-Node}]the \char`\"{}spds/syncml/devdetail\char`\"{} node \end{description}
+\end{Desc}
+\index{DMTClientConfig@{DMTClient\-Config}!saveDevDetailConfig@{saveDevDetailConfig}}
+\index{saveDevDetailConfig@{saveDevDetailConfig}!DMTClientConfig@{DMTClient\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual void DMTClient\-Config::save\-Dev\-Detail\-Config (Management\-Node \& {\em sync\-MLNode}, Management\-Node \& {\em dev\-Detail\-Node})\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classDMTClientConfig_ecf41028a5971d343d8b991e39ab11bc}
+
+
+Same as read\-Access\-Config() for saving additional device information. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em sync\-MLNode}]the \char`\"{}spds/syncml\char`\"{} node \item[{\em dev\-Detail\-Node}]the \char`\"{}spds/syncml/devdetail\char`\"{} node \end{description}
+\end{Desc}
+\index{DMTClientConfig@{DMTClient\-Config}!readExtDevConfig@{readExtDevConfig}}
+\index{readExtDevConfig@{readExtDevConfig}!DMTClientConfig@{DMTClient\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual bool DMTClient\-Config::read\-Ext\-Dev\-Config (Management\-Node \& {\em sync\-MLNode}, Management\-Node \& {\em ext\-Node})\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classDMTClientConfig_8e411ddcf4cb37a794dfd16ffb8be263}
+
+
+Same as read\-Access\-Config() for reading some more additional device information. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em sync\-MLNode}]the \char`\"{}spds/syncml\char`\"{} node \item[{\em ext\-Node}]the \char`\"{}spds/syncml/ext\char`\"{} node \end{description}
+\end{Desc}
+\index{DMTClientConfig@{DMTClient\-Config}!saveExtDevConfig@{saveExtDevConfig}}
+\index{saveExtDevConfig@{saveExtDevConfig}!DMTClientConfig@{DMTClient\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual void DMTClient\-Config::save\-Ext\-Dev\-Config (Management\-Node \& {\em sync\-MLNode}, Management\-Node \& {\em ext\-Node})\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classDMTClientConfig_0b82967105fa21cfeac8a6e36d708e25}
+
+
+Same as read\-Access\-Config() for saving some more additional device information. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em sync\-MLNode}]the \char`\"{}spds/syncml\char`\"{} node \item[{\em ext\-Node}]the \char`\"{}spds/syncml/ext\char`\"{} node \end{description}
+\end{Desc}
+\index{DMTClientConfig@{DMTClient\-Config}!readSourceVars@{readSourceVars}}
+\index{readSourceVars@{readSourceVars}!DMTClientConfig@{DMTClient\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual bool DMTClient\-Config::read\-Source\-Vars (int {\em i}, Management\-Node \& {\em sources\-Node}, Management\-Node \& {\em source\-Node})\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classDMTClientConfig_4340e28d6ce0b43e818362ceeb1639eb}
+
+
+Same as read\-Access\-Config() for reading variables that the library uses internally, like anchors. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i}]index of the source \item[{\em sources\-Node}]the \char`\"{}spds/sources\char`\"{} node \item[{\em source\-Node}]the \char`\"{}spds/sources/$<$source name$>$\char`\"{} node \end{description}
+\end{Desc}
+\index{DMTClientConfig@{DMTClient\-Config}!saveSourceVars@{saveSourceVars}}
+\index{saveSourceVars@{saveSourceVars}!DMTClientConfig@{DMTClient\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual void DMTClient\-Config::save\-Source\-Vars (int {\em i}, Management\-Node \& {\em sources\-Node}, Management\-Node \& {\em source\-Node})\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classDMTClientConfig_e729d92f96cf0daf94ddc04dba14cada}
+
+
+Same as read\-Access\-Config() for saveing variables that the library uses internally, like anchors. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i}]index of the source \item[{\em sources\-Node}]the \char`\"{}spds/sources\char`\"{} node \item[{\em source\-Node}]the \char`\"{}spds/sources/$<$source name$>$\char`\"{} node \end{description}
+\end{Desc}
+\index{DMTClientConfig@{DMTClient\-Config}!readSourceConfig@{readSourceConfig}}
+\index{readSourceConfig@{readSourceConfig}!DMTClientConfig@{DMTClient\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual bool DMTClient\-Config::read\-Source\-Config (int {\em i}, Management\-Node \& {\em sources\-Node}, Management\-Node \& {\em source\-Node})\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classDMTClientConfig_7cd8384bf9d289883d00afa4af5160a5}
+
+
+Same as read\-Access\-Config() for reading the normal properties of a sync source, i.e. 
+
+excluding variables like anchors.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i}]index of the source \item[{\em sources\-Node}]the \char`\"{}spds/sources\char`\"{} node \item[{\em source\-Node}]the \char`\"{}spds/sources/$<$source name$>$\char`\"{} node \end{description}
+\end{Desc}
+\index{DMTClientConfig@{DMTClient\-Config}!saveSourceConfig@{saveSourceConfig}}
+\index{saveSourceConfig@{saveSourceConfig}!DMTClientConfig@{DMTClient\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual void DMTClient\-Config::save\-Source\-Config (int {\em i}, Management\-Node \& {\em sources\-Node}, Management\-Node \& {\em source\-Node})\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classDMTClientConfig_6225af83b250762b82005b22479b9d71}
+
+
+Same as read\-Access\-Config() for reading the normal properties of a sync source, i.e. 
+
+excluding variables like anchors.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i}]index of the source \item[{\em sources\-Node}]the \char`\"{}spds/sources\char`\"{} node \item[{\em source\-Node}]the \char`\"{}spds/sources/$<$source name$>$\char`\"{} node \end{description}
+\end{Desc}
+\index{DMTClientConfig@{DMTClient\-Config}!open@{open}}
+\index{open@{open}!DMTClientConfig@{DMTClient\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual bool DMTClient\-Config::open ()\hspace{0.3cm}{\tt  [virtual]}}\label{classDMTClientConfig_4abdfbce190aa505b64a3eafbd0cc642}
+
+
+Opens the configuration backend associated with the root context. 
+
+Calling on an open config does nothing.
+
+\begin{Desc}
+\item[Returns:]true for success \end{Desc}
+\index{DMTClientConfig@{DMTClient\-Config}!getSyncMLNode@{getSyncMLNode}}
+\index{getSyncMLNode@{getSyncMLNode}!DMTClientConfig@{DMTClient\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual Management\-Node$\ast$ DMTClient\-Config::get\-Sync\-MLNode ()\hspace{0.3cm}{\tt  [virtual]}}\label{classDMTClientConfig_e4339d4abdd9e210b6746c89e161c90f}
+
+
+Provides access to the \char`\"{}syncml\char`\"{} configuration node, can be used to read/write custom configuration options. 
+
+Config must have been opened before.
+
+\begin{Desc}
+\item[Returns:]node pointer owned by config and valid while the config is open \end{Desc}
+\index{DMTClientConfig@{DMTClient\-Config}!getSyncSourceNode@{getSyncSourceNode}}
+\index{getSyncSourceNode@{getSyncSourceNode}!DMTClientConfig@{DMTClient\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual Management\-Node$\ast$ DMTClient\-Config::get\-Sync\-Source\-Node (int {\em index})\hspace{0.3cm}{\tt  [virtual]}}\label{classDMTClientConfig_39ca49074f56e134ae010b3b77a4800e}
+
+
+Get the specified sync source configuration. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em index}]number of the requested sync source configuration \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]node pointer owned by config and valid while the config is open \end{Desc}
+\index{DMTClientConfig@{DMTClient\-Config}!close@{close}}
+\index{close@{close}!DMTClientConfig@{DMTClient\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual void DMTClient\-Config::close ()\hspace{0.3cm}{\tt  [virtual]}}\label{classDMTClientConfig_7740b9bcada09b04c318a37515623f74}
+
+
+Closes the configuration backend. 
+
+Frees all resources associated with and invalidates all Management\-Node pointers returned by this config. 
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/common/client/DMTClient\-Config.h\end{CompactItemize}

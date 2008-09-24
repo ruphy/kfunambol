@@ -1,0 +1,74 @@
+\section{CSymbian\-Transport\-Agent Class Reference}
+\label{classCSymbianTransportAgent}\index{CSymbianTransportAgent@{CSymbianTransportAgent}}
+\doxyref{CSymbian\-Transport\-Agent}{p.}{classCSymbianTransportAgent} Provides simple interface to Symbian HTTP Client API.  
+
+
+{\tt \#include $<$Symbian\-Transport\-Agent.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf $\sim$CSymbian\-Transport\-Agent} ()\label{classCSymbianTransportAgent_0d5095c86db66b4c0de23a3b11de2b48}
+
+\begin{CompactList}\small\item\em \doxyref{$\sim$CSymbian\-Transport\-Agent()}{p.}{classCSymbianTransportAgent_0d5095c86db66b4c0de23a3b11de2b48} Destroy the object \item\end{CompactList}\item 
+void {\bf Connect\-L} ()\label{classCSymbianTransportAgent_c76a588d847c752537bcb096b0c8e62b}
+
+\begin{CompactList}\small\item\em \doxyref{Connect\-L()}{p.}{classCSymbianTransportAgent_c76a588d847c752537bcb096b0c8e62b} Open an internet connection. \item\end{CompactList}\item 
+void {\bf Set\-Iap} (const TUint32 \&a\-Iap)\label{classCSymbianTransportAgent_961588e6c20fedcb056792e3504cbe4e}
+
+\begin{CompactList}\small\item\em \doxyref{Set\-Iap()}{p.}{classCSymbianTransportAgent_961588e6c20fedcb056792e3504cbe4e} Set a preferred IAP. \item\end{CompactList}\item 
+char $\ast$ {\bf send\-Message} (const char $\ast$msg)\label{classCSymbianTransportAgent_bec196bcbcecc56eb5c4b4184920d351}
+
+\begin{CompactList}\small\item\em \doxyref{send\-Message()}{p.}{classCSymbianTransportAgent_bec196bcbcecc56eb5c4b4184920d351} \item\end{CompactList}\item 
+TBool \textbf{Get\-Next\-Data\-Part} (TPtr\-C8 \&a\-Data\-Chunk)\label{classCSymbianTransportAgent_30ab39098d8310dd176325185cf47eef}
+
+\item 
+void \textbf{Release\-Data} ()\label{classCSymbianTransportAgent_20de08fa65703a03cbb49144f15a85a0}
+
+\item 
+TInt \textbf{Overall\-Data\-Size} ()\label{classCSymbianTransportAgent_6fe2bb31067cf656c9305f6ba9d444bc}
+
+\item 
+TInt \textbf{Reset} ()\label{classCSymbianTransportAgent_3393d21b10b0e52373e55be3f3a89ba2}
+
+\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static {\bf CSymbian\-Transport\-Agent} $\ast$ {\bf New\-L} (URL \&a\-Url, Proxy \&a\-Proxy, unsigned int a\-Response\-Timeout=DEFAULT\_\-MAX\_\-TIMEOUT, unsigned int a\-Max\-Msg\-Size=DEFAULT\_\-MAX\_\-MSG\_\-SIZE)
+\begin{CompactList}\small\item\em \doxyref{New\-L()}{p.}{classCSymbianTransportAgent_694165eea6d92bc40089290a70ac740e} Create a \doxyref{CSymbian\-Transport\-Agent}{p.}{classCSymbianTransportAgent} object. \item\end{CompactList}\item 
+static {\bf CSymbian\-Transport\-Agent} $\ast$ {\bf New\-LC} (URL \&a\-Url, Proxy \&a\-Proxy, unsigned int a\-Response\-Timeout=DEFAULT\_\-MAX\_\-TIMEOUT, unsigned int a\-Max\-Msg\-Size=DEFAULT\_\-MAX\_\-MSG\_\-SIZE)
+\begin{CompactList}\small\item\em \doxyref{New\-LC()}{p.}{classCSymbianTransportAgent_853718161eb0bf4dff4654d8b5370805} Create a \doxyref{CSymbian\-Transport\-Agent}{p.}{classCSymbianTransportAgent} object. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{CSymbian\-Transport\-Agent}{p.}{classCSymbianTransportAgent} Provides simple interface to Symbian HTTP Client API. 
+
+Link against http.lib, commdb.lib 
+
+
+
+\subsection{Member Function Documentation}
+\index{CSymbianTransportAgent@{CSymbian\-Transport\-Agent}!NewL@{NewL}}
+\index{NewL@{NewL}!CSymbianTransportAgent@{CSymbian\-Transport\-Agent}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static {\bf CSymbian\-Transport\-Agent}$\ast$ CSymbian\-Transport\-Agent::New\-L (URL \& {\em a\-Url}, Proxy \& {\em a\-Proxy}, unsigned int {\em a\-Response\-Timeout} = {\tt DEFAULT\_\-MAX\_\-TIMEOUT}, unsigned int {\em a\-Max\-Msg\-Size} = {\tt DEFAULT\_\-MAX\_\-MSG\_\-SIZE})\hspace{0.3cm}{\tt  [static]}}\label{classCSymbianTransportAgent_694165eea6d92bc40089290a70ac740e}
+
+
+\doxyref{New\-L()}{p.}{classCSymbianTransportAgent_694165eea6d92bc40089290a70ac740e} Create a \doxyref{CSymbian\-Transport\-Agent}{p.}{classCSymbianTransportAgent} object. 
+
+\begin{Desc}
+\item[Returns:]A pointer to the created instance of CWeb\-Client\-Engine \end{Desc}
+\index{CSymbianTransportAgent@{CSymbian\-Transport\-Agent}!NewLC@{NewLC}}
+\index{NewLC@{NewLC}!CSymbianTransportAgent@{CSymbian\-Transport\-Agent}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static {\bf CSymbian\-Transport\-Agent}$\ast$ CSymbian\-Transport\-Agent::New\-LC (URL \& {\em a\-Url}, Proxy \& {\em a\-Proxy}, unsigned int {\em a\-Response\-Timeout} = {\tt DEFAULT\_\-MAX\_\-TIMEOUT}, unsigned int {\em a\-Max\-Msg\-Size} = {\tt DEFAULT\_\-MAX\_\-MSG\_\-SIZE})\hspace{0.3cm}{\tt  [static]}}\label{classCSymbianTransportAgent_853718161eb0bf4dff4654d8b5370805}
+
+
+\doxyref{New\-LC()}{p.}{classCSymbianTransportAgent_853718161eb0bf4dff4654d8b5370805} Create a \doxyref{CSymbian\-Transport\-Agent}{p.}{classCSymbianTransportAgent} object. 
+
+\begin{Desc}
+\item[Returns:]A pointer to the created instance of \doxyref{CSymbian\-Transport\-Agent}{p.}{classCSymbianTransportAgent} \end{Desc}
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/symbian/http/Symbian\-Transport\-Agent.h\end{CompactItemize}

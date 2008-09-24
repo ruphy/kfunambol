@@ -1,0 +1,140 @@
+\section{Win\-Event\-SIF Class Reference}
+\label{classWinEventSIF}\index{WinEventSIF@{WinEventSIF}}
+Rapresents an event object for Windows Clients, for SIF format.  
+
+
+{\tt \#include $<$Winevent\-SIF.h$>$}
+
+Inheritance diagram for Win\-Event\-SIF:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=61pt]{classWinEventSIF__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Win\-Event\-SIF:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=114pt]{classWinEventSIF__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Win\-Event\-SIF} ()\label{classWinEventSIF_78e37684fdc6df110096e94061c19d55}
+
+\begin{CompactList}\small\item\em Default Constructor. \item\end{CompactList}\item 
+{\bf Win\-Event\-SIF} (const wstring data\-String, const wchar\_\-t $\ast$$\ast$fields, const wchar\_\-t $\ast$$\ast$rec\-Fields)
+\begin{CompactList}\small\item\em Constructor: fills property\-Map parsing the passed SIF. \item\end{CompactList}\item 
+{\bf $\sim$Win\-Event\-SIF} ()\label{classWinEventSIF_6b5e676c7ebf0cffba4aa024c8bbf703}
+
+\begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\item 
+{\bf Win\-Recurrence\-SIF} $\ast$ {\bf get\-Rec\-Pattern} ()
+\begin{CompactList}\small\item\em Returns a pointer to the (internally owned) \doxyref{Win\-Recurrence\-SIF}{p.}{classWinRecurrenceSIF}. \item\end{CompactList}\item 
+int {\bf parse} (const wstring data\-String)
+\begin{CompactList}\small\item\em Parse a SIF string and fills the property\-Map. \item\end{CompactList}\item 
+wstring \& {\bf to\-String} ()
+\begin{CompactList}\small\item\em Format and return a SIF string from the property\-Map. \item\end{CompactList}\item 
+wstring {\bf adapt\-To\-SIFSpecs} (const wstring \&prop\-Name, const wstring \&prop\-Value)
+\begin{CompactList}\small\item\em Transform the value of the specified property according to the SIF specifications. \item\end{CompactList}\item 
+wstring {\bf adapt\-From\-SIFSpecs} (const wstring \&prop\-Name, const wstring \&prop\-Value)
+\begin{CompactList}\small\item\em Transform the value of the specified property found in SIF structure to the one expected by Outlook. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Rapresents an event object for Windows Clients, for SIF format. 
+
+The object can be filled passing a SIF string, or filling directly the map. Calling 'to\-String()' a SIF is formatted and returned. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{WinEventSIF@{Win\-Event\-SIF}!WinEventSIF@{WinEventSIF}}
+\index{WinEventSIF@{WinEventSIF}!WinEventSIF@{Win\-Event\-SIF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Win\-Event\-SIF::Win\-Event\-SIF (const wstring {\em data\-String}, const wchar\_\-t $\ast$$\ast$ {\em fields}, const wchar\_\-t $\ast$$\ast$ {\em rec\-Fields})}\label{classWinEventSIF_82687ef780133e6b2cf2e743edd5edb2}
+
+
+Constructor: fills property\-Map parsing the passed SIF. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em data\-String}]the input SIF string \item[{\em fields}]the NULL terminated array of SIF fields \item[{\em fields}]the NULL terminated array of SIF fields for recurrence pattern \end{description}
+\end{Desc}
+
+
+\subsection{Member Function Documentation}
+\index{WinEventSIF@{Win\-Event\-SIF}!getRecPattern@{getRecPattern}}
+\index{getRecPattern@{getRecPattern}!WinEventSIF@{Win\-Event\-SIF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Win\-Recurrence\-SIF}$\ast$ Win\-Event\-SIF::get\-Rec\-Pattern ()\hspace{0.3cm}{\tt  [virtual]}}\label{classWinEventSIF_878ebac79f77d6aaa43001aa6fbbaceb}
+
+
+Returns a pointer to the (internally owned) \doxyref{Win\-Recurrence\-SIF}{p.}{classWinRecurrenceSIF}. 
+
+\begin{Desc}
+\item[Note:]: overrides the method of \doxyref{Win\-Event}{p.}{classWinEvent}, to return a SIF formatted string. \end{Desc}
+
+
+Reimplemented from {\bf Win\-Event} \doxyref{}{p.}{classWinEvent_d3098057b57561a8ec12bc8af439d040}.\index{WinEventSIF@{Win\-Event\-SIF}!parse@{parse}}
+\index{parse@{parse}!WinEventSIF@{Win\-Event\-SIF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Win\-Event\-SIF::parse (const wstring {\em data\-String})\hspace{0.3cm}{\tt  [virtual]}}\label{classWinEventSIF_361d652d6381dd79de5aa78bcb607038}
+
+
+Parse a SIF string and fills the property\-Map. 
+
+The map is cleared and will contain only found properties at the end of the parsing. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em data\-String}]input SIF string to be parsed \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 if no errors \end{Desc}
+
+
+Reimplemented from {\bf Win\-Event} \doxyref{}{p.}{classWinEvent_cfaf35e40fc0a6ef46fcac259debe8e0}.\index{WinEventSIF@{Win\-Event\-SIF}!toString@{toString}}
+\index{toString@{toString}!WinEventSIF@{Win\-Event\-SIF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}wstring\& Win\-Event\-SIF::to\-String ()\hspace{0.3cm}{\tt  [virtual]}}\label{classWinEventSIF_d74d240677945d0359a8f2631ba2ff2c}
+
+
+Format and return a SIF string from the property\-Map. 
+
+Not supported properties are ignored and so not formatted as they don't have a correspondence in property\-Map. \begin{Desc}
+\item[Returns:]the SIF string formatted, reference to internal wstring \end{Desc}
+
+
+Reimplemented from {\bf Win\-Event} \doxyref{}{p.}{classWinEvent_48ec46a5018215f4bdba1afb4cc9abc2}.\index{WinEventSIF@{Win\-Event\-SIF}!adaptToSIFSpecs@{adaptToSIFSpecs}}
+\index{adaptToSIFSpecs@{adaptToSIFSpecs}!WinEventSIF@{Win\-Event\-SIF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}wstring Win\-Event\-SIF::adapt\-To\-SIFSpecs (const wstring \& {\em prop\-Name}, const wstring \& {\em prop\-Value})}\label{classWinEventSIF_d436712f9be44c2c36639a4956dbbc8b}
+
+
+Transform the value of the specified property according to the SIF specifications. 
+
+The values are formatted following the vcard and icalendar specs that in some cases they are different from the SIF expectations. If there are no differences, prop\-Value is returned.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em prop\-Name}][IN] the property name \item[{\em prop\-Value}][IN] the property value \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the converted value if necessary \end{Desc}
+\index{WinEventSIF@{Win\-Event\-SIF}!adaptFromSIFSpecs@{adaptFromSIFSpecs}}
+\index{adaptFromSIFSpecs@{adaptFromSIFSpecs}!WinEventSIF@{Win\-Event\-SIF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}wstring Win\-Event\-SIF::adapt\-From\-SIFSpecs (const wstring \& {\em prop\-Name}, const wstring \& {\em prop\-Value})}\label{classWinEventSIF_e3c165cc5ab2e4cf9235737e37de3cc3}
+
+
+Transform the value of the specified property found in SIF structure to the one expected by Outlook. 
+
+The values are formatted following the vcard and icalendar specs that in some cases they are different from the SIF expectations. If there are no differences the same value is returned.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em prop\-Name}]the property name \item[{\em prop\-Value}]the property value \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the converted value if necessary \end{Desc}
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/windows/vocl/Winevent\-SIF.h\end{CompactItemize}

@@ -1,0 +1,150 @@
+\section{SQLKey\-Value\-Store Class Reference}
+\label{classSQLKeyValueStore}\index{SQLKeyValueStore@{SQLKeyValueStore}}
+This abstract class represent an implementation of \doxyref{Key\-Value\-Store}{p.}{classKeyValueStore} based on a generic SQL database.  
+
+
+{\tt \#include $<$SQLKey\-Value\-Store.h$>$}
+
+Inheritance diagram for SQLKey\-Value\-Store:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=148pt]{classSQLKeyValueStore__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for SQLKey\-Value\-Store:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=136pt]{classSQLKeyValueStore__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\textbf{SQLKey\-Value\-Store} (const String\-Buffer \&table, const String\-Buffer \&col\-Key, const String\-Buffer \&col\-Value)\label{classSQLKeyValueStore_0f3112f73c4ff63bfb90c27fa3c2a92d}
+
+\item 
+virtual int \textbf{connect} ()=0\label{classSQLKeyValueStore_306784e12f3b97b51b11b1a7f7cb806a}
+
+\item 
+virtual int \textbf{disconnect} ()=0\label{classSQLKeyValueStore_393b582c0406a08b5e598cd97fbc724b}
+
+\item 
+virtual String\-Buffer {\bf read\-Property\-Value} (const char $\ast$prop) const
+\begin{CompactList}\small\item\em Returns the value of the given property. \item\end{CompactList}\item 
+virtual int {\bf set\-Property\-Value} (const char $\ast$prop, const char $\ast$value)
+\begin{CompactList}\small\item\em Sets a property value. \item\end{CompactList}\item 
+virtual int {\bf remove\-Property} (const char $\ast$prop)
+\begin{CompactList}\small\item\em Remove a certain property. \item\end{CompactList}\item 
+virtual {\bf Enumeration} \& {\bf get\-Properties} () const\label{classSQLKeyValueStore_541daedff7b07564a90b02cfd884a880}
+
+\begin{CompactList}\small\item\em Get all the properties that are currently defined. \item\end{CompactList}\item 
+virtual int {\bf save} ()=0
+\begin{CompactList}\small\item\em Ensure that all properties are stored persistently. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+virtual {\bf Enumeration} \& \textbf{query} (const String\-Buffer \&sql) const=0\label{classSQLKeyValueStore_c660cfd535e880f37e8cb01106a17724}
+
+\item 
+virtual int \textbf{execute} (const String\-Buffer \&sql)=0\label{classSQLKeyValueStore_c69531ea85bfc81137042357fe2acee7}
+
+\item 
+virtual String\-Buffer \textbf{sql\-Col\-Key} () const\label{classSQLKeyValueStore_cdda6c3f74ca14b4e0f245c17b894119}
+
+\item 
+virtual String\-Buffer \textbf{sql\-Col\-Value} () const\label{classSQLKeyValueStore_041d96bbd53e7d4f596191b308acc83e}
+
+\item 
+virtual String\-Buffer \textbf{sql\-Remove\-Property\-String} (const String\-Buffer \&key) const\label{classSQLKeyValueStore_5fcdfa62a0052e610ba5f59ac2b0a41c}
+
+\item 
+virtual String\-Buffer \textbf{sql\-Set\-Property\-String} (const String\-Buffer \&key, const String\-Buffer \&value) const\label{classSQLKeyValueStore_0ab9b81fd384784047bd3a65a5141613}
+
+\item 
+virtual String\-Buffer \textbf{sql\-Get\-Property\-String} (const String\-Buffer \&key) const\label{classSQLKeyValueStore_af2810b8d41e254a94335d77a3bc560c}
+
+\item 
+virtual String\-Buffer \textbf{sql\-Get\-All\-String} () const\label{classSQLKeyValueStore_e90bb3deb175e4627ba6d8efde29f04b}
+
+\item 
+virtual String\-Buffer \textbf{sql\-Count\-All\-String} () const\label{classSQLKeyValueStore_07805604c9bd7a58321b994cd105f0d6}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This abstract class represent an implementation of \doxyref{Key\-Value\-Store}{p.}{classKeyValueStore} based on a generic SQL database. 
+
+It allows the developer to specify the column to use for the key and value, the table name to use for the storage, and requires to implement the methods to connect/disconnect to the database, which are specific to the db driver in use (odbc, etc.) 
+
+
+
+\subsection{Member Function Documentation}
+\index{SQLKeyValueStore@{SQLKey\-Value\-Store}!readPropertyValue@{readPropertyValue}}
+\index{readPropertyValue@{readPropertyValue}!SQLKeyValueStore@{SQLKey\-Value\-Store}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual String\-Buffer SQLKey\-Value\-Store::read\-Property\-Value (const char $\ast$ {\em prop}) const\hspace{0.3cm}{\tt  [virtual]}}\label{classSQLKeyValueStore_6efb8a4c66d818df9571e5e81300a938}
+
+
+Returns the value of the given property. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em prop}]- the property name\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]A NULL String\-Buffer in the returned implies that the property was not set. Otherwise the value it was set to is returned (which can be \char`\"{}\char`\"{}, the empty string). \end{Desc}
+
+
+Implements {\bf Key\-Value\-Store} \doxyref{}{p.}{classKeyValueStore_b2761e4c37d95c30c978ff1a928af047}.\index{SQLKeyValueStore@{SQLKey\-Value\-Store}!setPropertyValue@{setPropertyValue}}
+\index{setPropertyValue@{setPropertyValue}!SQLKeyValueStore@{SQLKey\-Value\-Store}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int SQLKey\-Value\-Store::set\-Property\-Value (const char $\ast$ {\em prop}, const char $\ast$ {\em value})\hspace{0.3cm}{\tt  [virtual]}}\label{classSQLKeyValueStore_f3eb8e98ece90f390f5459c44f0c653b}
+
+
+Sets a property value. 
+
+The value might be cached inside the implementation of this interface. To ensure that it is stored persistently and to do error checking, call \doxyref{save()}{p.}{classSQLKeyValueStore_5dc2c0a3df8e4e38deca4eab5909e753}.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em prop}]- the property name \item[{\em value}]- the property value (zero terminated string)\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]int 0 on success, an error code otherwise \end{Desc}
+
+
+Implements {\bf Key\-Value\-Store} \doxyref{}{p.}{classKeyValueStore_7b202d8d64dd966b19e34a91d86dd0de}.\index{SQLKeyValueStore@{SQLKey\-Value\-Store}!removeProperty@{removeProperty}}
+\index{removeProperty@{removeProperty}!SQLKeyValueStore@{SQLKey\-Value\-Store}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int SQLKey\-Value\-Store::remove\-Property (const char $\ast$ {\em prop})\hspace{0.3cm}{\tt  [virtual]}}\label{classSQLKeyValueStore_7314067e7fc6219420042bd8501d1db4}
+
+
+Remove a certain property. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em prop}]the name of the property which is to be removed\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]int 0 on success, an error code otherwise \end{Desc}
+
+
+Implements {\bf Key\-Value\-Store} \doxyref{}{p.}{classKeyValueStore_95f1706e2b004c6abc3a874ba0f5cfed}.\index{SQLKeyValueStore@{SQLKey\-Value\-Store}!save@{save}}
+\index{save@{save}!SQLKeyValueStore@{SQLKey\-Value\-Store}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int SQLKey\-Value\-Store::save ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classSQLKeyValueStore_5dc2c0a3df8e4e38deca4eab5909e753}
+
+
+Ensure that all properties are stored persistently. 
+
+If setting a property led to an error earlier, this call will indicate the failure.
+
+\begin{Desc}
+\item[Returns:]0 - success, failure otherwise \end{Desc}
+
+
+Implements {\bf Key\-Value\-Store} \doxyref{}{p.}{classKeyValueStore_62d7f0c759f3aa6f9e70380c84a60aaa}.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/common/client/SQLKey\-Value\-Store.h\end{CompactItemize}

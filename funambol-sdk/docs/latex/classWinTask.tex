@@ -1,0 +1,95 @@
+\section{Win\-Task Class Reference}
+\label{classWinTask}\index{WinTask@{WinTask}}
+Rapresents an event object for Windows Clients.  
+
+
+{\tt \#include $<$Win\-Task.h$>$}
+
+Inheritance diagram for Win\-Task:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=57pt]{classWinTask__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Win\-Task:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=87pt]{classWinTask__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Win\-Task} ()\label{classWinTask_f63496d6d7bebe79d980d7141e8ef35b}
+
+\begin{CompactList}\small\item\em Default Constructor. \item\end{CompactList}\item 
+{\bf Win\-Task} (const wstring data\-String)\label{classWinTask_edc61d33f140c4768079a59a4cc586df}
+
+\begin{CompactList}\small\item\em Constructor: fills property\-Map parsing the passed v\-Calendar string. \item\end{CompactList}\item 
+{\bf $\sim$Win\-Task} ()\label{classWinTask_5382e652a00c49256fccf5e534614adc}
+
+\begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\item 
+virtual int {\bf parse} (const wstring data\-String)
+\begin{CompactList}\small\item\em Parse a v\-Calendar string and fills the property\-Map. \item\end{CompactList}\item 
+virtual wstring \& {\bf to\-String} ()
+\begin{CompactList}\small\item\em Format and return a v\-Calendar string from the property\-Map. \item\end{CompactList}\item 
+virtual {\bf Win\-Recurrence} $\ast$ {\bf get\-Rec\-Pattern} ()\label{classWinTask_c08aaa1e0291ad027bea3557125c6c5d}
+
+\begin{CompactList}\small\item\em Returns a pointer to the (internally owned) \doxyref{Win\-Recurrence}{p.}{classWinRecurrence}. \item\end{CompactList}\item 
+long {\bf get\-CRC} ()
+\begin{CompactList}\small\item\em Return the crc value of the internal map with all values. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Rapresents an event object for Windows Clients. 
+
+The object can be filled passing a v\-Calendar, or filling directly the map. Calling 'to\-String()' a v\-Calendar is formatted and returned. 
+
+
+
+\subsection{Member Function Documentation}
+\index{WinTask@{Win\-Task}!parse@{parse}}
+\index{parse@{parse}!WinTask@{Win\-Task}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Win\-Task::parse (const wstring {\em data\-String})\hspace{0.3cm}{\tt  [virtual]}}\label{classWinTask_c2bcdc3efd342da125aa6325785ad1a6}
+
+
+Parse a v\-Calendar string and fills the property\-Map. 
+
+The map is cleared and will contain only found properties at the end of the parsing. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em data\-String}]input v\-Calendar string to be parsed \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 if no errors \end{Desc}
+
+
+Implements {\bf Win\-Item} \doxyref{}{p.}{classWinItem_1d7a0c54c09f0bbe080806e202f72e51}.
+
+Reimplemented in {\bf Win\-Task\-SIF} \doxyref{}{p.}{classWinTaskSIF_caffc818a380c59cd7af50d0a6931110}.\index{WinTask@{Win\-Task}!toString@{toString}}
+\index{toString@{toString}!WinTask@{Win\-Task}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual wstring\& Win\-Task::to\-String ()\hspace{0.3cm}{\tt  [virtual]}}\label{classWinTask_8b22b82b47e3ff93c43470190c666679}
+
+
+Format and return a v\-Calendar string from the property\-Map. 
+
+Not supported properties are ignored and so not formatted as they don't have a correspondence in property\-Map. \begin{Desc}
+\item[Returns:]the v\-Calendar string formatted, reference to internal wstring \end{Desc}
+
+
+Implements {\bf Win\-Item} \doxyref{}{p.}{classWinItem_03832f44de60b01908967f8e7f793c27}.
+
+Reimplemented in {\bf Win\-Task\-SIF} \doxyref{}{p.}{classWinTaskSIF_72f960393c4cf9518d31a7d9038a0909}.\index{WinTask@{Win\-Task}!getCRC@{getCRC}}
+\index{getCRC@{getCRC}!WinTask@{Win\-Task}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}long Win\-Task::get\-CRC ()\hspace{0.3cm}{\tt  [virtual]}}\label{classWinTask_f355c347bff6689d8795af92caa618e7}
+
+
+Return the crc value of the internal map with all values. 
+
+It uses only the values of the map not the key. Overrides method of \doxyref{Win\-Item}{p.}{classWinItem}, to include recurring properties in the crc. 
+
+Reimplemented from {\bf Win\-Item} \doxyref{}{p.}{classWinItem_ab35f0bbc4ef12aec9edffc3ec4b8fe4}.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/windows/vocl/Win\-Task.h\end{CompactItemize}

@@ -1,0 +1,5 @@
+base referer
+rect $classWinEvent.html 5,175 88,199
+rect $classWinItem.html 41,7 116,31
+rect $classWinRecurrence.html 84,84 204,108
+rect $classWinRecurrenceSIF.html 112,175 251,199

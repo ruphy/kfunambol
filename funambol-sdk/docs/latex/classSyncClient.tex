@@ -1,0 +1,155 @@
+\section{Sync\-Client Class Reference}
+\label{classSyncClient}\index{SyncClient@{SyncClient}}
+This class wraps the common operations executed by a typical client.  
+
+
+{\tt \#include $<$Sync\-Client.h$>$}
+
+Collaboration diagram for Sync\-Client:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=76pt]{classSyncClient__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual int \textbf{sync} ({\bf Abstract\-Sync\-Config} \&config, {\bf Sync\-Source} $\ast$$\ast$sources)\label{classSyncClient_8ae8bc82516b64832194fcadb3d72ded}
+
+\item 
+virtual int {\bf sync} ({\bf Abstract\-Sync\-Config} \&config, char $\ast$$\ast$source\-Names=NULL)
+\begin{CompactList}\small\item\em Execute a synchronization with sources that are chosen based on the source\-Names param or, if source\-Names is NULL, based on the configuration: in this case all available sources will be used. \item\end{CompactList}\item 
+{\bf Sync\-Report} $\ast$ \textbf{get\-Sync\-Report} ()\label{classSyncClient_03bdc4bb53a0f27431c363bdffd6f1b2}
+
+\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+virtual int {\bf prepare\-Sync} ({\bf Abstract\-Sync\-Config} \&)
+\begin{CompactList}\small\item\em A callback into a derived class which is called after reading the Sync\-ML configuration and before creating sources. \item\end{CompactList}\item 
+virtual int {\bf create\-Sync\-Source} (const char $\ast$, const int, {\bf Abstract\-Sync\-Source\-Config} $\ast$, {\bf Sync\-Source} $\ast$$\ast$source)
+\begin{CompactList}\small\item\em A factory method that is used by the sync() call to create the sync sources that are to be synchronized. \item\end{CompactList}\item 
+virtual int {\bf begin\-Sync} ({\bf Sync\-Source} $\ast$$\ast$)
+\begin{CompactList}\small\item\em Callback invoked after creating all sources. \item\end{CompactList}\item 
+virtual int {\bf end\-Sync} ({\bf Sync\-Source} $\ast$$\ast$)
+\begin{CompactList}\small\item\em Callback invoked after the sync process. \item\end{CompactList}\item 
+virtual int {\bf continue\-After\-Prepare\-Sync} ()
+\begin{CompactList}\small\item\em Callback invoked after the prepare\-Sync function. \item\end{CompactList}\item 
+virtual int {\bf continue\-After\-Sync} ()
+\begin{CompactList}\small\item\em Callback invoked after the sync function. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+{\bf Sync\-Report} \textbf{sync\-Report}\label{classSyncClient_b9c9bd5497a43fdb2441a6c6a4c53b69}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This class wraps the common operations executed by a typical client. 
+
+It contains default implementations for calls invoked by the library core to parameterize or control the synchronization. A client can override these calls by subclassing \doxyref{Sync\-Client}{p.}{classSyncClient} and using an instance of its own class instead.
+
+Warning: the library contains global data in several different places. Therefore it is not possible to execute multiple sessions in parallel. 
+
+
+
+\subsection{Member Function Documentation}
+\index{SyncClient@{Sync\-Client}!sync@{sync}}
+\index{sync@{sync}!SyncClient@{Sync\-Client}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Sync\-Client::sync ({\bf Abstract\-Sync\-Config} \& {\em config}, char $\ast$$\ast$ {\em source\-Names} = {\tt NULL})\hspace{0.3cm}{\tt  [virtual]}}\label{classSyncClient_30ef47858280ff0f4203e4dd0437d370}
+
+
+Execute a synchronization with sources that are chosen based on the source\-Names param or, if source\-Names is NULL, based on the configuration: in this case all available sources will be used. 
+
+\begin{itemize}
+\item calls \doxyref{prepare\-Sync()}{p.}{classSyncClient_639ccc3d2a1dd5f4dba2f6efc950a6ce} to give a derived class the chance to setup syncing and get ready for creating sources\item iterates over sources to sync, asks for the corresponding client source with create\-Source()\item calls \doxyref{begin\-Sync()}{p.}{classSyncClient_7d9f886e0aad3757f56962895fa9ca06} to give the derived class a class to do after all sources have been configured successfully\item executes the synchronization: call sync(sources$\ast$$\ast$)\end{itemize}
+
+
+This version of the call is easier to use for clients whose sync sources are determined by the configuration or by an array of desired sources to sync
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em config,:}]the configuration to be used for this sync \item[{\em source\-Names,:}]optional, a NULL terminated array of source names that we want to sync. If NULL, sources to sync are chosen from the configuration. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success, an error otherwise \end{Desc}
+\index{SyncClient@{Sync\-Client}!prepareSync@{prepareSync}}
+\index{prepareSync@{prepareSync}!SyncClient@{Sync\-Client}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Sync\-Client::prepare\-Sync ({\bf Abstract\-Sync\-Config} \&)\hspace{0.3cm}{\tt  [inline, protected, virtual]}}\label{classSyncClient_639ccc3d2a1dd5f4dba2f6efc950a6ce}
+
+
+A callback into a derived class which is called after reading the Sync\-ML configuration and before creating sources. 
+
+Not used by the sync(Sync\-Source$\ast$$\ast$) call.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em config}]a reference to \doxyref{Sync\-Manager}{p.}{classSyncManager} configuration can be used to read client specific properties \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 for success, an error code otherwise - an error code aborts the whole synchronization \end{Desc}
+\index{SyncClient@{Sync\-Client}!createSyncSource@{createSyncSource}}
+\index{createSyncSource@{createSyncSource}!SyncClient@{Sync\-Client}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Sync\-Client::create\-Sync\-Source (const char $\ast$, const  {\em int}, {\bf Abstract\-Sync\-Source\-Config} $\ast$, {\bf Sync\-Source} $\ast$$\ast$ {\em source})\hspace{0.3cm}{\tt  [inline, protected, virtual]}}\label{classSyncClient_dfa92a1fc23791fdeebc183f61b62db1}
+
+
+A factory method that is used by the sync() call to create the sync sources that are to be synchronized. 
+
+Not used by the sync(Sync\-Source$\ast$$\ast$) call.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em name}]name of the sync source \item[{\em pos}]position of the \doxyref{Sync\-Source}{p.}{classSyncSource} in the SSConfig array (index: 0 - num\-Sources-1) \item[{\em config}]a pointer to the source's configuration: this includes all properties that the client library knows and uses itself (only valid during this call) This pointer is owned by \doxyref{Abstract\-Sync\-Config}{p.}{classAbstractSyncConfig}, sources uses it to initialize the internal config by reference. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em source}]the sync source created by the client or NULL if there is no sync source currently associated with the config or it is inactive; instance is a new Sync\-Source$\ast$ and it's freed by the caller (see finally) \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 for success, an error code otherwise - an error code aborts the whole synchronization and the value of $\ast$source is ignored \end{Desc}
+\index{SyncClient@{Sync\-Client}!beginSync@{beginSync}}
+\index{beginSync@{beginSync}!SyncClient@{Sync\-Client}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Sync\-Client::begin\-Sync ({\bf Sync\-Source} $\ast$$\ast$)\hspace{0.3cm}{\tt  [inline, protected, virtual]}}\label{classSyncClient_7d9f886e0aad3757f56962895fa9ca06}
+
+
+Callback invoked after creating all sources. 
+
+\begin{Desc}
+\item[Returns:]0 for success, an error code otherwise - an error code stops immediately \end{Desc}
+\index{SyncClient@{Sync\-Client}!endSync@{endSync}}
+\index{endSync@{endSync}!SyncClient@{Sync\-Client}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Sync\-Client::end\-Sync ({\bf Sync\-Source} $\ast$$\ast$)\hspace{0.3cm}{\tt  [inline, protected, virtual]}}\label{classSyncClient_33b8423a7907d4941e51f255f7050cad}
+
+
+Callback invoked after the sync process. 
+
+\begin{Desc}
+\item[Returns:]: 0 for success, an error code otherwise \end{Desc}
+\index{SyncClient@{Sync\-Client}!continueAfterPrepareSync@{continueAfterPrepareSync}}
+\index{continueAfterPrepareSync@{continueAfterPrepareSync}!SyncClient@{Sync\-Client}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Sync\-Client::continue\-After\-Prepare\-Sync ()\hspace{0.3cm}{\tt  [inline, protected, virtual]}}\label{classSyncClient_3b79e33ce147b673dbce1aaad99ab5e0}
+
+
+Callback invoked after the prepare\-Sync function. 
+
+\begin{Desc}
+\item[Returns:]0 for success, an error code otherwise - an error code stops immediately \end{Desc}
+\index{SyncClient@{Sync\-Client}!continueAfterSync@{continueAfterSync}}
+\index{continueAfterSync@{continueAfterSync}!SyncClient@{Sync\-Client}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Sync\-Client::continue\-After\-Sync ()\hspace{0.3cm}{\tt  [inline, protected, virtual]}}\label{classSyncClient_8c3fc3890d4f865a7c011fd6781bac90}
+
+
+Callback invoked after the sync function. 
+
+\begin{Desc}
+\item[Returns:]: 0 for success, an error code otherwise \end{Desc}
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/common/client/Sync\-Client.h\end{CompactItemize}

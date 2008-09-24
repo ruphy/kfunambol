@@ -1,0 +1,6 @@
+base referer
+rect $classSyncReport.html 28,98 124,122
+rect $classSyncSourceReport.html 5,7 147,31
+rect $classSyncSource.html 148,98 247,122
+rect $classAbstractSyncSourceConfig.html 171,7 368,31
+rect $classAbstractSyncConfig.html 271,98 423,122

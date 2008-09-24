@@ -1,0 +1,139 @@
+\section{Client\-Test Class Reference}
+\label{classClientTest}\index{ClientTest@{ClientTest}}
+This is the interface expected by the testing framework for sync clients.  
+
+
+{\tt \#include $<$Client\-Test.h$>$}
+
+Inheritance diagram for Client\-Test:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=65pt]{classClientTest__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\textbf{Client\-Test} (int server\-Sleep\-Sec=0, const std::string \&server\-Log=\char`\"{}\char`\"{})\label{group__ClientTest_gf569060e4a730e4f48c44076a32a496a}
+
+\item 
+virtual void {\bf register\-Tests} ()
+\begin{CompactList}\small\item\em This function registers tests using this instance of \doxyref{Client\-Test}{p.}{classClientTest} for later use during a test run. \item\end{CompactList}\item 
+virtual {\bf Local\-Tests} $\ast$ {\bf create\-Local\-Tests} (const std::string \&name, int source\-Param, {\bf Client\-Test::Config} \&co)
+\begin{CompactList}\small\item\em Creates an instance of \doxyref{Local\-Tests}{p.}{classLocalTests} (default implementation) or a class derived from it. \item\end{CompactList}\item 
+virtual {\bf Sync\-Tests} $\ast$ {\bf create\-Sync\-Tests} (const std::string \&name, std::vector$<$ int $>$ source\-Indices, bool is\-Client\-A=true)
+\begin{CompactList}\small\item\em Creates an instance of \doxyref{Sync\-Tests}{p.}{classSyncTests} (default) or a class derived from it. \item\end{CompactList}\item 
+virtual int {\bf get\-Num\-Sources} ()=0
+\begin{CompactList}\small\item\em Data sources are enumbered from 0 to n-1 for the purpose of testing. \item\end{CompactList}\item 
+virtual void {\bf get\-Source\-Config} (int source, {\bf Config} \&config)=0
+\begin{CompactList}\small\item\em Called to fill the given test source config with information about a sync source identified by its index. \item\end{CompactList}\item 
+virtual {\bf Client\-Test} $\ast$ {\bf get\-Client\-B} ()=0
+\begin{CompactList}\small\item\em The instance to use as second client. \item\end{CompactList}\item 
+virtual bool {\bf is\-B64Enabled} ()=0\label{classClientTest_4b04191d3b5eb3e6967479096a4d83f2}
+
+\begin{CompactList}\small\item\em Returning true enables tests which only work if the server is a Funambol server which supports the \char`\"{}b64\char`\"{} encoding of items on the transport level. \item\end{CompactList}\item 
+virtual int {\bf sync} (const int $\ast$active\-Sources, Sync\-Mode sync\-Mode, const {\bf Check\-Sync\-Report} \&check\-Report, long max\-Msg\-Size=0, long max\-Obj\-Size=0, bool lo\-Support=false, const char $\ast$encoding=\char`\"{}\char`\"{})=0
+\begin{CompactList}\small\item\em Execute a synchronization with the selected sync sources and the selected synchronization options. \item\end{CompactList}\item 
+virtual void {\bf post\-Sync} (int res, const std::string \&logname)
+\begin{CompactList}\small\item\em This is called after successful \doxyref{sync()}{p.}{classClientTest_5e5a95277a8c953307c6c4c9415fe627} calls (res == 0) as well as after unsuccessful ones (res != 1). \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static int {\bf dump} ({\bf Client\-Test} \&client, {\bf Sync\-Source} \&source, const char $\ast$file)\label{group__ClientTest_g21f82c79cc49a242a9ddb28ccc4ae4cf}
+
+\begin{CompactList}\small\item\em utility function for dumping items which are C strings with blank lines as separator \item\end{CompactList}\item 
+static int {\bf import} ({\bf Client\-Test} \&client, {\bf Sync\-Source} \&source, const char $\ast$file)\label{group__ClientTest_g6f8c5e62da7b5da62d4bf5e5f9f8938e}
+
+\begin{CompactList}\small\item\em utility function for importing items with blank lines as separator \item\end{CompactList}\item 
+static bool {\bf compare} ({\bf Client\-Test} \&client, const char $\ast$file\-A, const char $\ast$file\-B)\label{group__ClientTest_g489f26d3ca7ec7dec96b14bc81b89dc0}
+
+\begin{CompactList}\small\item\em utility function for comparing v\-Card and i\-Cal files with the external synccompare.pl Perl script \item\end{CompactList}\item 
+static void {\bf get\-Test\-Data} (const char $\ast$type, {\bf Config} \&config)
+\begin{CompactList}\small\item\em A derived class can use this call to get default test cases, but still has to add callbacks which create sources and execute a sync session. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+int {\bf server\-Sleep\-Seconds}\label{classClientTest_1a7a18a21c887f14a874a9595bbaf916}
+
+\begin{CompactList}\small\item\em time to sleep in \doxyref{post\-Sync()}{p.}{group__ClientTest_gf7c1d6ba20efac0427e67f9791a3cd79} \item\end{CompactList}\item 
+std::string {\bf server\-Log\-File\-Name}\label{classClientTest_742fde2670c30a58ba0cc4b4f2a43e5b}
+
+\begin{CompactList}\small\item\em server log file which is copied by \doxyref{post\-Sync()}{p.}{group__ClientTest_gf7c1d6ba20efac0427e67f9791a3cd79} and then truncated (Unix only, Windows does not allow such access to an open file) \item\end{CompactList}\end{CompactItemize}
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct {\bf Config}
+\begin{CompactList}\small\item\em Information about a data source. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This is the interface expected by the testing framework for sync clients. 
+
+It defines several methods that a derived class must implement if it wants to use that framework. Note that this class itself is not derived from \doxyref{Sync\-Client}{p.}{classSyncClient}. This gives a user of this framework the freedom to implement it in two different ways:\begin{itemize}
+\item implement a class derived from both \doxyref{Sync\-Client}{p.}{classSyncClient} and \doxyref{Client\-Test}{p.}{classClientTest}\item add testing of an existing subclass of \doxyref{Sync\-Client}{p.}{classSyncClient} by implementing a \doxyref{Client\-Test}{p.}{classClientTest} which uses that subclass\end{itemize}
+
+
+The client is expected to support change tracking for multiple servers. Although the framework always always tests against the same server, for most tests it is necessary to access the database without affecting the next synchronization with the server. This is done by asking the client for two different sync sources via \doxyref{Config::create\-Source\-A}{p.}{structClientTest_1_1Config_4b88084e4d9abe94aa4e5ab37c4d0b13} and \doxyref{Config::create\-Source\-B}{p.}{structClientTest_1_1Config_9d8b5a3de6b9ddd500e44aaff9d59b7e} which have to create them in a suitable way - pretty much as if the client was synchronized against different server. A third, different change tracking is needed for real synchronizations of the data.
+
+Furthermore the client is expected to support multiple data sources of the same kind, f.i. two different address books. This is used to test full client A $<$-$>$ server $<$-$>$ client B synchronizations in some tests or to check server modifications done by client A with a synchronization against client B. In those tests client A is mapped to the first data source and client B to the second one.
+
+Finally the \doxyref{Sync\-Source}{p.}{classSyncSource} API is used in slightly different ways which go beyond what is normally expected from a \doxyref{Sync\-Source}{p.}{classSyncSource} implementation:\begin{itemize}
+\item begin\-Sync() may be called without setting a sync mode: when \doxyref{Sync\-Source::get\-Sync\-Mode()}{p.}{classSyncSource_90a5862f902558849d130da11c2152b7} returns SYNC\_\-NONE the source is expected to make itself ready to iterate over all, new, updated and deleted items\item items may be added via \doxyref{Sync\-Source::add\-Item()}{p.}{classSyncSource_0d60a2f99dc8340320e8b60779b07205} with a type of \char`\"{}raw\char`\"{}: this implies that the type is the one used for items in the \doxyref{Client\-Test::Config}{p.}{structClientTest_1_1Config} below\end{itemize}
+
+
+Handling configuration and creating classes is entirely done by the subclass of \doxyref{Client\-Test}{p.}{classClientTest}, the frameworks makes no assumptions about how this is done. Instead it queries the \doxyref{Client\-Test}{p.}{classClientTest} for properties (like available sync sources) and then creates several tests. 
+
+
+
+\subsection{Member Function Documentation}
+\index{ClientTest@{Client\-Test}!getNumSources@{getNumSources}}
+\index{getNumSources@{getNumSources}!ClientTest@{Client\-Test}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Client\-Test::get\-Num\-Sources ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classClientTest_d7b3592d2623c8076ffc43c4600a2f16}
+
+
+Data sources are enumbered from 0 to n-1 for the purpose of testing. 
+
+This call returns n. 
+
+Implemented in {\bf Test\-File\-Source} \doxyref{}{p.}{classTestFileSource_902fb0eb77c02d4a55f46d36f611bafa}.\index{ClientTest@{Client\-Test}!getSourceConfig@{getSourceConfig}}
+\index{getSourceConfig@{getSourceConfig}!ClientTest@{Client\-Test}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual void Client\-Test::get\-Source\-Config (int {\em source}, {\bf Config} \& {\em config})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classClientTest_c2dde793eb4770cba8486c0b3e7849fb}
+
+
+Called to fill the given test source config with information about a sync source identified by its index. 
+
+It's okay to only fill in the available pieces of information and set everything else to zero. \index{ClientTest@{Client\-Test}!getClientB@{getClientB}}
+\index{getClientB@{getClientB}!ClientTest@{Client\-Test}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Client\-Test}$\ast$ Client\-Test::get\-Client\-B ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classClientTest_44aff5e4f5e3a92cd4bacadca6f52716}
+
+
+The instance to use as second client. 
+
+Returning NULL disables all checks which require a second client. The returned pointer must remain valid throughout the life time of the tests.
+
+The second client must be configured to access the same server and have data sources which match the ones from the primary client. 
+
+Implemented in {\bf Test\-File\-Source} \doxyref{}{p.}{classTestFileSource_9330cd09cfbe9b0d81e50bdc71432a03}.\index{ClientTest@{Client\-Test}!sync@{sync}}
+\index{sync@{sync}!ClientTest@{Client\-Test}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Client\-Test::sync (const int $\ast$ {\em active\-Sources}, Sync\-Mode {\em sync\-Mode}, const {\bf Check\-Sync\-Report} \& {\em check\-Report}, long {\em max\-Msg\-Size} = {\tt 0}, long {\em max\-Obj\-Size} = {\tt 0}, bool {\em lo\-Support} = {\tt false}, const char $\ast$ {\em encoding} = {\tt \char`\"{}\char`\"{}})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classClientTest_5e5a95277a8c953307c6c4c9415fe627}
+
+
+Execute a synchronization with the selected sync sources and the selected synchronization options. 
+
+The log file in LOG has been set up already for the synchronization run and should not be changed by the client.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em active\-Sources}]a -1 terminated array of sync source indices \item[{\em sync\-Mode}]the synchronization mode to be used \item[{\em check\-Report}]has to be called after a successful or unsuccessful sync, will dump the report and (optionally) check the result; beware, the later may throw exceptions inside CPPUNIT macros \item[{\em max\-Msg\-Size}]$>$0: enable the maximum message size, else disable it \item[{\em max\-Obj\-Size}]same as max\-Msg\-Size for maximum object size \item[{\em lo\-Support}]if true, then the sync is expected to enable Large Object support \item[{\em encoding}]if non-empty, then let client library transform all items into this format (guaranteed to be not NULL)\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]return code of Sync\-Client::sync() \end{Desc}
+
+
+Implemented in {\bf Test\-File\-Source} \doxyref{}{p.}{classTestFileSource_755fa61dbfe32288a7c68e37e21e21ea}.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+test/Client\-Test.h\item 
+test/Client\-Test.cpp\end{CompactItemize}

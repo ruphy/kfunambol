@@ -1,0 +1,348 @@
+\section{Abstract\-Sync\-Config Class Reference}
+\label{classAbstractSyncConfig}\index{AbstractSyncConfig@{AbstractSyncConfig}}
+This class provides access to all attributes of the client and its sources which the sync engine needs to read and (in a few cases) also write.  
+
+
+{\tt \#include $<$Abstract\-Sync\-Config.h$>$}
+
+Inheritance diagram for Abstract\-Sync\-Config:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=79pt]{classAbstractSyncConfig__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual {\bf Abstract\-Sync\-Source\-Config} $\ast$ \textbf{get\-Abstract\-Sync\-Source\-Config} (const char $\ast$name) const=0\label{classAbstractSyncConfig_8fdb6a42b8da2d3245d4ae675a1010b2}
+
+\item 
+virtual {\bf Abstract\-Sync\-Source\-Config} $\ast$ \textbf{get\-Abstract\-Sync\-Source\-Config} (unsigned int i) const=0\label{classAbstractSyncConfig_bdd12de577ef53e5836995610b46f4ce}
+
+\item 
+virtual unsigned int \textbf{get\-Abstract\-Sync\-Source\-Configs\-Count} () const=0\label{classAbstractSyncConfig_667d305066f496beb82bc661e767555d}
+
+\item 
+virtual const char $\ast$ {\bf get\-Username} () const=0
+\begin{CompactList}\small\item\em Returns the username value. \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Password} () const=0\label{classAbstractSyncConfig_6c0db61b5f018733cb84537317dbdfe2}
+
+\begin{CompactList}\small\item\em Returns the password value. \item\end{CompactList}\item 
+virtual bool {\bf get\-Use\-Proxy} () const=0\label{classAbstractSyncConfig_23ea9447fe7a93bd7f626cf5c384445e}
+
+\begin{CompactList}\small\item\em Should the sync engine use a HTTP proxy? \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Proxy\-Host} () const=0\label{classAbstractSyncConfig_19ea7207afb44a7aeed01eabbb5f032d}
+
+\begin{CompactList}\small\item\em Returns the proxy\-Host value. \item\end{CompactList}\item 
+virtual int \textbf{get\-Proxy\-Port} () const=0\label{classAbstractSyncConfig_5461e8ce26a8f4be6b845b8a5e58d9ae}
+
+\item 
+virtual const char $\ast$ {\bf get\-Proxy\-Username} () const=0\label{classAbstractSyncConfig_e80cc10a3c0e067bcbbd48e2b879927b}
+
+\begin{CompactList}\small\item\em Returns the proxy\-Username value. \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Proxy\-Password} () const=0\label{classAbstractSyncConfig_e9b1eb5db841190e732aaf0da8e9fba2}
+
+\begin{CompactList}\small\item\em Returns the proxy\-Password value. \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Sync\-URL} () const=0
+\begin{CompactList}\small\item\em Returns the sync\-URL value. \item\end{CompactList}\item 
+virtual void {\bf set\-Begin\-Sync} (unsigned long)
+\begin{CompactList}\small\item\em Sets the new \char`\"{}begin\-Sync\char`\"{} timestamp. \item\end{CompactList}\item 
+virtual void {\bf set\-End\-Sync} (unsigned long)
+\begin{CompactList}\small\item\em Sets the new \char`\"{}end\-Sync\char`\"{} timestamp. \item\end{CompactList}\item 
+virtual bool {\bf get\-Server\-Auth\-Required} () const=0\label{classAbstractSyncConfig_2f72fafef075d7ded99ba34b9dade353}
+
+\begin{CompactList}\small\item\em Does the server require authentication? \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Client\-Auth\-Type} () const=0\label{classAbstractSyncConfig_3b0052f082ef33efa4b924fdbe173dc6}
+
+\begin{CompactList}\small\item\em the type of client authentication used by client:\begin{itemize}
+\item syncml:basic-auth\item syncml:md5-auth \end{itemize}
+\item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Server\-Auth\-Type} () const=0\label{classAbstractSyncConfig_3e8634593409380a563f3a4a3508e9f9}
+
+\begin{CompactList}\small\item\em same as for client? \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Server\-PWD} () const=0\label{classAbstractSyncConfig_4fd519cebbb22eabd1d9ab36874cfb6f}
+
+\begin{CompactList}\small\item\em the server password \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Server\-ID} () const=0\label{classAbstractSyncConfig_7f2738be42644bc447639420ec05b681}
+
+\begin{CompactList}\small\item\em the server ID value \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Server\-Nonce} () const=0\label{classAbstractSyncConfig_24eee66ac013b7ef2995802d2b9c4828}
+
+\begin{CompactList}\small\item\em The server nonce value: from client to server. \item\end{CompactList}\item 
+virtual void \textbf{set\-Server\-Nonce} (const char $\ast$v)=0\label{classAbstractSyncConfig_2802f1633df258f1e9bb548794a0961a}
+
+\item 
+virtual const char $\ast$ {\bf get\-Client\-Nonce} () const=0\label{classAbstractSyncConfig_cf298ece8aac218662ad2de44e6b527e}
+
+\begin{CompactList}\small\item\em The client nonce value: from server to client. \item\end{CompactList}\item 
+virtual void \textbf{set\-Client\-Nonce} (const char $\ast$v)=0\label{classAbstractSyncConfig_20c53192ebbd7707368723848ec6a2ca}
+
+\item 
+virtual unsigned long {\bf get\-Max\-Msg\-Size} () const=0\label{classAbstractSyncConfig_313dd42823b0db09cb7113f9bc5833a6}
+
+\begin{CompactList}\small\item\em The maximum message size (Byte) accepted for XML messages received from server (server to client). \item\end{CompactList}\item 
+virtual unsigned long {\bf get\-Read\-Buffer\-Size} () const=0\label{classAbstractSyncConfig_f18a819d6e579a355a89aeadde25ea51}
+
+\begin{CompactList}\small\item\em Specifies the value for the size of the buffer used to store the incoming stream from server (byte). \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-User\-Agent} () const=0
+\begin{CompactList}\small\item\em The user agent string, will be attached to http messages to identify the client on server side. \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-SSLServer\-Certificates} () const
+\begin{CompactList}\small\item\em A platform specific string specifying the location of the certificates used to authenticate the server. \item\end{CompactList}\item 
+virtual bool {\bf get\-SSLVerify\-Server} () const
+\begin{CompactList}\small\item\em Enabled by default: the client refuses to establish the connection unless the server presents a valid certificate. \item\end{CompactList}\item 
+virtual bool {\bf get\-SSLVerify\-Host} () const
+\begin{CompactList}\small\item\em Enabled by default: the client refuses to establish the connection unless the server's certificate matches its host name. \item\end{CompactList}\item 
+virtual bool \textbf{get\-Compression} () const=0\label{classAbstractSyncConfig_07ab9c00989cb9de577f949d65ccde1f}
+
+\item 
+virtual unsigned int {\bf get\-Response\-Timeout} () const=0\label{classAbstractSyncConfig_448e2177cf0d196b80d862f96e6efe0d}
+
+\begin{CompactList}\small\item\em The number of seconds of waiting response timeout. \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Man} () const=0
+\begin{CompactList}\small\item\em Specifies the name of the manufacturer of the device. \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Mod} () const=0
+\begin{CompactList}\small\item\em Specifies the model name or model number of the device. \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Oem} () const=0
+\begin{CompactList}\small\item\em Specifies the OEM (Original Equipment Manufacturer) of the device. \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Fwv} () const=0
+\begin{CompactList}\small\item\em Specifies the firmware version of the device. \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Swv} () const=0
+\begin{CompactList}\small\item\em Specifies the software version of the device. \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Hwv} () const=0
+\begin{CompactList}\small\item\em Specifies the hardware version of the device. \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Dev\-ID} () const=0
+\begin{CompactList}\small\item\em Specifies the identifier of the source synchronization device. \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Dev\-Type} () const=0
+\begin{CompactList}\small\item\em Specifies the type of the source synchronization device. \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Ds\-V} () const=0
+\begin{CompactList}\small\item\em Specifies the implemented DS version. \item\end{CompactList}\item 
+virtual bool {\bf get\-Utc} () const=0
+\begin{CompactList}\small\item\em Specifies that the device supports UTC based time. \item\end{CompactList}\item 
+virtual bool {\bf get\-Lo\-Support} () const=0\label{classAbstractSyncConfig_015c442297aa0313f44cf1d1ef64fdeb}
+
+\begin{CompactList}\small\item\em Specifies that the device supports handling of large objects. \item\end{CompactList}\item 
+virtual bool {\bf get\-Noc\-Support} () const=0
+\begin{CompactList}\small\item\em Specifies that the device supports number of changes. \item\end{CompactList}\item 
+virtual unsigned int {\bf get\-Max\-Obj\-Size} () const=0
+\begin{CompactList}\small\item\em Specifies the maximum object size allowed by the device. \item\end{CompactList}\item 
+virtual const char $\ast$ {\bf get\-Dev\-Inf\-Hash} () const=0
+\begin{CompactList}\small\item\em This is a hash value generated from all properties that are used for the $<$Dev\-Inf$>$ element, plus the sync\-URL property. \item\end{CompactList}\item 
+virtual void \textbf{set\-Dev\-Inf\-Hash} (const char $\ast$hash)=0\label{classAbstractSyncConfig_fda912c4f99e9168cdf553072aeefacf}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This class provides access to all attributes of the client and its sources which the sync engine needs to read and (in a few cases) also write. 
+
+\begin{Desc}
+\item[{\bf Todo}]The documentation of these properties was copied more or less verbatim from the older \doxyref{Access\-Config.h}{p.}{AccessConfig_8h-source} and \doxyref{Device\-Config.h}{p.}{DeviceConfig_8h-source} and does not really explain much about these properties. It should be considerably enhanced. \end{Desc}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{AbstractSyncConfig@{Abstract\-Sync\-Config}!getUsername@{getUsername}}
+\index{getUsername@{getUsername}!AbstractSyncConfig@{Abstract\-Sync\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual const char$\ast$ Abstract\-Sync\-Config::get\-Username () const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classAbstractSyncConfig_cc9088b9773712d658f91f34e41a9a3c}
+
+
+Returns the username value. 
+
+\begin{Desc}
+\item[Returns:]The username value. The caller MUST NOT release the memory itself. \end{Desc}
+
+
+Implemented in {\bf Sync\-Manager\-Config} \doxyref{}{p.}{classSyncManagerConfig_2a670bada4266573371182ac859d56d6}.\index{AbstractSyncConfig@{Abstract\-Sync\-Config}!getSyncURL@{getSyncURL}}
+\index{getSyncURL@{getSyncURL}!AbstractSyncConfig@{Abstract\-Sync\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual const char$\ast$ Abstract\-Sync\-Config::get\-Sync\-URL () const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classAbstractSyncConfig_048b6d0dbfff340f6c30f8e8b7a1822d}
+
+
+Returns the sync\-URL value. 
+
+If the URL does not start with {\tt http://} (or HTTP://) or {\tt https://} (or HTTPS://), {\tt http://} is prepended to the given string. 
+
+Implemented in {\bf Sync\-Manager\-Config} \doxyref{}{p.}{classSyncManagerConfig_255310dfcdde256b363115a125b06bbe}.\index{AbstractSyncConfig@{Abstract\-Sync\-Config}!setBeginSync@{setBeginSync}}
+\index{setBeginSync@{setBeginSync}!AbstractSyncConfig@{Abstract\-Sync\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual void Abstract\-Sync\-Config::set\-Begin\-Sync (unsigned long)\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classAbstractSyncConfig_17647d9c6a77dd6004da41d378b936ee}
+
+
+Sets the new \char`\"{}begin\-Sync\char`\"{} timestamp. 
+
+The client can use this value if it wants to, but it doesn't have to store it persistently.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em timestamp}]the begin\-Sync timestamp \end{description}
+\end{Desc}
+
+
+Reimplemented in {\bf Sync\-Manager\-Config} \doxyref{}{p.}{classSyncManagerConfig_8944a42ad00320b04008e2540cd40634}.\index{AbstractSyncConfig@{Abstract\-Sync\-Config}!setEndSync@{setEndSync}}
+\index{setEndSync@{setEndSync}!AbstractSyncConfig@{Abstract\-Sync\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual void Abstract\-Sync\-Config::set\-End\-Sync (unsigned long)\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classAbstractSyncConfig_d2782d78282509d85a883b448818e3c1}
+
+
+Sets the new \char`\"{}end\-Sync\char`\"{} timestamp. 
+
+The client can use this value if it wants to, but it doesn't have to store it persistently.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em timestamp}]the end\-Sync timestamp \end{description}
+\end{Desc}
+
+
+Reimplemented in {\bf Sync\-Manager\-Config} \doxyref{}{p.}{classSyncManagerConfig_17b5a9dac5cd7fe8acbccdeef9457d23}.\index{AbstractSyncConfig@{Abstract\-Sync\-Config}!getUserAgent@{getUserAgent}}
+\index{getUserAgent@{getUserAgent}!AbstractSyncConfig@{Abstract\-Sync\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual const char$\ast$ Abstract\-Sync\-Config::get\-User\-Agent () const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classAbstractSyncConfig_89890f948e66475b98cfa13a01c2a623}
+
+
+The user agent string, will be attached to http messages to identify the client on server side. 
+
+It should be a short description with the client name plus its version 
+
+Implemented in {\bf Sync\-Manager\-Config} \doxyref{}{p.}{classSyncManagerConfig_050bd22e79ed83476f72be135c4b3805}.\index{AbstractSyncConfig@{Abstract\-Sync\-Config}!getSSLServerCertificates@{getSSLServerCertificates}}
+\index{getSSLServerCertificates@{getSSLServerCertificates}!AbstractSyncConfig@{Abstract\-Sync\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual const char$\ast$ Abstract\-Sync\-Config::get\-SSLServer\-Certificates () const\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classAbstractSyncConfig_3563618645d99ac5a1969874438d6449}
+
+
+A platform specific string specifying the location of the certificates used to authenticate the server. 
+
+When empty, the system's default location will be searched. \index{AbstractSyncConfig@{Abstract\-Sync\-Config}!getSSLVerifyServer@{getSSLVerifyServer}}
+\index{getSSLVerifyServer@{getSSLVerifyServer}!AbstractSyncConfig@{Abstract\-Sync\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual bool Abstract\-Sync\-Config::get\-SSLVerify\-Server () const\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classAbstractSyncConfig_04632a055cc013701f64315fdbc8406f}
+
+
+Enabled by default: the client refuses to establish the connection unless the server presents a valid certificate. 
+
+Disabling this option considerably reduces the security of SSL (man-in-the-middle attacks become possible) and is not recommended. \index{AbstractSyncConfig@{Abstract\-Sync\-Config}!getSSLVerifyHost@{getSSLVerifyHost}}
+\index{getSSLVerifyHost@{getSSLVerifyHost}!AbstractSyncConfig@{Abstract\-Sync\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual bool Abstract\-Sync\-Config::get\-SSLVerify\-Host () const\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classAbstractSyncConfig_c092bbd4b60ead0c6997a73a99b17441}
+
+
+Enabled by default: the client refuses to establish the connection unless the server's certificate matches its host name. 
+
+In cases where the certificate still seems to be valid it might make sense to disable this option and allow such connections. \index{AbstractSyncConfig@{Abstract\-Sync\-Config}!getMan@{getMan}}
+\index{getMan@{getMan}!AbstractSyncConfig@{Abstract\-Sync\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual const char$\ast$ Abstract\-Sync\-Config::get\-Man () const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classAbstractSyncConfig_5c0d3cca044e51f507c9a136b843f674}
+
+
+Specifies the name of the manufacturer of the device. 
+
+This property is optional. 
+
+Implemented in {\bf Sync\-Manager\-Config} \doxyref{}{p.}{classSyncManagerConfig_93b72fe411b759ff6c43e2db95eaf29e}.\index{AbstractSyncConfig@{Abstract\-Sync\-Config}!getMod@{getMod}}
+\index{getMod@{getMod}!AbstractSyncConfig@{Abstract\-Sync\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual const char$\ast$ Abstract\-Sync\-Config::get\-Mod () const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classAbstractSyncConfig_7a0827c046fa325d411814d1ee938020}
+
+
+Specifies the model name or model number of the device. 
+
+This property is optional. 
+
+Implemented in {\bf Sync\-Manager\-Config} \doxyref{}{p.}{classSyncManagerConfig_2ccd8da3b03be503383dd53a5e71b12c}.\index{AbstractSyncConfig@{Abstract\-Sync\-Config}!getOem@{getOem}}
+\index{getOem@{getOem}!AbstractSyncConfig@{Abstract\-Sync\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual const char$\ast$ Abstract\-Sync\-Config::get\-Oem () const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classAbstractSyncConfig_cb5e116297fc7a63ebae73af996642bc}
+
+
+Specifies the OEM (Original Equipment Manufacturer) of the device. 
+
+This property is optional. 
+
+Implemented in {\bf Sync\-Manager\-Config} \doxyref{}{p.}{classSyncManagerConfig_cc8280a955bf7a91f18f38876d6cb12e}.\index{AbstractSyncConfig@{Abstract\-Sync\-Config}!getFwv@{getFwv}}
+\index{getFwv@{getFwv}!AbstractSyncConfig@{Abstract\-Sync\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual const char$\ast$ Abstract\-Sync\-Config::get\-Fwv () const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classAbstractSyncConfig_79e8bca55d4a87b3ad0c9870e010e852}
+
+
+Specifies the firmware version of the device. 
+
+This property is optional. 
+
+Implemented in {\bf Sync\-Manager\-Config} \doxyref{}{p.}{classSyncManagerConfig_3e1289d9445a2641f135362524394833}.\index{AbstractSyncConfig@{Abstract\-Sync\-Config}!getSwv@{getSwv}}
+\index{getSwv@{getSwv}!AbstractSyncConfig@{Abstract\-Sync\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual const char$\ast$ Abstract\-Sync\-Config::get\-Swv () const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classAbstractSyncConfig_5ce30034694f6f7b53606284a2dbf796}
+
+
+Specifies the software version of the device. 
+
+This property is optional. 
+
+Implemented in {\bf Sync\-Manager\-Config} \doxyref{}{p.}{classSyncManagerConfig_0b0fb9b5d616ac2ca29b687002d205b1}.\index{AbstractSyncConfig@{Abstract\-Sync\-Config}!getHwv@{getHwv}}
+\index{getHwv@{getHwv}!AbstractSyncConfig@{Abstract\-Sync\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual const char$\ast$ Abstract\-Sync\-Config::get\-Hwv () const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classAbstractSyncConfig_a584f595f41219b081d84d3c04482a13}
+
+
+Specifies the hardware version of the device. 
+
+This property is optional. 
+
+Implemented in {\bf Sync\-Manager\-Config} \doxyref{}{p.}{classSyncManagerConfig_f0561dabd7dc1a0ddb6b91a105eced06}.\index{AbstractSyncConfig@{Abstract\-Sync\-Config}!getDevID@{getDevID}}
+\index{getDevID@{getDevID}!AbstractSyncConfig@{Abstract\-Sync\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual const char$\ast$ Abstract\-Sync\-Config::get\-Dev\-ID () const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classAbstractSyncConfig_5981e8747a33d4bb6f941f3d17bfa504}
+
+
+Specifies the identifier of the source synchronization device. 
+
+The content information MUST specify an identifier which is unique among all devices accessing the same data on a Sync\-ML server. 
+
+Implemented in {\bf Sync\-Manager\-Config} \doxyref{}{p.}{classSyncManagerConfig_c5a4db133c77a261edb718f42f62948d}.\index{AbstractSyncConfig@{Abstract\-Sync\-Config}!getDevType@{getDevType}}
+\index{getDevType@{getDevType}!AbstractSyncConfig@{Abstract\-Sync\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual const char$\ast$ Abstract\-Sync\-Config::get\-Dev\-Type () const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classAbstractSyncConfig_46e15adf0b624db69fdea6d4d335e299}
+
+
+Specifies the type of the source synchronization device. 
+
+Type values for this element type can be e.g. \char`\"{}pager\char`\"{}, \char`\"{}handheld\char`\"{}, \char`\"{}pda\char`\"{}, \char`\"{}phone\char`\"{}, \char`\"{}smartphone\char`\"{}, \char`\"{}server\char`\"{}, \char`\"{}workstation\char`\"{}. Other values can also be specified. This property is mandatory. 
+
+Implemented in {\bf Sync\-Manager\-Config} \doxyref{}{p.}{classSyncManagerConfig_a11d70ea1abf41f9a537e7d35187983c}.\index{AbstractSyncConfig@{Abstract\-Sync\-Config}!getDsV@{getDsV}}
+\index{getDsV@{getDsV}!AbstractSyncConfig@{Abstract\-Sync\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual const char$\ast$ Abstract\-Sync\-Config::get\-Ds\-V () const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classAbstractSyncConfig_7863ffc9cf2c803a771cf8edabda0e73}
+
+
+Specifies the implemented DS version. 
+
+This property is optional. 
+
+Implemented in {\bf Sync\-Manager\-Config} \doxyref{}{p.}{classSyncManagerConfig_e4903801356db3c7304a30facd9c19d6}.\index{AbstractSyncConfig@{Abstract\-Sync\-Config}!getUtc@{getUtc}}
+\index{getUtc@{getUtc}!AbstractSyncConfig@{Abstract\-Sync\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual bool Abstract\-Sync\-Config::get\-Utc () const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classAbstractSyncConfig_7e27b1c3ea7ef96615cc90b638585c15}
+
+
+Specifies that the device supports UTC based time. 
+
+If utc = true, the server SHOULD send time in UTC format, else MUST send in local time. 
+
+Implemented in {\bf Sync\-Manager\-Config} \doxyref{}{p.}{classSyncManagerConfig_021abcb6734bcacb75281d91130abde2}.\index{AbstractSyncConfig@{Abstract\-Sync\-Config}!getNocSupport@{getNocSupport}}
+\index{getNocSupport@{getNocSupport}!AbstractSyncConfig@{Abstract\-Sync\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual bool Abstract\-Sync\-Config::get\-Noc\-Support () const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classAbstractSyncConfig_f6366a22d5cc9c0ae60f0e4561c40e59}
+
+
+Specifies that the device supports number of changes. 
+
+Must be false. 
+
+Implemented in {\bf Sync\-Manager\-Config} \doxyref{}{p.}{classSyncManagerConfig_0ccac90c871e2101bc119b621d1ee08f}.\index{AbstractSyncConfig@{Abstract\-Sync\-Config}!getMaxObjSize@{getMaxObjSize}}
+\index{getMaxObjSize@{getMaxObjSize}!AbstractSyncConfig@{Abstract\-Sync\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual unsigned int Abstract\-Sync\-Config::get\-Max\-Obj\-Size () const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classAbstractSyncConfig_3bc97b58f5ced6a399a063d264830b31}
+
+
+Specifies the maximum object size allowed by the device. 
+
+Value 0 means \char`\"{}no max\-Obj\-Size set\char`\"{}. 
+
+Implemented in {\bf Sync\-Manager\-Config} \doxyref{}{p.}{classSyncManagerConfig_2e3d9dc0a4c6da3d4d200e3921a6d888}.\index{AbstractSyncConfig@{Abstract\-Sync\-Config}!getDevInfHash@{getDevInfHash}}
+\index{getDevInfHash@{getDevInfHash}!AbstractSyncConfig@{Abstract\-Sync\-Config}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual const char$\ast$ Abstract\-Sync\-Config::get\-Dev\-Inf\-Hash () const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classAbstractSyncConfig_7e76b9aa6d45727929dc502b1a8b52d9}
+
+
+This is a hash value generated from all properties that are used for the $<$Dev\-Inf$>$ element, plus the sync\-URL property. 
+
+If the hash changes between sync sessions the information has changed and must be resent. 
+
+Implemented in {\bf Sync\-Manager\-Config} \doxyref{}{p.}{classSyncManagerConfig_ec9ad4b1188d623920df584652a6f963}.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/common/spds/Abstract\-Sync\-Config.h\end{CompactItemize}

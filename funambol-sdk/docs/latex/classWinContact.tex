@@ -1,0 +1,96 @@
+\section{Win\-Contact Class Reference}
+\label{classWinContact}\index{WinContact@{WinContact}}
+Rapresents a contact object for Windows Clients.  
+
+
+{\tt \#include $<$wincontact.h$>$}
+
+Inheritance diagram for Win\-Contact:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=66pt]{classWinContact__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Win\-Contact:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=58pt]{classWinContact__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Win\-Contact} ()\label{classWinContact_6c2400b6ec78c02b5130126096669caf}
+
+\begin{CompactList}\small\item\em Default Constructor. \item\end{CompactList}\item 
+{\bf Win\-Contact} (const wstring data\-String)\label{classWinContact_b46248038d358fb071c7cee31b04714b}
+
+\begin{CompactList}\small\item\em Constructor: fills property\-Map parsing the passed v\-Card. \item\end{CompactList}\item 
+virtual {\bf $\sim$Win\-Contact} ()\label{classWinContact_5e48edd0285dff8df9e9b07e3c214296}
+
+\begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\item 
+virtual int {\bf parse} (const wstring data\-String)
+\begin{CompactList}\small\item\em Parse a v\-Card string and fills the property\-Map. \item\end{CompactList}\item 
+virtual wstring \& {\bf to\-String} ()
+\begin{CompactList}\small\item\em Format and return a v\-Card string from the property\-Map. \item\end{CompactList}\item 
+const wstring {\bf get\-Photo\-Type} ()\label{classWinContact_d5e1bae4b1b08c810dcc30be9f1f7d9b}
+
+\begin{CompactList}\small\item\em Returns the picture type (\char`\"{}JPEG\char`\"{}, \char`\"{}GIF\char`\"{}, ...). \item\end{CompactList}\item 
+void {\bf set\-Photo\-Type} (const wstring type)\label{classWinContact_47a259e727e9b60239d10b1e802a016a}
+
+\begin{CompactList}\small\item\em Sets the picture type. \item\end{CompactList}\item 
+wstring \& {\bf get\-Name} ()\label{classWinContact_1e3068ce2414d67b96604b5bc8556a74}
+
+\begin{CompactList}\small\item\em Utility: returns \char`\"{}File\-As\char`\"{} property value. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+wstring {\bf photo\-Type}\label{classWinContact_16a6d31e11070ea35954e19d1cd3a6b9}
+
+\begin{CompactList}\small\item\em The format of internal picure for this contact. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Rapresents a contact object for Windows Clients. 
+
+The object can be filled passing a v\-Card, or filling directly the map. Calling 'to\-String()' a v\-Card is formatted and returned. 
+
+
+
+\subsection{Member Function Documentation}
+\index{WinContact@{Win\-Contact}!parse@{parse}}
+\index{parse@{parse}!WinContact@{Win\-Contact}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Win\-Contact::parse (const wstring {\em data\-String})\hspace{0.3cm}{\tt  [virtual]}}\label{classWinContact_0958c3a8b77fb4370a02866d3ad745f2}
+
+
+Parse a v\-Card string and fills the property\-Map. 
+
+The map is cleared and will contain only found properties at the end of the parsing. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em data\-String}]input v\-Card string to be parsed \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 if no errors \end{Desc}
+
+
+Implements {\bf Win\-Item} \doxyref{}{p.}{classWinItem_1d7a0c54c09f0bbe080806e202f72e51}.
+
+Reimplemented in {\bf Win\-Contact\-SIF} \doxyref{}{p.}{classWinContactSIF_c35fd82ecb504bd46c2c7a590943a168}.\index{WinContact@{Win\-Contact}!toString@{toString}}
+\index{toString@{toString}!WinContact@{Win\-Contact}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual wstring\& Win\-Contact::to\-String ()\hspace{0.3cm}{\tt  [virtual]}}\label{classWinContact_8010235f582c4ba2c35dca9bd951720f}
+
+
+Format and return a v\-Card string from the property\-Map. 
+
+Not supported properties are ignored and so not formatted as they don't have a correspondence in property\-Map. \begin{Desc}
+\item[Returns:]the v\-Card string formatted, reference to internal wstring \end{Desc}
+
+
+Implements {\bf Win\-Item} \doxyref{}{p.}{classWinItem_03832f44de60b01908967f8e7f793c27}.
+
+Reimplemented in {\bf Win\-Contact\-SIF} \doxyref{}{p.}{classWinContactSIF_3aadf2527bebb869d5159f34120d7978}.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/windows/vocl/wincontact.h\end{CompactItemize}

@@ -1,0 +1,49 @@
+\section{Win\-Recipient Class Reference}
+\label{classWinRecipient}\index{WinRecipient@{WinRecipient}}
+Rapresents a recipient object (attendee) for Windows Clients.  
+
+
+{\tt \#include $<$Win\-Recipient.h$>$}
+
+Inheritance diagram for Win\-Recipient:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=62pt]{classWinRecipient__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Win\-Recipient:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=62pt]{classWinRecipient__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Win\-Recipient} ()\label{classWinRecipient_91e4ac03928c2bb6704a23bb4b77bac5}
+
+\begin{CompactList}\small\item\em Default Constructor. \item\end{CompactList}\item 
+{\bf Win\-Recipient} (const wstring data)\label{classWinRecipient_d04840e32917a6ea91ed7152d482bf71}
+
+\begin{CompactList}\small\item\em Constructor: fills property\-Map parsing the v\-Calendar ATTENDEE string. \item\end{CompactList}\item 
+{\bf $\sim$Win\-Recipient} ()\label{classWinRecipient_456cdfaaf10192366be100bcf5497bce}
+
+\begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\item 
+int {\bf parse} (const wstring data)\label{classWinRecipient_6b767fda8dcac791df9dae56f924df72}
+
+\begin{CompactList}\small\item\em Parse a v\-Calendar ATTENDEE string and fills the property\-Map. \item\end{CompactList}\item 
+wstring \& {\bf to\-String} ()\label{classWinRecipient_cdfa5bd5ca2239fc185526b4eb326d62}
+
+\begin{CompactList}\small\item\em Format and return a v\-Calendar ATTENDEE string from the property\-Map. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Rapresents a recipient object (attendee) for Windows Clients. 
+
+The object can be filled passing a v\-Calendar ATTENDEE string, or filling directly the map. Calling 'to\-String()' a v\-Calendar ATTENDEE is formatted and returned. 
+
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/windows/vocl/Win\-Recipient.h\end{CompactItemize}

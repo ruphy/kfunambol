@@ -1,0 +1,91 @@
+\section{Sync\-Report Class Reference}
+\label{classSyncReport}\index{SyncReport@{SyncReport}}
+The \doxyref{Sync\-Report}{p.}{classSyncReport} class is used to summarize all results of a single synchronization.  
+
+
+{\tt \#include $<$Sync\-Report.h$>$}
+
+Collaboration diagram for Sync\-Report:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=75pt]{classSyncReport__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\textbf{Sync\-Report} ({\bf Sync\-Report} \&sr)\label{classSyncReport_fbb686417757b8fa70935542ef77a7e4}
+
+\item 
+\textbf{Sync\-Report} ({\bf Abstract\-Sync\-Config} \&config)\label{classSyncReport_b198aa38e2d37a822d58cd4f92a2ce4d}
+
+\item 
+const int {\bf get\-Last\-Error\-Code} () const\label{classSyncReport_5f20d458a01f6c08193463c981e4b9cc}
+
+\begin{CompactList}\small\item\em Returns the last error code for the whole sync; there are other error codes attached to each sync source. \item\end{CompactList}\item 
+const char $\ast$ {\bf get\-Last\-Error\-Msg} () const\label{classSyncReport_bc2a8622cae802872e9aa4547f2a1947}
+
+\begin{CompactList}\small\item\em the error description corresponding to \doxyref{get\-Last\-Error\-Code()}{p.}{classSyncReport_5f20d458a01f6c08193463c981e4b9cc}, might be NULL even if an error occurred \item\end{CompactList}\item 
+const unsigned int {\bf get\-Sync\-Source\-Report\-Count} () const\label{classSyncReport_0ebb40cdff1d4ef03ae64f0e702ada1c}
+
+\begin{CompactList}\small\item\em returns number of sync source reports stored in this report \item\end{CompactList}\item 
+void \textbf{set\-Last\-Error\-Code} (const int code)\label{classSyncReport_c2b77ea245be40a556ef140e2806094f}
+
+\item 
+void \textbf{set\-Last\-Error\-Msg} (const char $\ast$msg)\label{classSyncReport_c8e3f373a090b26212f11e05c785b3e4}
+
+\item 
+{\bf Sync\-Source\-Report} $\ast$ {\bf get\-Sync\-Source\-Report} (const char $\ast$name) const\label{classSyncReport_ca3632722d91c020d2d0a5b26aba9501}
+
+\begin{CompactList}\small\item\em return pointer to internal \doxyref{Sync\-Source\-Report}{p.}{classSyncSourceReport} object given the source name \item\end{CompactList}\item 
+{\bf Sync\-Source\-Report} $\ast$ {\bf get\-Sync\-Source\-Report} (unsigned int index) const\label{classSyncReport_2e4760237f15863a5e8922b63d8a8545}
+
+\begin{CompactList}\small\item\em return pointer to internal \doxyref{Sync\-Source\-Report}{p.}{classSyncSourceReport} object given its index ($>$=0, $<$ \doxyref{get\-Sync\-Source\-Report\-Count()}{p.}{classSyncReport_0ebb40cdff1d4ef03ae64f0e702ada1c}) \item\end{CompactList}\item 
+void {\bf set\-Sync\-Source\-Reports} ({\bf Abstract\-Sync\-Config} \&config)
+\begin{CompactList}\small\item\em Create ss\-Report array from config. \item\end{CompactList}\item 
+void {\bf to\-String} (String\-Buffer \&str, bool verbose=false)
+\begin{CompactList}\small\item\em Appends a textual representation of the sync report at the end of the string buffer, without clearing it first. \item\end{CompactList}\item 
+{\bf Sync\-Report} \& {\bf operator=} (const {\bf Sync\-Report} \&sr)\label{classSyncReport_2f7a48eca6f4b99b4b1bcb62d11550c2}
+
+\begin{CompactList}\small\item\em Assign operator. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The \doxyref{Sync\-Report}{p.}{classSyncReport} class is used to summarize all results of a single synchronization. 
+
+During the synchronization process, all results about different operations are stored in a \doxyref{Sync\-Report}{p.}{classSyncReport} object, so the client will be able to get these informations at the end. Accessing this object a client can easily know for example the outcome of each source synchronized, retrieve the number of items modified on both sides, and the status code of each one. 
+
+
+
+\subsection{Member Function Documentation}
+\index{SyncReport@{Sync\-Report}!setSyncSourceReports@{setSyncSourceReports}}
+\index{setSyncSourceReports@{setSyncSourceReports}!SyncReport@{Sync\-Report}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Sync\-Report::set\-Sync\-Source\-Reports ({\bf Abstract\-Sync\-Config} \& {\em config})}\label{classSyncReport_8a7eee4e3f049a55cc53284a76158e45}
+
+
+Create ss\-Report array from config. 
+
+The array is allocated new, will be freed in the desctructor. Sync\-Source\-Reports are all owned here by \doxyref{Sync\-Report}{p.}{classSyncReport}, each \doxyref{Sync\-Source}{p.}{classSyncSource} object has a link to its correspondent (external) report, but does not own it. Sync\-Source\-Reports are linked during Sync\-Client::sync().
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em config,:}]the \doxyref{Sync\-Manager}{p.}{classSyncManager} config to get source number/names. \end{description}
+\end{Desc}
+\index{SyncReport@{Sync\-Report}!toString@{toString}}
+\index{toString@{toString}!SyncReport@{Sync\-Report}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Sync\-Report::to\-String (String\-Buffer \& {\em str}, bool {\em verbose} = {\tt false})}\label{classSyncReport_a450b2cb8aa79095d7d5ce12f1b1e7b8}
+
+
+Appends a textual representation of the sync report at the end of the string buffer, without clearing it first. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em str}]buffer to which text gets appended \item[{\em verbose}]if true, then detailed information about each item is printed, otherwise only a summary \end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/common/spds/Sync\-Report.h\end{CompactItemize}

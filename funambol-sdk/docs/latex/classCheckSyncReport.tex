@@ -1,0 +1,51 @@
+\section{Check\-Sync\-Report Class Reference}
+\label{classCheckSyncReport}\index{CheckSyncReport@{CheckSyncReport}}
+This class encapsulates logging and checking of a \doxyref{Sync\-Report}{p.}{classSyncReport}.  
+
+
+{\tt \#include $<$Client\-Test.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\textbf{Check\-Sync\-Report} (int cl\-Added=-1, int cl\-Updated=-1, int cl\-Deleted=-1, int sr\-Added=-1, int sr\-Updated=-1, int sr\-Deleted=-1)\label{classCheckSyncReport_ed3ec4109eb35dc6be9aa7a8dce7c13c}
+
+\item 
+virtual void {\bf check} (int res, {\bf Sync\-Report} \&report) const
+\begin{CompactList}\small\item\em checks that the sync completed as expected and throws CPPUnit exceptions if something is wrong \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+const int \textbf{client\-Added}\label{classCheckSyncReport_2bf4d8351a1b682bd087f275cf8d4d59}
+
+\item 
+const int \textbf{client\-Updated}\label{classCheckSyncReport_a10533c2e90cd75c3d642bf622db1530}
+
+\item 
+const int \textbf{client\-Deleted}\label{classCheckSyncReport_571819f6dd679a5ebf80c71e7dd1bf58}
+
+\item 
+const int \textbf{server\-Added}\label{classCheckSyncReport_cff3b3910392c3a5d9f35e329ddcf2dd}
+
+\item 
+const int \textbf{server\-Updated}\label{classCheckSyncReport_342f1bce0be818a224d1335b6fd0b734}
+
+\item 
+const int \textbf{server\-Deleted}\label{classCheckSyncReport_a1674bd13978172d5ca627ed99801eb4}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This class encapsulates logging and checking of a \doxyref{Sync\-Report}{p.}{classSyncReport}. 
+
+When constructed with default parameters, no checking will be done. Otherwise the sync report has to contain exactly the expected result. When multiple sync sources are active, {\bf all} of them have to behave alike (which is how the tests are constructed).
+
+No item is ever supposed to fail. 
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+test/Client\-Test.h\item 
+test/Client\-Test.cpp\end{CompactItemize}

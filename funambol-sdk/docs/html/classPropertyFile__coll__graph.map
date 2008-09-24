@@ -1,0 +1,5 @@
+base referer
+rect $classArrayListKeyValueStore.html 27,175 203,199
+rect $classKeyValueStore.html 6,84 120,108
+rect $classArrayListEnumeration.html 144,84 310,108
+rect $classEnumeration.html 174,7 280,31

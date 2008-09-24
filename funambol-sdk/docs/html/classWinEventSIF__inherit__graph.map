@@ -1,0 +1,3 @@
+base referer
+rect $classWinEvent.html 16,82 99,106
+rect $classWinItem.html 20,7 95,31

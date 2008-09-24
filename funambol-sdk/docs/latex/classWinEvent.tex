@@ -1,0 +1,159 @@
+\section{Win\-Event Class Reference}
+\label{classWinEvent}\index{WinEvent@{WinEvent}}
+Rapresents an event object for Windows Clients.  
+
+
+{\tt \#include $<$Win\-Event.h$>$}
+
+Inheritance diagram for Win\-Event:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=61pt]{classWinEvent__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Win\-Event:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=88pt]{classWinEvent__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Win\-Event} ()\label{classWinEvent_7227b24bac54fe9c6c254f6398b2bf4b}
+
+\begin{CompactList}\small\item\em Default Constructor. \item\end{CompactList}\item 
+{\bf Win\-Event} (const wstring data\-String)\label{classWinEvent_077adb7a7e9d16a8538e08ad2d10b3e6}
+
+\begin{CompactList}\small\item\em Constructor: fills property\-Map parsing the passed v\-Calendar string. \item\end{CompactList}\item 
+{\bf $\sim$Win\-Event} ()\label{classWinEvent_ee9f64ac5a3c5ae3ce3a78f1e7179009}
+
+\begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\item 
+virtual int {\bf parse} (const wstring data\-String)
+\begin{CompactList}\small\item\em Parse a v\-Calendar string and fills the property\-Map. \item\end{CompactList}\item 
+virtual wstring \& {\bf to\-String} ()
+\begin{CompactList}\small\item\em Format and return a v\-Calendar string from the property\-Map. \item\end{CompactList}\item 
+virtual {\bf Win\-Recurrence} $\ast$ {\bf get\-Rec\-Pattern} ()\label{classWinEvent_d3098057b57561a8ec12bc8af439d040}
+
+\begin{CompactList}\small\item\em Returns a pointer to the (internally owned) \doxyref{Win\-Recurrence}{p.}{classWinRecurrence}. \item\end{CompactList}\item 
+exception\-List $\ast$ {\bf get\-Exclude\-Dates} ()\label{classWinEvent_9a3a6a3bd917b458cd4870a078279c78}
+
+\begin{CompactList}\small\item\em Returns a pointer to the list (internally owned) of exclude dates. \item\end{CompactList}\item 
+exception\-List $\ast$ {\bf get\-Include\-Dates} ()\label{classWinEvent_7ccd29e04b88ef9b3e2af866df39af62}
+
+\begin{CompactList}\small\item\em Returns a pointer to the list (internally owned) of include dates. \item\end{CompactList}\item 
+recipient\-List $\ast$ {\bf get\-Recipients} ()\label{classWinEvent_61300ad768b331459d4008491bf37ab2}
+
+\begin{CompactList}\small\item\em Returns a pointer to the list (internally owned) of recipients. \item\end{CompactList}\item 
+const TIME\_\-ZONE\_\-INFORMATION $\ast$ {\bf get\-Timezone} ()\label{classWinEvent_fc99127887984fa52a5b4c26647f3198}
+
+\begin{CompactList}\small\item\em Returns a pointer to the timezone information for this event, NULL if timezone is not used (not set). \item\end{CompactList}\item 
+void {\bf set\-Timezone} (const TIME\_\-ZONE\_\-INFORMATION $\ast$tz)\label{classWinEvent_769f054ca45231fd603964fa36343433}
+
+\begin{CompactList}\small\item\em Copies the given timezone for this event. 'use\-Timezone' is set to true. \item\end{CompactList}\item 
+bool {\bf has\-Timezone} ()\label{classWinEvent_0534c07d69af75705d083a7a1453eda7}
+
+\begin{CompactList}\small\item\em Returns true if this event has a timezone information, and uses it. \item\end{CompactList}\item 
+long {\bf get\-CRC} ()
+\begin{CompactList}\small\item\em Return the crc value of the internal map with all values. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+void {\bf get\-Interval\-Of\-Recurrence} (int $\ast$year\-Begin, int $\ast$year\-End)
+\begin{CompactList}\small\item\em Retrieves the interval when the recurrence occurrs, in years. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+exception\-List {\bf exclude\-Date}\label{classWinEvent_c6c6ef180eee5c7ac6f4ba6a938f9658}
+
+\begin{CompactList}\small\item\em List of occurrences dates to exclude (recurring exceptions to delete). \item\end{CompactList}\item 
+exception\-List {\bf include\-Date}\label{classWinEvent_e231fa2adcae25726650802f424ea630}
+
+\begin{CompactList}\small\item\em List of occurrences dates to include (recurring exceptions to add). \item\end{CompactList}\item 
+recipient\-List {\bf recipients}\label{classWinEvent_173f4fcc3eda966e4b8889d8e46bc385}
+
+\begin{CompactList}\small\item\em List of recipients (attendees) for this event. \item\end{CompactList}\item 
+TIME\_\-ZONE\_\-INFORMATION {\bf tz\-Info}
+\begin{CompactList}\small\item\em The timezone structure for this event. \item\end{CompactList}\item 
+bool {\bf use\-Timezone}\label{classWinEvent_fbbc00b725fbabbf9439304d3bdc693f}
+
+\begin{CompactList}\small\item\em true if this event has a timezone information, and uses it. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Rapresents an event object for Windows Clients. 
+
+The object can be filled passing a v\-Calendar, or filling directly the map. Calling 'to\-String()' a v\-Calendar is formatted and returned. 
+
+
+
+\subsection{Member Function Documentation}
+\index{WinEvent@{Win\-Event}!getIntervalOfRecurrence@{getIntervalOfRecurrence}}
+\index{getIntervalOfRecurrence@{getIntervalOfRecurrence}!WinEvent@{Win\-Event}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Win\-Event::get\-Interval\-Of\-Recurrence (int $\ast$ {\em year\-Begin}, int $\ast$ {\em year\-End})\hspace{0.3cm}{\tt  [protected]}}\label{classWinEvent_1fd3cd31f0a61b7bac6f80ee915ca7dc}
+
+
+Retrieves the interval when the recurrence occurrs, in years. 
+
+It checks the \char`\"{}Start\char`\"{} property and the \char`\"{}Pattern\-End\-Date\char`\"{} property. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em year\-Begin}][IN-OUT] the year when recurrence begins \item[{\em year\-End}][IN-OUT] the year when recurrence ends \end{description}
+\end{Desc}
+\index{WinEvent@{Win\-Event}!parse@{parse}}
+\index{parse@{parse}!WinEvent@{Win\-Event}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual int Win\-Event::parse (const wstring {\em data\-String})\hspace{0.3cm}{\tt  [virtual]}}\label{classWinEvent_cfaf35e40fc0a6ef46fcac259debe8e0}
+
+
+Parse a v\-Calendar string and fills the property\-Map. 
+
+The map is cleared and will contain only found properties at the end of the parsing. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em data\-String}]input v\-Calendar string to be parsed \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 if no errors \end{Desc}
+
+
+Implements {\bf Win\-Item} \doxyref{}{p.}{classWinItem_1d7a0c54c09f0bbe080806e202f72e51}.
+
+Reimplemented in {\bf Win\-Event\-SIF} \doxyref{}{p.}{classWinEventSIF_361d652d6381dd79de5aa78bcb607038}.\index{WinEvent@{Win\-Event}!toString@{toString}}
+\index{toString@{toString}!WinEvent@{Win\-Event}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual wstring\& Win\-Event::to\-String ()\hspace{0.3cm}{\tt  [virtual]}}\label{classWinEvent_48ec46a5018215f4bdba1afb4cc9abc2}
+
+
+Format and return a v\-Calendar string from the property\-Map. 
+
+Not supported properties are ignored and so not formatted as they don't have a correspondence in property\-Map. \begin{Desc}
+\item[Returns:]the v\-Calendar string formatted, reference to internal wstring \end{Desc}
+
+
+Implements {\bf Win\-Item} \doxyref{}{p.}{classWinItem_03832f44de60b01908967f8e7f793c27}.
+
+Reimplemented in {\bf Win\-Event\-SIF} \doxyref{}{p.}{classWinEventSIF_d74d240677945d0359a8f2631ba2ff2c}.\index{WinEvent@{Win\-Event}!getCRC@{getCRC}}
+\index{getCRC@{getCRC}!WinEvent@{Win\-Event}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}long Win\-Event::get\-CRC ()\hspace{0.3cm}{\tt  [virtual]}}\label{classWinEvent_c9ddc17b9a03d1a0a1921e3033242bd0}
+
+
+Return the crc value of the internal map with all values. 
+
+It uses only the values of the map not the key. Overrides method of \doxyref{Win\-Item}{p.}{classWinItem}, to include recurring properties and event exceptions in the crc. 
+
+Reimplemented from {\bf Win\-Item} \doxyref{}{p.}{classWinItem_ab35f0bbc4ef12aec9edffc3ec4b8fe4}.
+
+\subsection{Member Data Documentation}
+\index{WinEvent@{Win\-Event}!tzInfo@{tzInfo}}
+\index{tzInfo@{tzInfo}!WinEvent@{Win\-Event}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}TIME\_\-ZONE\_\-INFORMATION {\bf Win\-Event::tz\-Info}\hspace{0.3cm}{\tt  [protected]}}\label{classWinEvent_dea99e9a5a459b88582e255811742cfd}
+
+
+The timezone structure for this event. 
+
+It can be set/get using \doxyref{get\-Timezone()}{p.}{classWinEvent_fc99127887984fa52a5b4c26647f3198} and \doxyref{set\-Timezone()}{p.}{classWinEvent_769f054ca45231fd603964fa36343433} methods. If the timezone is set, it will be formatted following v\-Calendar 1.0 specs when calling \doxyref{to\-String()}{p.}{classWinEvent_48ec46a5018215f4bdba1afb4cc9abc2} method (\char`\"{}TZ\char`\"{} and \char`\"{}DAYLIGHT\char`\"{} properties). \begin{Desc}
+\item[Note:]Recurring properties will be in local time if timezone is used. \end{Desc}
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/windows/vocl/Win\-Event.h\end{CompactItemize}

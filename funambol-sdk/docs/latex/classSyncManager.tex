@@ -1,0 +1,87 @@
+\section{Sync\-Manager Class Reference}
+\label{classSyncManager}\index{SyncManager@{SyncManager}}
+This is the core class which encodes the flow of messages between client and server throughout a session.  
+
+
+{\tt \#include $<$Sync\-Manager.h$>$}
+
+Collaboration diagram for Sync\-Manager:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{classSyncManager__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Sync\-Manager} ({\bf Abstract\-Sync\-Config} \&config, {\bf Sync\-Report} \&report)
+\begin{CompactList}\small\item\em Initialize a new sync manager. \item\end{CompactList}\item 
+int {\bf prepare\-Sync} ({\bf Sync\-Source} $\ast$$\ast$sources)\label{classSyncManager_de16bf9b23393d8ac108b3c58cf58e97}
+
+\begin{CompactList}\small\item\em Prepares the sync, performing authentication and device capability exchange. \item\end{CompactList}\item 
+int {\bf sync} ()
+\begin{CompactList}\small\item\em Starts the synchronization phase. \item\end{CompactList}\item 
+int {\bf end\-Sync} ()\label{classSyncManager_bbfefb1b6ed802a677a707fd20fa3c22}
+
+\begin{CompactList}\small\item\em Performs the commit phase of the synchronization. \item\end{CompactList}\item 
+Dev\-Inf $\ast$ {\bf create\-Device\-Info} ()
+\begin{CompactList}\small\item\em Gathers the various bits and pieces known about the client and its sources and builds a Sync\-ML devinfo 1.1 instance. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \textbf{Command\-Info}
+\item 
+class \textbf{Incoming\-Sync\-Item}
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This is the core class which encodes the flow of messages between client and server throughout a session. 
+
+It is configured via the \doxyref{DMTClient\-Config}{p.}{classDMTClientConfig} with which it is constructed by the Sync\-Client::set\-DMConfig() and the (optional) Dev\-Inf provided to it by the client. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{SyncManager@{Sync\-Manager}!SyncManager@{SyncManager}}
+\index{SyncManager@{SyncManager}!SyncManager@{Sync\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Sync\-Manager::Sync\-Manager ({\bf Abstract\-Sync\-Config} \& {\em config}, {\bf Sync\-Report} \& {\em report})}\label{classSyncManager_faba8406e48fdeb4de30b40ecb37496e}
+
+
+Initialize a new sync manager. 
+
+Parameters provided to it have to remain valid while this sync manager exists.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em config}]required configuration \item[{\em report}]sync report reference to store sync results \end{description}
+\end{Desc}
+
+
+\subsection{Member Function Documentation}
+\index{SyncManager@{Sync\-Manager}!sync@{sync}}
+\index{sync@{sync}!SyncManager@{Sync\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Sync\-Manager::sync ()}\label{classSyncManager_4c5f4292e6dc2de8cc270a94c7816179}
+
+
+Starts the synchronization phase. 
+
+\begin{Desc}
+\item[Returns:]a status code for the sync. Can be: 0 on success an interal code (see: TODO) a status code from the server \end{Desc}
+\index{SyncManager@{Sync\-Manager}!createDeviceInfo@{createDeviceInfo}}
+\index{createDeviceInfo@{createDeviceInfo}!SyncManager@{Sync\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Dev\-Inf$\ast$ Sync\-Manager::create\-Device\-Info ()}\label{classSyncManager_f9b6c977be9aa1c22f0e1cf8ef6df38f}
+
+
+Gathers the various bits and pieces known about the client and its sources and builds a Sync\-ML devinfo 1.1 instance. 
+
+For simplicity reasons this function is called for the currently active sync sources, changing them between runs thus causes a (valid!) retransmission of the device info.
+
+\begin{Desc}
+\item[Returns:]device infos, to be deleted by caller, or NULL if unavailable \end{Desc}
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+src/include/common/spds/Sync\-Manager.h\end{CompactItemize}

@@ -1,0 +1,51 @@
+\section{Csymbian\-Application Class Reference}
+\label{classCsymbianApplication}\index{CsymbianApplication@{CsymbianApplication}}
+\doxyref{Csymbian\-Application}{p.}{classCsymbianApplication} application class.  
+
+
+{\tt \#include $<$symbian\-Application.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+TUid {\bf App\-Dll\-Uid} () const
+\begin{CompactList}\small\item\em From CApa\-Application, App\-Dll\-Uid. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+CApa\-Document $\ast$ {\bf Create\-Document\-L} ()
+\begin{CompactList}\small\item\em From CApa\-Application, Create\-Document\-L. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Csymbian\-Application}{p.}{classCsymbianApplication} application class. 
+
+Provides factory to create concrete document object. An instance of \doxyref{Csymbian\-Application}{p.}{classCsymbianApplication} is the application part of the AVKON application framework for the symbian example application. 
+
+
+
+\subsection{Member Function Documentation}
+\index{CsymbianApplication@{Csymbian\-Application}!AppDllUid@{AppDllUid}}
+\index{AppDllUid@{AppDllUid}!CsymbianApplication@{Csymbian\-Application}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}TUid Csymbian\-Application::App\-Dll\-Uid () const}\label{classCsymbianApplication_e062f42e4f83ef19c7383130e8d9efda}
+
+
+From CApa\-Application, App\-Dll\-Uid. 
+
+\begin{Desc}
+\item[Returns:]Application's UID (KUidsymbian\-App). \end{Desc}
+\index{CsymbianApplication@{Csymbian\-Application}!CreateDocumentL@{CreateDocumentL}}
+\index{CreateDocumentL@{CreateDocumentL}!CsymbianApplication@{Csymbian\-Application}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}CApa\-Document $\ast$ Csymbian\-Application::Create\-Document\-L ()\hspace{0.3cm}{\tt  [protected]}}\label{classCsymbianApplication_83187010ba9c47671a17322b4cfeb74c}
+
+
+From CApa\-Application, Create\-Document\-L. 
+
+Creates \doxyref{Csymbian\-Document}{p.}{classCsymbianDocument} document object. The returned pointer in not owned by the \doxyref{Csymbian\-Application}{p.}{classCsymbianApplication} object. \begin{Desc}
+\item[Returns:]A pointer to the created document object. \end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+test/build/symbian/inc/symbian\-Application.h\item 
+test/build/symbian/src/symbian\-Application.cpp\end{CompactItemize}

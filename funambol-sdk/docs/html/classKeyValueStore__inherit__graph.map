@@ -1,0 +1,4 @@
+base referer
+rect $classArrayListKeyValueStore.html 5,82 181,106
+rect $classSQLKeyValueStore.html 205,82 347,106
+rect $classPropertyFile.html 44,156 143,180
